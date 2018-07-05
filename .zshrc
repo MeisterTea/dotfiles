@@ -91,6 +91,7 @@ export PATH=${PATH}:${ANDROID_HOME}/platform-tools
 export PATH=${PATH}:/root/.gem/ruby/2.4.0/bin
 export PATH=${PATH}:${HOME}/.yarn/bin
 export PATH=${PATH}:/opt/drush/drush:/usr/local/bin/drush
+export PATH=${PATH}:/opt/mongodb/bin
 export _JAVA_OPTIONS=-Djava.io.tmpdir=/var/tmp
 #export TERM="xterm-256color"
 export VISUAL=nvim
