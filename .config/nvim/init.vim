@@ -176,3 +176,6 @@ let g:UltiSnipsExpandTrigger="<alt>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 let g:ycm_autoclose_preview_window_after_completion=1
+
+" Fixes tmux clipboard usage
+set clipboard=unnamed
