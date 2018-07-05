@@ -20,7 +20,7 @@ dotfiles status
 # add any dotfiles to repo
 dotfiles add .vimrc
 dotfiles commit -m "Add vimrc"
-dotfiles remote add origin git@github.com:MeisterTea/dotfiles.git
+dotfiles remote add origin https://MeisterTea@github.com/MeisterTea/dotfiles.git
 dotfiles push origin master
 ```
 
@@ -31,7 +31,7 @@ echo 'alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles.git/ --work-tree=$H
 source ~/.zshrc
 # Add .dotfiles directory to .gitignore to prevent recursion issues
 echo ".dotfiles" >> .gitignore
-git clone --bare git@github.com:MeisterTea/dotfiles.git $HOME/.dotfiles
+git clone --bare https://MeisterTea@github.com/MeisterTea/dotfiles.git $HOME/.dotfiles
 dotfiles checkout
 dotfiles config --local status.showUntrackedFiles no
 ```
