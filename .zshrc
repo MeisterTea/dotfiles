@@ -10,7 +10,7 @@ POWERLEVEL9K_SHORTEN_DIR_LENGTH=4
 
 #POWERLEVEL9K_TIME_BACKGROUND="black"
 #POWERLEVEL9K_TIME_FOREGROUND="249"
-POWERLEVEL9K_TIME_FORMAT="%D{%H:%M:%S} \UF017"
+POWERLEVEL9K_TIME_FORMAT="%D{%H:%M:%S}"
 
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon dir dir_writable vcs)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status virtualenv time)
@@ -78,20 +78,23 @@ fpath=(~/.zsh/completion $fpath)
 #fpath=(~/.zsh/completion/zsh-completions/src $fpath)
 autoload -Uz compinit && compinit -i
 
-# Paths settings
-export NVM_DIR="/home/francois/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+# Set up Node Version Manager
+source /usr/share/nvm/init-nvm.sh
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
 export ANDROID_HOME=${HOME}/Android/Sdk 
+export SURIKAT_SETTINGS=/home/bamboozilla/.config/wildfly/crm-manager.properties
+export JAVA_HOME="/usr/lib/jvm/java-8-openjdk/"
 export PATH=${PATH}:${ANDROID_HOME}/tools 
 export PATH=${PATH}:${ANDROID_HOME}/platform-tools
 export PATH=${PATH}:/root/.gem/ruby/2.4.0/bin
 export PATH=${PATH}:${HOME}/.yarn/bin
 export PATH=${PATH}:/opt/drush/drush:/usr/local/bin/drush
 export PATH=${PATH}:/opt/mongodb/bin
+export PATH=${PATH}:${JAVA_HOME}/bin:$PATH
+
 export _JAVA_OPTIONS=-Djava.io.tmpdir=/var/tmp
 #export TERM="xterm-256color"
 export VISUAL=nvim
@@ -150,6 +153,7 @@ alias vi='nvim'
 alias vim='nvim'
 alias emacs='emacs -nw'
 alias bc='bc -q'
+alias tb='taskbook'
 
 # Git
 

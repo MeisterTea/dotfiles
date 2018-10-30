@@ -16,6 +16,9 @@ Plug 'junegunn/goyo.vim'
 " Git wrapper
 Plug 'tpope/vim-fugitive'
 
+" Git gutter
+Plug 'airblade/vim-gitgutter'
+
 " Easy motion
 Plug 'easymotion/vim-easymotion'
 
@@ -39,8 +42,20 @@ Plug 'leafgarland/typescript-vim'
 " Vue support
 Plug 'posva/vim-vue'
 
-" Autocomplete
-Plug 'Valloric/YouCompleteMe'
+" AutoCompletion
+Plug 'ncm2/ncm2'
+Plug 'roxma/nvim-yarp'
+
+autocmd BufEnter * call ncm2#enable_for_buffer()
+
+set completeopt=noinsert,menuone,noselect
+
+Plug 'ncm2/ncm2-bufword'
+Plug 'ncm2/ncm2-tmux'
+Plug 'ncm2/ncm2-path'
+
+" JS completion
+Plug 'ncm2/ncm2-tern'
 
 " Easy commenting
 Plug 'scrooloose/nerdcommenter'
@@ -53,7 +68,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
 " Syntax
-Plug 'scrooloose/syntastic'
+Plug 'w0rp/ale'
 
 " Browser support
 Plug 'tyru/open-browser.vim'
@@ -64,8 +79,14 @@ Plug 'godlygeek/tabular'
 " Surrounding
 Plug 'tpope/vim-surround'
 
-" File search engine
-Plug 'ctrlpvim/ctrlp.vim'
+" ctrlshift F search
+Plug 'dyng/ctrlsf.vim'
+
+" Fuzzy search
+Plug 'junegunn/fzf'
+
+" Ack search
+Plug 'mileszs/ack.vim'
 
 " Color highlight
 Plug 'ap/vim-css-color'
@@ -126,6 +147,9 @@ vnoremap <C-c> "*y
 " Ctrl a to select all
 map <C-a> <esc>ggVG<CR>
 
+" Reduce update time
+set updatetime=100
+
 " Echap to unhighlight
 augroup no_highlight
     autocmd TermResponse * nnoremap <esc> :noh<return><esc>
@@ -152,16 +176,6 @@ set expandtab
 
 " Open new buffers to the right
 set splitright
-
-" Syntastic configuration
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
 
 " Contrast indents
 hi IndentGuidesOdd  ctermbg=black
