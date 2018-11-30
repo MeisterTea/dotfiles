@@ -144,6 +144,12 @@ let g:python3_host_prog = '/usr/bin/python3'
 hi Normal ctermbg=none
 highlight NonText ctermbg=none
 
+" Linting
+let g:ale_sign_error = '✘'
+let g:ale_sign_warning = '⚠'
+highlight ALEErrorSign ctermbg=NONE ctermfg=red
+highlight ALEWarningSign ctermbg=NONE ctermfg=yellow
+
 " Ctrl C to copy
 vnoremap <C-c> "*y
 
@@ -172,6 +178,7 @@ let g:NERDCompactSexyComs = 1
 " ES6+ support on js files
 let g:jsx_ext_required = 0
 
+" Indent
 set tabstop=2
 set shiftwidth=2
 set expandtab
@@ -186,12 +193,5 @@ hi IndentGuidesEven ctermbg=darkgrey
 " Open NerdTree when opening a folder
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
-
-" YouCompleteMe configuration
-let g:UltiSnipsExpandTrigger="<alt>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-let g:ycm_autoclose_preview_window_after_completion=1
-
 " Fixes tmux clipboard usage
 set clipboard=unnamed
