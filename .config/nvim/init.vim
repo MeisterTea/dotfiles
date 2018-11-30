@@ -19,6 +19,9 @@ Plug 'tpope/vim-fugitive'
 " Git gutter
 Plug 'airblade/vim-gitgutter'
 
+" Latex editing
+Plug 'lervag/vimtex'
+
 " Easy motion
 Plug 'easymotion/vim-easymotion'
 
@@ -169,9 +172,8 @@ let g:NERDCompactSexyComs = 1
 " ES6+ support on js files
 let g:jsx_ext_required = 0
 
-" Set tabs size to 4
-set tabstop=4
-set shiftwidth=4
+set tabstop=2
+set shiftwidth=2
 set expandtab
 
 " Open new buffers to the right
