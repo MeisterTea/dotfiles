@@ -4,6 +4,9 @@ call plug#begin('~/.local/share/nvim/plugged')
 " Color scheme
 Plug 'morhetz/gruvbox'
 
+" Multi cursor
+Plug 'terryma/vim-multiple-cursors'
+
 " Git commit browser
 Plug 'junegunn/gv.vim'
 
@@ -53,18 +56,18 @@ autocmd BufEnter * call ncm2#enable_for_buffer()
 
 set completeopt=noinsert,menuone,noselect
 
-Plug 'ncm2/ncm2-bufword'
-Plug 'ncm2/ncm2-tmux'
-Plug 'ncm2/ncm2-path'
+" Plug 'ncm2/ncm2-bufword'
+" Plug 'ncm2/ncm2-tmux'
+" Plug 'ncm2/ncm2-path'
 
 " JS completion
-Plug 'ncm2/ncm2-tern'
+" Plug 'ncm2/ncm2-tern'
 
 " Easy commenting
-Plug 'scrooloose/nerdcommenter'
+" Plug 'scrooloose/nerdcommenter'
 
 " Automatic tags update
-Plug 'craigemery/vim-autotag'
+" Plug 'craigemery/vim-autotag'
 
 " Airline
 Plug 'vim-airline/vim-airline'
@@ -74,16 +77,16 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'w0rp/ale'
 
 " Browser support
-Plug 'tyru/open-browser.vim'
+" Plug 'tyru/open-browser.vim'
 
 " Aligning
-Plug 'godlygeek/tabular'
+" Plug 'godlygeek/tabular'
 
 " Surrounding
 Plug 'tpope/vim-surround'
 
 " ctrlshift F search
-Plug 'dyng/ctrlsf.vim'
+" Plug 'dyng/ctrlsf.vim'
 
 " Fuzzy search
 Plug 'junegunn/fzf'
@@ -98,10 +101,10 @@ Plug 'ap/vim-css-color'
 Plug 'mattn/emmet-vim'
 
 " UltiSnips engine
-Plug 'SirVer/ultisnips'
+" Plug 'SirVer/ultisnips'
 
 " UltiSnips snippets
-Plug 'honza/vim-snippets'
+" Plug 'honza/vim-snippets'
 
 " Shows off indents
 Plug 'nathanaelkane/vim-indent-guides'
@@ -118,6 +121,12 @@ set t_Co=256
 
 " Allows warping
 set whichwrap+=<,>,h,l,[,]
+
+" ctrlsf mappings
+let g:ctrlsf_mapping = {
+    \ "next"    : "<C-L>",
+    \ "prev"    : "<C-J>",
+    \ }
 
 " Displays lines numbers
 set number
@@ -144,11 +153,32 @@ let g:python3_host_prog = '/usr/bin/python3'
 hi Normal ctermbg=none
 highlight NonText ctermbg=none
 
+let g:ackprg = 'ag --vimgrep --smart-case'
+cnoreabbrev ag Ack
+cnoreabbrev aG Ack
+cnoreabbrev Ag Ack
+cnoreabbrev AG Ack
+
+cnoreabbrev fix ALEFix
+
+map <C-f> <esc>:Ack 
+
+map <C-p> <esc>:FZF<CR>
+
 " Linting
-let g:ale_sign_error = '✘'
+let g:ale_sign_error = '✖'
 let g:ale_sign_warning = '⚠'
-highlight ALEErrorSign ctermbg=NONE ctermfg=red
-highlight ALEWarningSign ctermbg=NONE ctermfg=yellow
+highlight ALEErrorSign ctermbg=237 ctermfg=red
+highlight ALEWarningSign ctermbg=237 ctermfg=yellow
+
+map <C-e> <esc>:ALEFix<CR>
+
+" CtrlSF remaps
+" nmap <C-F>f <Plug>CtrlSFPrompt
+" vmap <C-F>f <Plug>CtrlSFVwordPath
+" vmap <C-F>F <Plug>CtrlSFVwordExec
+" nmap <C-F>n <Plug>CtrlSFCwordPath
+" nmap <C-F>p <Plug>CtrlSFPwordPath
 
 " Ctrl C to copy
 vnoremap <C-c> "*y
