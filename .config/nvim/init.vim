@@ -86,7 +86,8 @@ Plug 'w0rp/ale'
 Plug 'tpope/vim-surround'
 
 " Fuzzy search
-Plug 'junegunn/fzf'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 
 " Ack search
 Plug 'mileszs/ack.vim'
@@ -154,7 +155,9 @@ cnoreabbrev fix ALEFix
 
 map <C-f> <esc>:Ack 
 
-map <C-p> <esc>:FZF<CR>
+" inoremap <C-f> call fzf#vim#tags(expand('<cword>'))
+
+map <C-p> <esc>:GFiles<CR>
 
 " Linting
 let g:ale_sign_error = '✖'
@@ -175,7 +178,7 @@ set updatetime=100
 
 " Echap to unhighlight
 augroup no_highlight
-    autocmd TermResponse * nnoremap <esc> :noh<return><esc>
+  autocmd TermResponse * nnoremap <esc> :noh<return><esc>
 augroup END
 
 " Filetype support
@@ -218,4 +221,3 @@ set clipboard=unnamed
 " autocmd BufEnter * if &modifiable | NERDTreeFind | wincmd p | endif
 "
 " autocmd BufEnter * silent! if bufname('%') !~# 'NERD_tree_' | cd %:p:h | NERDTreeCWD | wincmd p | endif
-

@@ -165,3 +165,5 @@ alias la='ls -a'
 alias ll='ls -l'
 
 zplug load
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
