@@ -101,7 +101,7 @@ export VISUAL=nvim
 export EDITOR="$VISUAL"
 
 # Fixes keys
-
+bindkey -e
 bindkey "\e[1~" beginning-of-line
 bindkey "\e[4~" end-of-line
 bindkey "\e[5~" beginning-of-history
@@ -128,10 +128,6 @@ bindkey '^[[Z' reverse-menu-complete
 set -o emacs
 
 # Arrows search
-#bindkey "${terminfo[kcuu1]}" up-line-or-search
-#bindkey "^[[A" up-line-or-search
-#bindkey "${terminfo[kcud1]}" down-line-or-search
-#bindkey "^[[B" down-line-or-search
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 
@@ -166,5 +162,6 @@ alias ranger='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir
 # alias ls='ls --color=auto'
 alias ls='ls_extended'
 alias la='ls -a'
+alias ll='ls -l'
 
 zplug load
