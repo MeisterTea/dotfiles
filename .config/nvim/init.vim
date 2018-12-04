@@ -26,7 +26,8 @@ Plug 'airblade/vim-gitgutter'
 Plug 'lervag/vimtex'
 
 " Easy motion
-Plug 'easymotion/vim-easymotion'
+" Plug 'easymotion/vim-easymotion'
+" Plug 'justinmk/vim-sneak'
 
 " NerdTree stuff
 Plug 'scrooloose/nerdtree'
@@ -64,7 +65,7 @@ Plug 'ncm2/ncm2-path'
 Plug 'ncm2/ncm2-tern'
 
 " Easy commenting
-" Plug 'scrooloose/nerdcommenter'
+Plug 'scrooloose/nerdcommenter'
 
 " Automatic tags update
 Plug 'craigemery/vim-autotag'
@@ -75,13 +76,7 @@ Plug 'vim-airline/vim-airline-themes'
 
 " Syntax
 Plug 'w0rp/ale'
-
-" Browser support
-" Plug 'tyru/open-browser.vim'
-
-" Aligning
-" Plug 'godlygeek/tabular'
-
+"
 " Surrounding
 Plug 'tpope/vim-surround'
 
@@ -116,6 +111,15 @@ nnoremap <SPACE> <Nop>
 " bottom right trick
 map <space> <leader>
 nnoremap <Leader><space> :noh<cr>
+
+" allows incsearch highlighting for range commands
+cnoremap $t <CR>:t''<CR>
+cnoremap $T <CR>:T''<CR>
+cnoremap $m <CR>:m''<CR>
+cnoremap $M <CR>:M''<CR>
+cnoremap $d <CR>:d<CR>``
+
+set incsearch
 
 " Color scheme
 silent! colorscheme gruvbox
@@ -172,13 +176,7 @@ highlight ALEErrorSign ctermbg=237 ctermfg=red
 highlight ALEWarningSign ctermbg=237 ctermfg=yellow
 
 map <C-e> <esc>:ALEFix<CR>
-
-" Ctrl C to copy
-vnoremap <C-c> "*y
-
-" Ctrl a to select all
-map <C-a> <esc>ggVG<CR>
-
+"
 " Reduce update time
 set updatetime=100
 
