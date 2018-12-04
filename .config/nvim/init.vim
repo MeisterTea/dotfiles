@@ -56,18 +56,18 @@ autocmd BufEnter * call ncm2#enable_for_buffer()
 
 set completeopt=noinsert,menuone,noselect
 
-" Plug 'ncm2/ncm2-bufword'
+Plug 'ncm2/ncm2-bufword'
 " Plug 'ncm2/ncm2-tmux'
-" Plug 'ncm2/ncm2-path'
+Plug 'ncm2/ncm2-path'
 
 " JS completion
-" Plug 'ncm2/ncm2-tern'
+Plug 'ncm2/ncm2-tern'
 
 " Easy commenting
 " Plug 'scrooloose/nerdcommenter'
 
 " Automatic tags update
-" Plug 'craigemery/vim-autotag'
+Plug 'craigemery/vim-autotag'
 
 " Airline
 Plug 'vim-airline/vim-airline'
@@ -85,9 +85,6 @@ Plug 'w0rp/ale'
 " Surrounding
 Plug 'tpope/vim-surround'
 
-" ctrlshift F search
-" Plug 'dyng/ctrlsf.vim'
-
 " Fuzzy search
 Plug 'junegunn/fzf'
 
@@ -101,10 +98,10 @@ Plug 'ap/vim-css-color'
 Plug 'mattn/emmet-vim'
 
 " UltiSnips engine
-" Plug 'SirVer/ultisnips'
+Plug 'SirVer/ultisnips'
 
 " UltiSnips snippets
-" Plug 'honza/vim-snippets'
+Plug 'honza/vim-snippets'
 
 " Shows off indents
 Plug 'nathanaelkane/vim-indent-guides'
@@ -121,12 +118,6 @@ set t_Co=256
 
 " Allows warping
 set whichwrap+=<,>,h,l,[,]
-
-" ctrlsf mappings
-let g:ctrlsf_mapping = {
-    \ "next"    : "<C-L>",
-    \ "prev"    : "<C-J>",
-    \ }
 
 " Displays lines numbers
 set number
@@ -173,13 +164,6 @@ highlight ALEWarningSign ctermbg=237 ctermfg=yellow
 
 map <C-e> <esc>:ALEFix<CR>
 
-" CtrlSF remaps
-" nmap <C-F>f <Plug>CtrlSFPrompt
-" vmap <C-F>f <Plug>CtrlSFVwordPath
-" vmap <C-F>F <Plug>CtrlSFVwordExec
-" nmap <C-F>n <Plug>CtrlSFCwordPath
-" nmap <C-F>p <Plug>CtrlSFPwordPath
-
 " Ctrl C to copy
 vnoremap <C-c> "*y
 
@@ -207,6 +191,10 @@ let g:NERDCompactSexyComs = 1
 
 " ES6+ support on js files
 let g:jsx_ext_required = 0
+"
+" use Emmet without having tentacles fingers
+let g:user_emmet_expandabbr_key='<Tab>'
+imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
 
 " Indent
 set tabstop=2
@@ -225,3 +213,9 @@ autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
 " Fixes tmux clipboard usage
 set clipboard=unnamed
+
+
+" autocmd BufEnter * if &modifiable | NERDTreeFind | wincmd p | endif
+"
+" autocmd BufEnter * silent! if bufname('%') !~# 'NERD_tree_' | cd %:p:h | NERDTreeCWD | wincmd p | endif
+
