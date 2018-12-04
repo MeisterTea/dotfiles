@@ -112,6 +112,11 @@ Plug 'ryanoasis/vim-devicons'
 
 call plug#end()
 
+nnoremap <SPACE> <Nop>
+" bottom right trick
+map <space> <leader>
+nnoremap <Leader><space> :noh<cr>
+
 " Color scheme
 silent! colorscheme gruvbox
 set background=dark
@@ -140,6 +145,7 @@ let g:airline_powerline_fonts = 1
 " Python path
 let g:python_host_prog = '/usr/bin/python2'
 let g:python3_host_prog = '/usr/bin/python3'
+
 
 " Fixes for transparent background
 hi Normal ctermbg=none
@@ -175,11 +181,6 @@ map <C-a> <esc>ggVG<CR>
 
 " Reduce update time
 set updatetime=100
-
-" Echap to unhighlight
-augroup no_highlight
-  autocmd TermResponse * nnoremap <esc> :noh<return><esc>
-augroup END
 
 " Filetype support
 filetype on
