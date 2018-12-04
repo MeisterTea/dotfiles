@@ -163,6 +163,8 @@ alias gitTree2="git log --graph --abbrev-commit --decorate --format=format:'%C(b
 # cd to closed directory
 
 alias ranger='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'
-alias ls='ls --color=auto'
+# alias ls='ls --color=auto'
+alias ls='ls_extended'
+alias la='ls -a'
 
 zplug load
