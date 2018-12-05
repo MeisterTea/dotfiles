@@ -62,7 +62,7 @@ Plug 'ncm2/ncm2-bufword'
 Plug 'ncm2/ncm2-path'
 
 " JS completion
-Plug 'ncm2/ncm2-tern'
+" Plug 'ncm2/ncm2-tern'
 
 " Easy commenting
 Plug 'scrooloose/nerdcommenter'
@@ -119,6 +119,13 @@ cnoremap $m <CR>:m''<CR>
 cnoremap $M <CR>:M''<CR>
 cnoremap $d <CR>:d<CR>``
 
+" Split rightward so as not to displace a left NERDTree
+let g:ack_mappings = {
+      \ "h": "<C-W><CR>:exe 'wincmd ' (&splitbelow ? 'J' : 'K')<CR><C-W>p<C-W>J<C-W>p",
+      \ "H": "<C-W><CR>:exe 'wincmd ' (&splitbelow ? 'J' : 'K')<CR><C-W>p<C-W>J",
+      \ "v": "<C-W><CR>:exe 'wincmd ' (&splitright ? 'L' : 'H')<CR><C-W>p<C-W>J<C-W>p",
+      \ "gv": "<C-W><CR>:exe 'wincmd ' (&splitright ? 'L' : 'H')<CR><C-W>p<C-W>J" }
+
 set incsearch
 
 " Color scheme
@@ -142,6 +149,9 @@ set mouse=a
 
 " Characters support
 set encoding=utf8
+
+" No more warnings about unsaved file
+set hidden
 
 " Airline
 let g:airline_powerline_fonts = 1
