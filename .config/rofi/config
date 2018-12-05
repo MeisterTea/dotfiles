@@ -1,0 +1,21 @@
+! ------------------------------------------------------------------------------
+!                      ROFI Settings
+! ------------------------------------------------------------------------------
+
+! General
+rofi.font:                Fira Code 10
+rofi.fake-transparency:   true
+rofi.hide-scrollbar:      true
+rofi.modi: 	              drun
+
+! Layout
+rofi.width:              25
+rofi.column:             4
+rofi.location:           0
+rofi.lines:              8
+rofi.padding:            50
+rofi.sidebar-mode:       false
+rofi.fullscreen:         false
+
+rofi.theme: gruvbox-dark-soft
+
