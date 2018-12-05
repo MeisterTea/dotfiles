@@ -1,0 +1,13 @@
+# ixsetroot -cursor_name left_ptr &
+xrdb merge .Xresources &
+feh -bg-scale ~/Pictures/wallpaper.png &
+dunst &
+compton -b &
+kitty
+
+##enable local fonts in .fonts directory
+xset +fp /usr/share/fonts/local &
+xset +fp /usr/share/fonts/misc &
+xset +fp ~/.fonts &
+xset fp rehash &
+fc-cache -fv &
