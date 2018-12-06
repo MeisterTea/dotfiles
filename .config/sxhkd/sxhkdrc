@@ -133,6 +133,12 @@ ctrl + shift + {h,l}
 alt + ctrl + {h,j,k,l}
 bspc window -s {left,down,up,right}
 
+XF86MonBrightnessUp
+	xbacklight -inc 10
+
+XF86MonBrightnessDown
+xbacklight -dec 10
+
 XF86AudioRaiseVolume
 	volume up
 
@@ -160,10 +166,16 @@ ctrl + shift + space
     ~/.config/bspwm/misc/application_switcher
 
 super + shift + e
-  terminal -e ranger
+  ranger
 
 Print
   scrot -q 100
 
 # super + {_,shift} + h
 # ~/.config/bspwm/misc/toggle {hide,show}
+
+super + {Left,Down,Up,Right}
+bspc window -p {left,down,up,right}
+
+super + ctrl + f
+bspc window -t floating
