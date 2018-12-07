@@ -22,11 +22,12 @@ dunst &
 sleep 0.5
 notify-send "Bspwm Loaded" "With $SHORTCOLOR color and $SHORTWALLPAPER wallpaper"
 polybar burs &
+nm-applet &
 compton -b &
 
 ##enable local fonts in .fonts directory
-xset +fp /usr/share/fonts/local &
-xset +fp /usr/share/fonts/misc &
-xset +fp ~/.fonts &
-xset fp rehash &
-fc-cache -fv &
+# xset +fp /usr/share/fonts/local &
+# xset +fp /usr/share/fonts/misc &
+# xset +fp ~/.fonts &
+# xset fp rehash &
+# fc-cache -fv &

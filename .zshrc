@@ -163,6 +163,8 @@ alias ls='ls_extended'
 alias la='ls -a'
 alias ll='ls -l'
 
+alias scrot='scrot -q 100 ~/Pictures/Screenshots/%Y-%m-%d-%T-screenshot.png'
+
 zplug load
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
