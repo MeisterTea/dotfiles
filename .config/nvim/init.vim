@@ -17,6 +17,7 @@ Plug 'junegunn/limelight.vim'
 Plug 'junegunn/goyo.vim'
 
 " Git wrapper
+Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-fugitive'
 
 " Git gutter
