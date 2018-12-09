@@ -93,6 +93,7 @@ export PATH=${PATH}:${HOME}/.yarn/bin
 export PATH=${PATH}:/opt/drush/drush:/usr/local/bin/drush
 export PATH=${PATH}:/opt/mongodb/bin
 export PATH=${PATH}:${JAVA_HOME}/bin:$PATH
+export PATH=${PATH}:${HOME}/.cargo/bin
 
 export _JAVA_OPTIONS=-Djava.io.tmpdir=/var/tmp
 #export TERM="xterm-256color"
@@ -149,6 +150,7 @@ alias vim='nvim'
 alias emacs='emacs -nw'
 alias bc='bc -q'
 alias tb='taskbook'
+alias fuck='killall -9'
 
 # Git
 
@@ -158,7 +160,7 @@ alias gitTree2="git log --graph --abbrev-commit --decorate --format=format:'%C(b
 # cd to closed directory
 
 alias ranger='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'
-# alias ls='ls --color=auto'
+alias ls='ls --color=auto'
 alias ls='ls_extended'
 alias la='ls -a'
 alias ll='ls -l'
