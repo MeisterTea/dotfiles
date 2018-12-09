@@ -1,5 +1,7 @@
 #! /bin/sh
 
+bspc config external_rules_command "$HOME/.config/bspwm/external_rules"
+
 sourcesList=(
 	"/etc/profile"
 	"${HOME}/.profile"
