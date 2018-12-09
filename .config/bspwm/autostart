@@ -20,7 +20,6 @@ xrdb -merge $COLOR
 nitrogen ~/Pictures/wallpaper.png --set-scaled &
 dunst &
 sleep 0.5
-notify-send "Bspwm Loaded" "With $SHORTCOLOR color and $SHORTWALLPAPER wallpaper"
 polybar burs &
 nm-applet &
 compton -b &

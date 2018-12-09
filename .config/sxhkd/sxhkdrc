@@ -131,7 +131,7 @@ ctrl + shift + {j,l}
 
 # Move window to the {h,j,k,l} position
 alt + ctrl + {i,j,k,l}
-bspc window -s {left,down,up,right}
+  bspc window -s {left,down,up,right}
 
 XF86MonBrightnessUp
 	xbacklight -inc 10
