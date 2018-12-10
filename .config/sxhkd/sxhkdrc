@@ -169,7 +169,8 @@ super + shift + e
   kitty ranger
 
 Print
-  scrot && notify-send "Screenshot taken"
+  scrot -q 100  -e 'mv $f ~/Pictures/screenshot/%Y-%m-%d-%T-screenshot.png | printf ~/Pictures/screenshot/%Y-%m-%d-%T-screenshot.png | xclip -selection clipboard' && notify-send "Screenshot taken"
+
 
 # super + {_,shift} + h
 # ~/.config/bspwm/misc/toggle {hide,show}

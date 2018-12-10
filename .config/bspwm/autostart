@@ -16,13 +16,12 @@ COLOR=$(shuf -n1 -e ~/.colors/*)
 SHORTCOLOR=$(echo $COLOR | sed "s@.*/@@")
 xrdb -merge $COLOR
 
-# feh -bg-fit ~/Pictures/wallpaper.png &
 nitrogen ~/Pictures/wallpaper.png --set-scaled &
 dunst &
-sleep 0.5
-polybar burs &
+polybar default &
 nm-applet &
 compton -b &
+clipit &
 
 ##enable local fonts in .fonts directory
 # xset +fp /usr/share/fonts/local &

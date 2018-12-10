@@ -30,6 +30,9 @@ color5=$(xrdb -query | grep "color5" | cut -f2 | sed -r 's/#//' | head -n 1)
 color6=$(xrdb -query | grep "color6" | cut -f2 | sed -r 's/#//' | head -n 1)
 color7=$(xrdb -query | grep "color7" | cut -f2 | sed -r 's/#//' | head -n 1)
 color8=$(xrdb -query | grep "color8" | cut -f2 | sed -r 's/#//' | head -n 1)
+color9=$(xrdb -query | grep "color9" | cut -f2 | sed -r 's/#//' | head -n 1)
+color10=$(xrdb -query | grep "color10" | cut -f2 | sed -r 's/#//' | head -n 1)
+color11=$(xrdb -query | grep "color11" | cut -f2 | sed -r 's/#//' | head -n 1)
 
 bspc config border_width         4
 bspc config window_gap           8
@@ -47,7 +50,8 @@ bspc config presel_feedback_color "#$color1"
 bspc rule -r *:*
 
 bspc rule -a 'Firefox Developer Edition':Navigator state=floating follow=on focus=on
-bspc rule -a 'Firefox Developer Edition':Navigator state=floating follow=on focus=on
 bspc rule -a 'Firefox Developer Edition':Dialog state=floating
 
 xsetroot -cursor_name left_ptr
+
+setxkbmap -option grp:alt_shift_toggle us,'us(intl)' &

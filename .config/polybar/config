@@ -6,7 +6,7 @@ primary = #ffb52a
 secondary = #e60053
 alert = #bd2c40
 
-[bar/burs]
+[bar/default]
 monitor = eDP1
 width = 99%
 height = 32
@@ -33,13 +33,17 @@ module-margin-right = 2
 font-0 = "Fira Code:style=Regular:pixelsize=11:antialias=true;1"
 font-1 = "SourceHanSans:style=Bold:pixelsize=11:antialias=true;1"
 font-2 = "Material Icons:style=Regular:pixelsize=11:antialias=true;1"
+font-3 = "EmojiOne:style=Regular:scale=10:antialias=true;1"
+font-4 = "Font Awesome 5 Free:style=Solid:pixelsize=11:antialias=true;1"
+font-5 = "Font Awesome 5 Free:style=Regular:pixelsize=11:antialias=true;1"
+font-6 = "Font Awesome 5 Brands:pixelsize=11:antialias=true;1"
 
-modules-left = bspwm xwindow
-# modules-center = mpd
-modules-right = volume memory cpu date battery powermenu
+modules-left = bspwm
+modules-center = xwindow
+modules-right = volume battery date powermenu
 
-tray-position = right
-tray-padding = 2
+# tray-position = right
+# tray-padding = 2
 
 wm-restack = bspwm
 
@@ -50,25 +54,30 @@ label = %title:0:30:...%
 [module/wlan]
 
 type = internal/network
-interface = wlp3s0
-interval = 3.0
+interface = wlp2s0
+interval = 5
 
-format-connected = <ramp-signal> <label-connected>
-;format-connected-underline = ${colors.primary}
-label-connected = %essid%
+label-connected =  
+# label-connected =  %essid%
+# label-disconnected =  Not Connected
 
-format-disconnected =
-;format-disconnected = <label-disconnected>
-;format-disconnected-underline = ${self.format-connected-underline}
-;label-disconnected = %ifname% disconnected
-;label-disconnected-foreground = ${colors.foreground-alt}
+# format-connected = <ramp-signal> <label-connected>
+# label-connected = %essid%
+# 
+# format-disconnected =
+# 
 
-ramp-signal-0 = 
-ramp-signal-1 = 
-ramp-signal-2 = 
-ramp-signal-3 = 
-ramp-signal-4 = 
-ramp-signal-foreground = ${colors.foreground-alt}
+ramp-signal-0 = 
+ramp-signal-1 = 
+ramp-signal-2 = 
+ramp-signal-3 = 
+ramp-signal-4 =  
+# ramp-signal-0 = 
+# ramp-signal-1 = 
+# ramp-signal-2 = 
+# ramp-signal-3 = 
+# ramp-signal-4 = 
+# ramp-signal-foreground = ${colors.foreground-alt}
 
 [module/filesystem]
 type = internal/fs
@@ -86,8 +95,9 @@ module-margin-left = 4
 module-margin-right = 4
 label-focused = %name%
 label-focused-font = 4 
+label-focused-foreground = ${xrdb:color11}
 label-focused-background = ${xrdb:background:#ff0000}
-label-focused-underline= ${xrdb:color9:#ff0000}
+# label-focused-underline= ${xrdb:color9:#ff0000}
 label-focused-padding = 1
 
 label-occupied = %name%
@@ -163,24 +173,22 @@ bar-progress-empty = ─
 type = internal/battery
 battery = BAT1
 adapter = ACAD
-full-at = 100
+full-at = 95
 
-format-charging = <animation-charging> <label-charging>
-;format-charging-underline = ${colors.primary}
-animation-charging-0 = 
-animation-charging-1 = 
+label-discharging = %percentage%%
+label-charging = %percentage%%
+label-full = %percentage%%
 
-format-discharging = <label-discharging>
-label-discharging =  %percentage%%
-;format-discharging-underline = ${self.format-charging-underline}
+format-discharging = <ramp-capacity> <label-discharging>
+format-full = <ramp-capacity> <label-full>
+format-charging =  <label-charging>
 
-format-full-prefix = " "
-format-full-prefix-foreground = ${colors.foreground-alt}
-;format-full-underline = ${self.format-charging-underline}
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
 
-ramp-capacity-foreground = ${colors.foreground-alt}
-
-animation-charging-foreground = ${colors.foreground-alt}
 animation-charging-framerate = 750
 
 [module/cpu]
@@ -188,7 +196,7 @@ type = internal/cpu
 interval = 2
 format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
-format-underline = ${xrdb:color1}
+# format-underline = ${xrdb:color1}
 label = %percentage%%
 
 [module/memory]
@@ -196,7 +204,7 @@ type = internal/memory
 interval = 2
 format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
-format-underline = ${xrdb:color6}
+# format-underline = ${xrdb:color6}
 label = %percentage_used%%
 
 [module/date]
@@ -210,8 +218,7 @@ time = %H:%M
 time-alt = %H:%M:%S
 
 format-prefix = 
-format-prefix-foreground = ${colors.foreground-alt}
-format-underline = ${xrdb:color4}
+# format-underline = ${xrdb:color4}
 
 label = %date% %time%
 
@@ -223,7 +230,6 @@ label-volume = " "
 label-volume-foreground = ${xrdb:color2:#00ff00}
 
 format-muted-prefix = " "
-format-muted-foreground = ${colors.foreground-alt}
 label-muted = sound muted
 
 bar-volume-width = 10
@@ -262,13 +268,23 @@ ramp-1 = 
 ramp-2 = 
 ramp-foreground = ${colors.foreground-alt}
 
+[module/keyboard]
+type = internal/xkeyboard
+
+format = <label-layout>
+format-spacing = 0
+label-layout = %layout%:%number%
+label-layout-padding = 2
+label-layout-foreground = ${colors.foreground}
+
 [module/powermenu]
 type = custom/menu
 
 format-spacing = 0
 
 label-open = 
-label-open-foreground = ${xrdb:color1}
+label-open-foreground = ${xrdb:color11}
+#label-open-foreground = ${colors.foreground}
 label-close = cancel
 label-close-foreground = ${xrdb:color1}
 label-separator = |

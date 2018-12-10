@@ -165,7 +165,7 @@ alias ls='ls_extended'
 alias la='ls -a'
 alias ll='ls -l'
 
-alias scrot='scrot -q 100 ~/Pictures/Screenshots/%Y-%m-%d-%T-screenshot.png'
+alias scrot='scrot -q 100 ~/Pictures/screenshots/%Y-%m-%d-%T-screenshot.png'
 
 zplug load
 
