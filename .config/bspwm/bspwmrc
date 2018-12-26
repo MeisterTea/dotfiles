@@ -16,7 +16,8 @@ gap=10
 
 sxhkd &
 
-bspc monitor -d 壱 弐 参 肆 伍 陸 漆
+bspc monitor DP2-1 -d 壱 弐 参 肆 伍
+bspc monitor eDP1  -d 陸 漆 捌 玖 拾
 
 
 background=$(xrdb -query | grep "background" | cut -f2 | sed -r 's/#//' | head -n 1)

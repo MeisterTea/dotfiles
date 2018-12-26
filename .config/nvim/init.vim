@@ -1,7 +1,6 @@
 " Plugins
 call plug#begin('~/.local/share/nvim/plugged')
 
-" Color scheme
 Plug 'morhetz/gruvbox'
 
 " Multi cursor
@@ -20,17 +19,14 @@ Plug 'junegunn/goyo.vim'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-fugitive'
 
-" Git gutter
 Plug 'airblade/vim-gitgutter'
 
-" Latex editing
 Plug 'lervag/vimtex'
 
 " Easy motion
 " Plug 'easymotion/vim-easymotion'
 " Plug 'justinmk/vim-sneak'
 
-" NerdTree stuff
 Plug 'scrooloose/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
@@ -38,13 +34,10 @@ Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 " Python folding
 Plug 'tmhedberg/SimpylFold'
 
-" Javascript support
 Plug 'pangloss/vim-javascript'
 
-" JSX support
 Plug 'mxw/vim-jsx'
 
-" Typescript support
 Plug 'leafgarland/typescript-vim'
 
 " Vue support

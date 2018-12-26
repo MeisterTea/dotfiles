@@ -40,7 +40,48 @@ font-6 = "Font Awesome 5 Brands:pixelsize=11:antialias=true;1"
 
 modules-left = bspwm
 modules-center = xwindow
-modules-right = volume battery date powermenu
+modules-right = player_previous player_playpause player_next player_title volume battery date powermenu
+
+# tray-position = right
+# tray-padding = 2
+
+wm-restack = bspwm
+
+[bar/external]
+monitor = DP2-1
+width = 99%
+height = 32
+offset-x = 8
+offset-y = 8
+radius = 0.0
+fixed-center = true
+
+background = ${xrdb:background}
+foreground = ${xrdb:foreground:#FF0000}
+
+line-size = 4
+line-color = #f00
+
+border-size = 4
+border-color = ${xrdb:color8:#FF000000}
+
+padding-left = 0
+padding-right = 3
+
+module-margin-left = 1
+module-margin-right = 2
+
+font-0 = "Fira Code:style=Regular:pixelsize=11:antialias=true;1"
+font-1 = "SourceHanSans:style=Bold:pixelsize=11:antialias=true;1"
+font-2 = "Material Icons:style=Regular:pixelsize=11:antialias=true;1"
+font-3 = "EmojiOne:style=Regular:scale=10:antialias=true;1"
+font-4 = "Font Awesome 5 Free:style=Solid:pixelsize=11:antialias=true;1"
+font-5 = "Font Awesome 5 Free:style=Regular:pixelsize=11:antialias=true;1"
+font-6 = "Font Awesome 5 Brands:pixelsize=11:antialias=true;1"
+
+modules-left = bspwm
+modules-center = xwindow
+modules-right = player_previous player_playpause player_next player_title volume battery date powermenu
 
 # tray-position = right
 # tray-padding = 2
@@ -72,11 +113,6 @@ ramp-signal-1 = 
 ramp-signal-2 = 
 ramp-signal-3 = 
 ramp-signal-4 =  
-# ramp-signal-0 = 
-# ramp-signal-1 = 
-# ramp-signal-2 = 
-# ramp-signal-3 = 
-# ramp-signal-4 = 
 # ramp-signal-foreground = ${colors.foreground-alt}
 
 [module/filesystem]
@@ -149,11 +185,43 @@ label-urgent = %name%
 label-urgent-background = ${module/bspwm.label-urgent-background}
 label-urgent-padding = ${module/bspwm.label-urgent-padding}
 
+[module/player_previous]
+type = custom/script
+interval = 1
+label = %output%
+exec = ~/.config/polybar/scripts/playerctl_previous.sh
+click-left = playerctl previous
+[module/player_stop]
+type = custom/script
+interval = 1
+label = %output%
+click-left = playerctl stop
+[module/player_playpause]
+type = custom/script
+interval = 1
+label = %output%
+exec = ~/.config/polybar/scripts/playerctl_playpause.sh
+click-left = playerctl play-pause
+[module/player_next]
+type = custom/script
+interval = 1
+label = %output%
+exec = ~/.config/polybar/scripts/playerctl_next.sh
+click-left = playerctl next
+[module/player_title]
+type = custom/script
+interval = 1
+label = "%output:0:45:...%"
+exec = ~/.config/polybar/scripts/playerctl_title.sh
+scroll-up = playerctl previous
+scroll-down = playerctl next
+
 [module/mpd]
 type = internal/mpd
 format-online = <icon-prev> <toggle> <icon-next> <label-song>
 host = 127.0.0.1
 port = 6600
+interval = 2
 icon-prev = 
 icon-stop = 
 icon-play = 
@@ -171,8 +239,8 @@ bar-progress-empty = ─
 [module/battery]
 
 type = internal/battery
-battery = BAT1
-adapter = ACAD
+battery = BAT0
+adapter = AC
 full-at = 95
 
 label-discharging = %percentage%%

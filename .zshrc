@@ -86,6 +86,7 @@ export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 export ANDROID_HOME=${HOME}/Android/Sdk 
 export SURIKAT_SETTINGS=/home/bamboozilla/.config/wildfly/crm-manager.properties
 export JAVA_HOME="/usr/lib/jvm/java-8-openjdk/"
+export _JAVA_AWT_WM_NONREPARTENTING=1 # Fixes grey java apps
 export PATH=${PATH}:${ANDROID_HOME}/tools 
 export PATH=${PATH}:${ANDROID_HOME}/platform-tools
 export PATH=${PATH}:/root/.gem/ruby/2.4.0/bin
