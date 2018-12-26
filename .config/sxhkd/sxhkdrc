@@ -168,6 +168,9 @@ ctrl + shift + space
 super + shift + e
   kitty ranger
 
+Print + shift
+  flameshot gui
+
 Print
   scrot -q 100  -e 'mv $f ~/Pictures/screenshot/%Y-%m-%d-%T-screenshot.png | printf ~/Pictures/screenshot/%Y-%m-%d-%T-screenshot.png | xclip -selection clipboard' && notify-send "Screenshot taken"
 
