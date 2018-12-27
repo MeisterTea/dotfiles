@@ -17,14 +17,10 @@ SHORTCOLOR=$(echo $COLOR | sed "s@.*/@@")
 xrdb -merge $COLOR
 
 rfkill block bluetooth && rfkill unblock bluetooth # fuck bluetooth
-~/.screenlayout/work_dual.sh &
-feh --bg-fill ~/Pictures/Wallpapers/guardians_of_the_galaxy_minimalist.jpg --bg-fill ~/Pictures/Wallpapers/guardians_of_the_galaxy_minimalist.jpg
+~/.config/bspwm/scripts/autostart/loader.sh
 dunst &
 sleep 3 &
-polybar default &
-polybar external &
 nm-applet &
-compton -b -d :0 &
 clipit &
 ~/scripts/java_nonreparenting_wm_hack.sh &
 

@@ -40,7 +40,8 @@ font-6 = "Font Awesome 5 Brands:pixelsize=11:antialias=true;1"
 
 modules-left = bspwm
 modules-center = xwindow
-modules-right = player_previous player_playpause player_next player_title volume battery date powermenu
+modules-right = volume battery date powermenu
+#modules-right = player_previous player_playpause player_next player_title volume battery date powermenu
 
 # tray-position = right
 # tray-padding = 2
