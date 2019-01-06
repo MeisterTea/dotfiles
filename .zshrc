@@ -138,18 +138,13 @@ bindkey '^[[B' history-substring-search-down
 
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
-# Toys
-
-alias fuck='thefuck'
-alias sl='/usr/bin/sl'
-
 # Shortcuts
 
 alias v='nvim'
 alias vi='nvim'
 alias vim='nvim'
 alias emacs='emacs -nw'
-alias bc='bc -q'
+alias bc='bc -ql'
 alias tb='taskbook'
 alias fuck='killall -9'
 
