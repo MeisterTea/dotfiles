@@ -167,6 +167,7 @@ alias la='ls -a'
 alias ll='ls -l'
 
 alias scrot='scrot -q 100 ~/Pictures/screenshots/%Y-%m-%d-%T-screenshot.png'
+alias cal='cal -m'
 
 zplug load
 
