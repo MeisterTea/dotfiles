@@ -31,6 +31,7 @@ zplug "zsh-users/zsh-completions"
 zplug "zsh-users/zsh-autosuggestions"
 zplug "zsh-users/zsh-syntax-highlighting"
 zplug "zsh-users/zsh-history-substring-search"
+zplug "yukiycino-dotfiles/fancy-ctrl-z"
 
 # Zsh parameters
 
@@ -161,10 +162,9 @@ alias gitTree2="git log --graph --abbrev-commit --decorate --format=format:'%C(b
 # cd to closed directory
 
 alias ranger='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'
-alias ls='ls --color=auto'
-alias ls='ls_extended'
-alias la='ls -a'
-alias ll='ls -l'
+alias ls='exa'
+alias la='exa -a'
+alias ll='exa -l'
 
 alias scrot='scrot -q 100 ~/Pictures/screenshots/%Y-%m-%d-%T-screenshot.png'
 alias cal='cal -m'
