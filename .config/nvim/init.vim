@@ -209,8 +209,9 @@ set tabstop=2
 set shiftwidth=2
 set expandtab
 
-" Open new buffers to the right
+" Open new buffers to the right and bottom
 set splitright
+set splitbelow
 
 " Contrast indents
 hi IndentGuidesOdd  ctermbg=black
@@ -222,10 +223,7 @@ autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in
 " Fixes tmux clipboard usage
 set clipboard=unnamed
 
-
-" autocmd BufEnter * if &modifiable | NERDTreeFind | wincmd p | endif
-"
-" autocmd BufEnter * silent! if bufname('%') !~# 'NERD_tree_' | cd %:p:h | NERDTreeCWD | wincmd p | endif
+nnoremap <leader>nf :NERDTreeFind<CR><CR>
 
 " fugitive git bindings
 nnoremap <leader>ga :Git add %:p<CR><CR>
