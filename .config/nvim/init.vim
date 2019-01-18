@@ -1,7 +1,6 @@
 call plug#begin('~/.local/share/nvim/plugged')
 
-" Theme
-Plug 'morhetz/gruvbox'
+Plug 'morhetz/gruvbox' " Theme
 
 Plug 'tmhedberg/matchit' " extends % pairing to html etc...
 
@@ -9,13 +8,15 @@ Plug 'janko-m/vim-test'
 
 Plug 'terryma/vim-multiple-cursors'
 
-Plug 'mbbill/undotree'
+Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
 
 Plug 'easymotion/vim-easymotion'
 
 " Focus !
 Plug 'junegunn/limelight.vim'
 Plug 'junegunn/goyo.vim'
+
+Plug 'ludovicchabant/vim-gutentags' " Automatic ctags generation for versionned files
 
 " Git tools
 Plug 'tpope/vim-unimpaired'
@@ -25,7 +26,7 @@ Plug 'mhinz/vim-signify'
 
 Plug 'lervag/vimtex'
 
-Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle','NERDTreeFind'] }
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
@@ -45,45 +46,36 @@ autocmd BufEnter * call ncm2#enable_for_buffer()
 set completeopt=noinsert,menuone,noselect
 
 Plug 'ncm2/ncm2-bufword'
-" Plug 'ncm2/ncm2-tmux'
+Plug 'wellle/tmux-complete.vim'
 Plug 'ncm2/ncm2-path'
 
-" Easy commenting
-Plug 'scrooloose/nerdcommenter'
+Plug 'scrooloose/nerdcommenter' " Easy commenting
 
-Plug 'majutsushi/tagbar'
+Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
 
-" Automatic tags update
-Plug 'craigemery/vim-autotag'
+Plug 'craigemery/vim-autotag' " Automatic tags update
 
 " Airline
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
-" Syntax
-Plug 'w0rp/ale'
-"
-" Surrounding
-Plug 'tpope/vim-surround'
+Plug 'w0rp/ale' " Syntax
+
+Plug 'tpope/vim-surround' " Surrounding
 
 " Fuzzy search
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
-" Ack search
-Plug 'mileszs/ack.vim'
+Plug 'mileszs/ack.vim' " Ack search
 
-" Color highlight
-Plug 'ap/vim-css-color'
+Plug 'ap/vim-css-color' " Color highlight
 
-" Emmet support
-Plug 'mattn/emmet-vim'
+Plug 'mattn/emmet-vim' " Emmet support
 
-" UltiSnips engine
-Plug 'SirVer/ultisnips'
+Plug 'SirVer/ultisnips' " UltiSnips engine
 
-" UltiSnips snippets
-Plug 'honza/vim-snippets'
+Plug 'honza/vim-snippets' " UltiSnips snippets
 
 Plug 'ryanoasis/vim-devicons' " Needs to be loaded last
 
@@ -98,8 +90,7 @@ autocmd! ColorScheme gruvbox call s:patch_colors()
 silent! colorscheme gruvbox
 
 nnoremap <SPACE> <Nop>
-" bottom right trick
-map <space> <leader>
+map <space> <leader> " bottom right trick
 nnoremap <Leader><space> :noh<cr>
 
 set encoding=utf8
@@ -186,9 +177,19 @@ let g:NERDCompactSexyComs = 1
 let g:user_emmet_expandabbr_key='<Tab>'
 imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
 
+set statusline+=%{gutentags#statusline()} " Writing tags status display
+
+"NERDTree behavior
+function! s:updateNerdTreeDir()
+  if exists("g:NERDTree") && g:NERDTree.IsOpen() | exec ":NERDTreeFind" | endif
+endfunction
+autocmd BufWinEnter * call s:updateNerdTreeDir() " Needed for C-p tree update
+
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif " Close NerdTree buffer if it's the last one
+
 " Open NerdTree when opening a folder
 autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTreeToggle' argv()[0] | wincmd p | ene | endif
 
 " Fugitive git bindings
 nnoremap <leader>ga :Git add %:p<CR><CR>
@@ -208,8 +209,7 @@ nnoremap <leader>gps :Dispatch! git push<CR>
 nnoremap <leader>gpl :Dispatch! git pull<CR>
 
 " NerdTree bindings
-nnoremap <leader>nt :NERDTreeToggle<CR>
-nnoremap <leader>nf :NERDTreeFind<CR><CR>
+map <C-b> <esc>:NERDTreeToggle<CR>
 
 " Fix errors or warnings
 map <C-e> <esc>:ALEFix<CR>
@@ -223,6 +223,6 @@ map <C-p> <esc>:GFiles<CR>
 " Misc bindings
 nmap t% :tabedit %<CR>
 nmap td :tabclose<CR>
-nnoremap <leader>tb :Tagbar<CR>
+nnoremap <leader>tb :TagbarToggle<CR>
 nnoremap <leader>ut :UndotreeToggle<CR>
 nnoremap <leader>ll :Limelight!!<CR>
