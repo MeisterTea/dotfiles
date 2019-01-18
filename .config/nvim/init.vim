@@ -32,26 +32,32 @@ Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
 Plug 'tmhedberg/SimpylFold' " Python folding
 
-Plug 'pangloss/vim-javascript'
-Plug 'mxw/vim-jsx'
-Plug 'leafgarland/typescript-vim'
-Plug 'posva/vim-vue'
+" Syntastic coloration
+Plug 'leafgarland/typescript-vim' " Typescript
+Plug 'pangloss/vim-javascript' " Javascript
+Plug 'mxw/vim-jsx' " JSX
+Plug 'posva/vim-vue' " Vue
+Plug 'ap/vim-css-color' " CSS
 
-" AutoCompletion
-Plug 'ncm2/ncm2'
-Plug 'roxma/nvim-yarp'
+" Autocompletion
+Plug 'ncm2/ncm2' " Autocompletion plugin
+Plug 'roxma/nvim-yarp' " Dependency of ncm2
 
 autocmd BufEnter * call ncm2#enable_for_buffer()
 
 set completeopt=noinsert,menuone,noselect
 
-Plug 'ncm2/ncm2-bufword'
-Plug 'wellle/tmux-complete.vim'
-Plug 'ncm2/ncm2-path'
+Plug 'ncm2/ncm2-bufword' " Keywords
+Plug 'ncm2/ncm2-path' " Filepath
+
+" Ultisnips support
+Plug 'ncm2/ncm2-ultisnips'
+Plug 'SirVer/ultisnips'
 
 Plug 'scrooloose/nerdcommenter' " Easy commenting
 
-Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
+"Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
+Plug 'majutsushi/tagbar'
 
 Plug 'craigemery/vim-autotag' " Automatic tags update
 
@@ -59,7 +65,7 @@ Plug 'craigemery/vim-autotag' " Automatic tags update
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
-Plug 'w0rp/ale' " Syntax
+Plug 'w0rp/ale' " Syntax checker
 
 Plug 'tpope/vim-surround' " Surrounding
 
@@ -69,13 +75,11 @@ Plug 'junegunn/fzf.vim'
 
 Plug 'mileszs/ack.vim' " Ack search
 
-Plug 'ap/vim-css-color' " Color highlight
-
 Plug 'mattn/emmet-vim' " Emmet support
 
-Plug 'SirVer/ultisnips' " UltiSnips engine
+" Plug 'SirVer/ultisnips' " UltiSnips engine
 
-Plug 'honza/vim-snippets' " UltiSnips snippets
+" Plug 'honza/vim-snippets' " UltiSnips snippets
 
 Plug 'ryanoasis/vim-devicons' " Needs to be loaded last
 
@@ -90,7 +94,8 @@ autocmd! ColorScheme gruvbox call s:patch_colors()
 silent! colorscheme gruvbox
 
 nnoremap <SPACE> <Nop>
-map <space> <leader> " bottom right trick
+" bottom right trick
+map <space> <leader>
 nnoremap <Leader><space> :noh<cr>
 
 set encoding=utf8
@@ -159,6 +164,10 @@ let g:EasyMotion_smartcase = 1
 map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
 
+" Ncm2 settings
+let ncm2#popup_delay = 200
+let g:ncm2#matcher = 'substrfuzzy'
+
 " ALE colors
 let g:ale_sign_error = '✖'
 let g:ale_sign_warning = '⚠'
@@ -173,9 +182,7 @@ let g:limelight_conceal_guifg = 'DarkGray'
 let g:NERDSpaceDelims = 1
 let g:NERDCompactSexyComs = 1
 
-" use Emmet without needing tentacles fingers
-let g:user_emmet_expandabbr_key='<Tab>'
-imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
+let g:user_emmet_expandabbr_key='<S-tab>' " use Emmet without needing tentacles fingers
 
 set statusline+=%{gutentags#statusline()} " Writing tags status display
 
