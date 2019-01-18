@@ -133,29 +133,17 @@ ctrl + shift + {j,l}
 alt + ctrl + {i,j,k,l}
   bspc window -s {left,down,up,right}
 
-XF86MonBrightnessUp
-	xbacklight -inc 10
+XF86MonBrightness{Up,Down}
+  xbacklight -{inc,dec} 10
 
-XF86MonBrightnessDown
-xbacklight -dec 10
-
-XF86AudioRaiseVolume
-	volume up
-
-XF86AudioLowerVolume
-	volume down
+XF86Audio{Raise,Lower}Volume
+  amixer -q -D pulse sset Master 2%{+,-}
 
 XF86AudioMute
-volume mute
+  amixer -q -D pulse sset Master toggle
 
-XF86Audio{Prev,Next}
-    ~/.config/bspwm/misc/player {prev,next}
-
-XF86AudioStop
-    ~/.config/bspwm/misc/player stop
-
-XF86AudioPlay
-    ~/.config/bspwm/misc/player play
+XF86Audio{Prev,Next,Play,Stop}
+  playerctl {previous, next, play-pause, stop}
 
 # Show dmenu bar
 ctrl + space
@@ -173,7 +161,6 @@ Print + shift
 
 Print
   scrot -q 100  -e 'mv $f ~/Pictures/screenshot/%Y-%m-%d-%T-screenshot.png | printf ~/Pictures/screenshot/%Y-%m-%d-%T-screenshot.png | xclip -selection clipboard' && notify-send "Screenshot taken"
-
 
 # super + {_,shift} + h
 # ~/.config/bspwm/misc/toggle {hide,show}

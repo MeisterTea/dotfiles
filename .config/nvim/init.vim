@@ -1,46 +1,39 @@
-" Plugins
 call plug#begin('~/.local/share/nvim/plugged')
 
+" Theme
 Plug 'morhetz/gruvbox'
 
-" Multi cursor
+Plug 'tmhedberg/matchit' " extends % pairing to html etc...
+
+Plug 'janko-m/vim-test'
+
 Plug 'terryma/vim-multiple-cursors'
 
-" Git commit browser
-Plug 'junegunn/gv.vim'
+Plug 'mbbill/undotree'
 
-" Hyperfocus
+Plug 'easymotion/vim-easymotion'
+
+" Focus !
 Plug 'junegunn/limelight.vim'
-
-" Goyo
 Plug 'junegunn/goyo.vim'
 
-" Git wrapper
+" Git tools
 Plug 'tpope/vim-unimpaired'
+Plug 'junegunn/gv.vim'
 Plug 'tpope/vim-fugitive'
-
-Plug 'airblade/vim-gitgutter'
+Plug 'mhinz/vim-signify'
 
 Plug 'lervag/vimtex'
-
-" Easy motion
-" Plug 'easymotion/vim-easymotion'
-" Plug 'justinmk/vim-sneak'
 
 Plug 'scrooloose/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
-" Python folding
-Plug 'tmhedberg/SimpylFold'
+Plug 'tmhedberg/SimpylFold' " Python folding
 
 Plug 'pangloss/vim-javascript'
-
 Plug 'mxw/vim-jsx'
-
 Plug 'leafgarland/typescript-vim'
-
-" Vue support
 Plug 'posva/vim-vue'
 
 " AutoCompletion
@@ -55,11 +48,10 @@ Plug 'ncm2/ncm2-bufword'
 " Plug 'ncm2/ncm2-tmux'
 Plug 'ncm2/ncm2-path'
 
-" JS completion
-" Plug 'ncm2/ncm2-tern'
-
 " Easy commenting
 Plug 'scrooloose/nerdcommenter'
+
+Plug 'majutsushi/tagbar'
 
 " Automatic tags update
 Plug 'craigemery/vim-autotag'
@@ -93,18 +85,59 @@ Plug 'SirVer/ultisnips'
 " UltiSnips snippets
 Plug 'honza/vim-snippets'
 
-" Shows off indents
-Plug 'nathanaelkane/vim-indent-guides'
-
-" Needs to be loaded last
-Plug 'ryanoasis/vim-devicons'
+Plug 'ryanoasis/vim-devicons' " Needs to be loaded last
 
 call plug#end()
+
+" Theme
+function! s:patch_colors()
+  hi Normal ctermbg=none
+  highlight NonText ctermbg=none
+endfunction
+autocmd! ColorScheme gruvbox call s:patch_colors()
+silent! colorscheme gruvbox
 
 nnoremap <SPACE> <Nop>
 " bottom right trick
 map <space> <leader>
 nnoremap <Leader><space> :noh<cr>
+
+set encoding=utf8
+set mouse=a
+set incsearch
+set number
+set clipboard=unnamed " Fixes tmux clipboard usage
+
+set tabstop=2
+set shiftwidth=2
+set expandtab
+
+" Allows moving freely around lines
+set whichwrap+=<,>,h,l,[,]
+
+set updatetime=5000 " Background commands refresh rate
+
+" Open new buffers to the right and bottom
+set splitright
+set splitbelow
+
+" Filetype support
+filetype on
+filetype plugin on
+
+" No more warnings about unsaved file
+set hidden
+
+" Folding
+set foldcolumn=2
+set foldmethod=syntax " Autofolding
+set foldlevelstart=99 " No default folding
+
+au FileType qf wincmd J " Full width quickfix window
+
+" Python path
+let g:python_host_prog = '/usr/bin/python2'
+let g:python3_host_prog = '/usr/bin/python3'
 
 " allows incsearch highlighting for range commands
 cnoremap $t <CR>:t''<CR>
@@ -119,108 +152,77 @@ let g:ack_mappings = {
       \ "H": "<C-W><CR>:exe 'wincmd ' (&splitbelow ? 'J' : 'K')<CR><C-W>p<C-W>J",
       \ "v": "<C-W><CR>:exe 'wincmd ' (&splitright ? 'L' : 'H')<CR><C-W>p<C-W>J<C-W>p",
       \ "gv": "<C-W><CR>:exe 'wincmd ' (&splitright ? 'L' : 'H')<CR><C-W>p<C-W>J" }
+let g:ackprg = 'ag --vimgrep --smart-case'
 
-set incsearch
+set diffopt=filler,iwhite " Hides whitespaces in Gdiff
 
-" Color scheme
-silent! colorscheme gruvbox
-set background=dark
-set t_Co=256
-
-" Allows warping
-set whichwrap+=<,>,h,l,[,]
-
-" Displays lines numbers
-set number
-
-" Folding
-set foldcolumn=2
-set foldmethod=syntax " Autofolding
-set foldlevelstart=99 " No default folding
-
-" Mouse support
-set mouse=a
-
-" Characters support
-set encoding=utf8
-
-" No more warnings about unsaved file
-set hidden
+" ES6+ support on js files
+let g:jsx_ext_required = 0
 
 " Airline
 let g:airline_powerline_fonts = 1
 
-" Python path
-let g:python_host_prog = '/usr/bin/python2'
-let g:python3_host_prog = '/usr/bin/python3'
+" Easymotion
+nmap s <Plug>(easymotion-overwin-f2)
+let g:EasyMotion_smartcase = 1
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
 
-
-" Fixes for transparent background
-hi Normal ctermbg=none
-highlight NonText ctermbg=none
-
-let g:ackprg = 'ag --vimgrep --smart-case'
-cnoreabbrev ag Ack
-cnoreabbrev aG Ack
-cnoreabbrev Ag Ack
-cnoreabbrev AG Ack
-
-cnoreabbrev fix ALEFix
-
-map <C-f> <esc>:Ack 
-
-" inoremap <C-f> call fzf#vim#tags(expand('<cword>'))
-
-map <C-p> <esc>:GFiles<CR>
-
-" Linting
+" ALE colors
 let g:ale_sign_error = '✖'
 let g:ale_sign_warning = '⚠'
 highlight ALEErrorSign ctermbg=237 ctermfg=red
 highlight ALEWarningSign ctermbg=237 ctermfg=yellow
 
-map <C-e> <esc>:ALEFix<CR>
-"
-" Reduce update time
-set updatetime=100
-
-" Filetype support
-filetype on
-filetype plugin on
+" Limelight colors
+let g:limelight_conceal_ctermfg = 'gray'
+let g:limelight_conceal_guifg = 'DarkGray'
 
 " Nerdcommenter settings
-" Spaces after delimiters
 let g:NERDSpaceDelims = 1
-
-" Use compact syntax for prettified multi-line comments
 let g:NERDCompactSexyComs = 1
 
-" ES6+ support on js files
-let g:jsx_ext_required = 0
-"
-" use Emmet without having tentacles fingers
+" use Emmet without needing tentacles fingers
 let g:user_emmet_expandabbr_key='<Tab>'
 imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
-
-" Indent
-set tabstop=2
-set shiftwidth=2
-set expandtab
-
-" Open new buffers to the right
-set splitright
-
-" Contrast indents
-hi IndentGuidesOdd  ctermbg=black
-hi IndentGuidesEven ctermbg=darkgrey
 
 " Open NerdTree when opening a folder
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
-" Fixes tmux clipboard usage
-set clipboard=unnamed
 
+" Fugitive git bindings
+nnoremap <leader>ga :Git add %:p<CR><CR>
+nnoremap <leader>gs :Gstatus<CR>
+nnoremap <leader>gc :Gcommit -v -q<CR>
+nnoremap <leader>gt :Gcommit -v -q %:p<CR>
+nnoremap <leader>gd :Gdiff<CR>
+nnoremap <leader>ge :Gedit<CR>
+nnoremap <leader>gr :Gread<CR>
+nnoremap <leader>gw :Gwrite<CR><CR>
+nnoremap <leader>gl :silent! Glog<CR>:bot copen<CR>
+nnoremap <leader>gp :Ggrep<Space>
+nnoremap <leader>gm :Gmove<Space>
+nnoremap <leader>gb :Git branch<Space>
+nnoremap <leader>go :Git checkout<Space>
+nnoremap <leader>gps :Dispatch! git push<CR>
+nnoremap <leader>gpl :Dispatch! git pull<CR>
 
-" autocmd BufEnter * if &modifiable | NERDTreeFind | wincmd p | endif
-"
-" autocmd BufEnter * silent! if bufname('%') !~# 'NERD_tree_' | cd %:p:h | NERDTreeCWD | wincmd p | endif
+" NerdTree bindings
+nnoremap <leader>nt :NERDTreeToggle<CR>
+nnoremap <leader>nf :NERDTreeFind<CR><CR>
+
+" Fix errors or warnings
+map <C-e> <esc>:ALEFix<CR>
+
+" Search all files content
+map <C-f> <esc>:Ack 
+
+" Search all files names
+map <C-p> <esc>:GFiles<CR>
+
+" Misc bindings
+nmap t% :tabedit %<CR>
+nmap td :tabclose<CR>
+nnoremap <leader>tb :Tagbar<CR>
+nnoremap <leader>ut :UndotreeToggle<CR>
+nnoremap <leader>ll :Limelight!!<CR>

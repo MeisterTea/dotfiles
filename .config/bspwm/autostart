@@ -18,6 +18,7 @@ xrdb -merge $COLOR
 
 rfkill block bluetooth && rfkill unblock bluetooth # fuck bluetooth
 ~/.config/bspwm/scripts/autostart/loader.sh
+xbindkeys &
 dunst &
 sleep 3 &
 nm-applet &

@@ -31,6 +31,7 @@ zplug "zsh-users/zsh-completions"
 zplug "zsh-users/zsh-autosuggestions"
 zplug "zsh-users/zsh-syntax-highlighting"
 zplug "zsh-users/zsh-history-substring-search"
+zplug "yukiycino-dotfiles/fancy-ctrl-z"
 
 # Zsh parameters
 
@@ -86,7 +87,8 @@ export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 export ANDROID_HOME=${HOME}/Android/Sdk 
 export SURIKAT_SETTINGS=/home/bamboozilla/.config/wildfly/crm-manager.properties
 export JAVA_HOME="/usr/lib/jvm/java-8-openjdk/"
-export _JAVA_AWT_WM_NONREPARTENTING=1 # Fixes grey java apps
+export _JAVA_AWT_WM_NONREPARENTING=1 # Fixes grey java apps
+export PATH=${PATH}:${ANDROID_HOME}/emulator 
 export PATH=${PATH}:${ANDROID_HOME}/tools 
 export PATH=${PATH}:${ANDROID_HOME}/platform-tools
 export PATH=${PATH}:/root/.gem/ruby/2.4.0/bin
@@ -156,12 +158,13 @@ alias gitTree2="git log --graph --abbrev-commit --decorate --format=format:'%C(b
 # cd to closed directory
 
 alias ranger='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'
-alias ls='ls --color=auto'
-alias ls='ls_extended'
-alias la='ls -a'
-alias ll='ls -l'
+alias ls='exa'
+alias la='exa -a'
+alias ll='exa -l'
+alias lal='exa -la'
 
 alias scrot='scrot -q 100 ~/Pictures/screenshots/%Y-%m-%d-%T-screenshot.png'
+alias cal='cal -m'
 
 zplug load
 
