@@ -5,10 +5,11 @@ let g:ale_javascript_eslint_executable = 'eslint_d'
 let g:ale_linters = {
 \ 'javascript': ['eslint'],
 \ 'vue': ['stylelint', 'eslint'],
+\ 'rust': ['cargo', 'rustfmt']
 \}
 
 let g:ale_fixers = {
 \ 'javascript': ['eslint'],
 \ 'vue': ['stylelint', 'eslint'],
+\ 'rust': ['rustfmt']
 \}
-
