@@ -1,4 +1,5 @@
 [global]
+    monitor = 0
     font = "Fira Code 10"
     allow_markup = yes
     format = "<b>%s %p</b>\n%b"
@@ -10,7 +11,6 @@
     alignment = center
     show_age_threshold = -1
     sticky_history = yes
-    follow = mouse
     word_wrap = yes
     separator_height = 2
     padding = 10
@@ -18,7 +18,7 @@
     separator_color = frame
     startup_notification = false
     dmenu = "/usr/bin/dmenu -p dunst: -nb #FFFFFF -nf #000000 -sb #94DBFF -sf #000000"
-    browser = /home/espen/bin/firefox-developer -new-tab
+    browser = /usr/bin/google-chrome-beta
     icon_position = left
 
 [frame]
@@ -43,7 +43,6 @@
     foreground = "#CC5555"
     timeout = 10
 
-
 [mutt]
     summary = New Mail
     urgency = normal
@@ -51,4 +50,4 @@
 [spotify]
     appname = Spotify
     urgency = low
-timeout = 3
+    timeout = 2
