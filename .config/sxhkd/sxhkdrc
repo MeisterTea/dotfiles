@@ -178,4 +178,4 @@ alt + {_,shift +} Tab
   alt + Tab bspc node -f last
 
 super + z
- betterlockscreen --lock blur 
+  ~/scripts/lock
