@@ -178,4 +178,6 @@ alt + {_,shift +} Tab
   alt + Tab bspc node -f last
 
 super + z
-  ~/scripts/lock
+  ~/.bin/lock
+super + F4
+  ~/.config/rofi/rofi-widgets/widgets/power-options.sh

@@ -3,8 +3,9 @@
 ! ------------------------------------------------------------------------------
 
 ! General
-rofi.font:                Fira Code 10
-rofi.fake-transparency:   true
+rofi.font:                Fira 10
+
+! rofi.fake-transparency:   true
 rofi.hide-scrollbar:      true
 rofi.modi: 	              drun
 
@@ -17,5 +18,6 @@ rofi.padding:            50
 rofi.sidebar-mode:       false
 rofi.fullscreen:         false
 
-rofi.theme: gruvbox-dark-soft
 
+rofi.color-enabled: true
+rofi.theme: default

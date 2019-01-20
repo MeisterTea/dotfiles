@@ -16,7 +16,7 @@ if [ "$another" == "RELOAD" ] ; then
   bash ~/.startup -r;
 
 elif [ "$another" == "LOCKWM" ] ; then
-	exec  ~/scripts/lock;
+	exec  ~/.bin/lock;
 
 elif [ "$another" == "LOGOUT" ] ; then
 	[ $(echo -e "Yes\nNo" | rofi "${ROFI_OPTIONS[@]}" -theme-str "*{accent: #e53714;}" -dmenu -i -p "Are you shure you want to proceed?") == Yes ] && i3-msg exit || bspc quit

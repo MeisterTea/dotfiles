@@ -13,16 +13,17 @@ POWERLEVEL9K_TIME_FOREGROUND="black"
 POWERLEVEL9K_TIME_FORMAT="%B%D{%H:%M:%S}"
 
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon dir dir_writable vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status virtualenv time)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=()
+# POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status virtualenv time)
 
 POWERLEVEL9K_OS_ICON_FOREGROUND="108"
 POWERLEVEL9K_VCS_MODIFIED_BACKGROUND='yellow'
 POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND='yellow'
 
-POWERLEVEL9K_LEFT_SEGMENT_SEPARATOR='\UE0C6'
-POWERLEVEL9K_LEFT_SUBSEGMENT_SEPARATOR='\UE0C6'
-POWERLEVEL9K_RIGHT_SEGMENT_SEPARATOR='\UE0C7'
-POWERLEVEL9K_RIGHT_SUBSEGMENT_SEPARATOR='\UE0C7'
+POWERLEVEL9K_LEFT_SEGMENT_SEPARATOR='\uE0C6'
+POWERLEVEL9K_LEFT_SUBSEGMENT_SEPARATOR='\uE0C6'
+#POWERLEVEL9K_RIGHT_SEGMENT_SEPARATOR='\uE0C7'
+#POWERLEVEL9K_RIGHT_SUBSEGMENT_SEPARATOR='\uE0C7'
 
 # Plugins
 
@@ -88,6 +89,7 @@ export ANDROID_HOME=${HOME}/Android/Sdk
 export SURIKAT_SETTINGS=/home/bamboozilla/.config/wildfly/crm-manager.properties
 export JAVA_HOME="/usr/lib/jvm/java-8-openjdk/"
 export _JAVA_AWT_WM_NONREPARENTING=1 # Fixes grey java apps
+export PATH=${PATH}:${HOME}/.bin
 export PATH=${PATH}:${ANDROID_HOME}/emulator 
 export PATH=${PATH}:${ANDROID_HOME}/tools 
 export PATH=${PATH}:${ANDROID_HOME}/platform-tools
@@ -135,10 +137,6 @@ bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 
 # Aliases
-
-# Tools
-
-alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
 # Shortcuts
 

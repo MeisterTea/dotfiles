@@ -1,4 +1,4 @@
-feh --bg-fill ~/Pictures/Wallpapers/default.png
+feh --bg-fill ~/Pictures/Wallpapers/firewatch_orange.png
 compton -b &
 polybar default &
 
