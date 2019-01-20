@@ -1,3 +1,11 @@
+
+"   ██╗███╗   ██╗██╗████████╗██╗   ██╗██╗███╗   ███╗
+"   ██║████╗  ██║██║╚══██╔══╝██║   ██║██║████╗ ████║
+"   ██║██╔██╗ ██║██║   ██║   ██║   ██║██║██╔████╔██║
+"   ██║██║╚██╗██║██║   ██║   ╚██╗ ██╔╝██║██║╚██╔╝██║
+"   ██║██║ ╚████║██║   ██║██╗ ╚████╔╝ ██║██║ ╚═╝ ██║
+"   ╚═╝╚═╝  ╚═══╝╚═╝   ╚═╝╚═╝  ╚═══╝  ╚═╝╚═╝     ╚═╝
+
 call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'morhetz/gruvbox' " Theme
@@ -125,9 +133,10 @@ filetype plugin on
 set hidden
 
 " Folding
-set foldcolumn=2
-set foldmethod=syntax " Autofolding
-set foldlevelstart=99 " No default folding
+" set foldcolumn=2
+" set foldmethod=syntax " Autofolding
+" set foldlevelstart=99 " No default folding
+" hi Folded guibg=NONE ctermbg=NONE
 
 au FileType qf wincmd J " Full width quickfix window
 
@@ -154,6 +163,8 @@ set diffopt=filler,iwhite " Hides whitespaces in Gdiff
 
 " ES6+ support on js files
 let g:jsx_ext_required = 0
+
+highlight SignColumn ctermbg=NONE cterm=NONE guibg=NONE gui=NONE
 
 " Airline
 let g:airline_powerline_fonts = 1
