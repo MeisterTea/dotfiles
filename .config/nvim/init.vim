@@ -157,7 +157,7 @@ let g:ack_mappings = {
       \ "H": "<C-W><CR>:exe 'wincmd ' (&splitbelow ? 'J' : 'K')<CR><C-W>p<C-W>J",
       \ "v": "<C-W><CR>:exe 'wincmd ' (&splitright ? 'L' : 'H')<CR><C-W>p<C-W>J<C-W>p",
       \ "gv": "<C-W><CR>:exe 'wincmd ' (&splitright ? 'L' : 'H')<CR><C-W>p<C-W>J" }
-let g:ackprg = 'ag --vimgrep --smart-case'
+let g:ackprg = 'ag --path-to-ignore ~/.ignore --vimgrep --smart-case'
 
 set diffopt=filler,iwhite " Hides whitespaces in Gdiff
 

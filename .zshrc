@@ -147,6 +147,7 @@ alias emacs='emacs -nw'
 alias bc='bc -ql'
 alias tb='taskbook'
 alias fuck='killall -9'
+alias ag='ag --path-to-ignore ~/.ignore'
 
 # Git
 
