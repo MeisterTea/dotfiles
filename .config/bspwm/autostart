@@ -17,6 +17,7 @@ SHORTCOLOR=$(echo $COLOR | sed "s@.*/@@")
 xrdb -merge $COLOR
 
 rfkill block bluetooth && rfkill unblock bluetooth # fuck bluetooth
+xss-lock -- ~/.bin/lock &
 ~/.config/bspwm/scripts/autostart/loader.sh
 xbindkeys &
 dunst &
