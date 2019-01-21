@@ -23,6 +23,7 @@ dunst &
 sleep 3 &
 nm-applet &
 clipit &
+redshift &
 ~/.bin/java_nonreparenting_wm_hack.sh &
 
 ##enable local fonts in .fonts directory
