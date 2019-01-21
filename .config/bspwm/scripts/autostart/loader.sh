@@ -1,1 +1,1 @@
-~/.config/bspwm/scripts/autostart/home.sh
+/home/bamboozilla/.config/bspwm/scripts/autostart/work.sh

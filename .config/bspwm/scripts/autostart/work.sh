@@ -1,5 +1,6 @@
 ~/.screenlayout/work_dual.sh &
-feh --bg-fill ~/Pictures/Wallpapers/guardians_of_the_galaxy_minimalist.jpg --bg-fill ~/Pictures/Wallpapers/guardians_of_the_galaxy_minimalist.jpg
+sleep 1
+feh --bg-fill ~/Pictures/Wallpapers/firewatch_orange.png --bg-fill ~/Pictures/Wallpapers/firewatch_orange.png
 compton -b -d :0 &
-polybar default &
-polybar external &
+polybar work &
+polybar work_external &

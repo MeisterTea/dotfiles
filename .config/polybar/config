@@ -1,12 +1,12 @@
 [colors]
-background = ${xrdb:background:#222}
+background = #ee282828
 foreground = ${xrdb:foreground:#222}
 foreground-alt = #888077
 primary = #ffb52a
 secondary = #e60053
 alert = #bd2c40
 
-[bar/default]
+[bar/home]
 monitor = eDP1
 width = 99%
 height = 32
@@ -15,7 +15,7 @@ offset-y = 8
 radius = 0.0
 fixed-center = true
 
-background = #ee282828
+background = ${colors.background}
 foreground = ${xrdb:foreground:#FF0000}
 
 line-size = 4
@@ -36,16 +36,14 @@ font-5 = "Font Awesome 5 Free:style=Solid:pixelsize=11:antialias=true;1"
 font-6 = "Font Awesome 5 Brands:pixelsize=11:antialias=true;1"
 
 modules-left = bspwm
-#modules-center = xwindow
-modules-right = volume battery date powermenu
-#modules-right = player_previous player_playpause player_next player_title volume battery date powermenu
+modules-right = volume battery_home date powermenu
 
 tray-position = right
 
 wm-restack = bspwm
 
-[bar/external]
-monitor = DP2-1
+[bar/work]
+monitor = eDP1
 width = 99%
 height = 32
 offset-x = 8
@@ -53,14 +51,11 @@ offset-y = 8
 radius = 0.0
 fixed-center = true
 
-background = ${xrdb:background}
+background = ${colors.background}
 foreground = ${xrdb:foreground:#FF0000}
 
 line-size = 4
 line-color = #f00
-
-border-size = 4
-border-color = ${xrdb:color8:#FF000000}
 
 padding-left = 0
 padding-right = 3
@@ -72,55 +67,52 @@ font-0 = "Fira Code:style=Regular:pixelsize=11:antialias=true;1"
 font-1 = "SourceHanSans:style=Bold:pixelsize=11:antialias=true;1"
 font-2 = "Material Icons:style=Regular:pixelsize=11:antialias=true;1"
 font-3 = "EmojiOne:style=Regular:scale=10:antialias=true;1"
-font-4 = "Font Awesome 5 Free:style=Solid:pixelsize=11:antialias=true;1"
-font-5 = "Font Awesome 5 Free:style=Regular:pixelsize=11:antialias=true;1"
+font-4 = "Font Awesome 5 Free:style=Regular:pixelsize=11:antialias=true;1"
+font-5 = "Font Awesome 5 Free:style=Solid:pixelsize=11:antialias=true;1"
 font-6 = "Font Awesome 5 Brands:pixelsize=11:antialias=true;1"
 
 modules-left = bspwm
-modules-center = xwindow
-modules-right = player_previous player_playpause player_next player_title volume battery date powermenu
+modules-right = volume battery_work date powermenu
 
-# tray-position = right
-# tray-padding = 2
+tray-position = right
 
 wm-restack = bspwm
 
-[module/xwindow]
-type = internal/xwindow
-label = %title:0:30:...%
+[bar/work_external]
+monitor = DP2-1
+width = 99%
+height = 32
+offset-x = 8
+offset-y = 8
+radius = 0.0
+fixed-center = true
 
-[module/wlan]
+background = ${colors.background}
+foreground = ${xrdb:foreground:#FF0000}
 
-type = internal/network
-interface = wlp2s0
-interval = 5
+line-size = 4
+line-color = #f00
 
-label-connected =  
-# label-connected =  %essid%
-# label-disconnected =  Not Connected
+padding-left = 0
+padding-right = 3
 
-# format-connected = <ramp-signal> <label-connected>
-# label-connected = %essid%
-# 
-# format-disconnected =
-# 
+module-margin-left = 1
+module-margin-right = 2
 
-ramp-signal-0 = 
-ramp-signal-1 = 
-ramp-signal-2 = 
-ramp-signal-3 = 
-ramp-signal-4 =  
-# ramp-signal-foreground = ${colors.foreground-alt}
+font-0 = "Fira Code:style=Regular:pixelsize=11:antialias=true;1"
+font-1 = "SourceHanSans:style=Bold:pixelsize=11:antialias=true;1"
+font-2 = "Material Icons:style=Regular:pixelsize=11:antialias=true;1"
+font-3 = "EmojiOne:style=Regular:scale=10:antialias=true;1"
+font-4 = "Font Awesome 5 Free:style=Regular:pixelsize=11:antialias=true;1"
+font-5 = "Font Awesome 5 Free:style=Solid:pixelsize=11:antialias=true;1"
+font-6 = "Font Awesome 5 Brands:pixelsize=11:antialias=true;1"
 
-[module/filesystem]
-type = internal/fs
-interval = 25
+modules-left = bspwm
+modules-right = volume battery_work date powermenu
 
-mount-0 = /
-format-mounted-prefix = " "
-label-mounted = %{F#0a81f5}%mountpoint%%{F-}: %percentage_used%%
-label-unmounted = %mountpoint% not mounted
-label-unmounted-foreground = ${colors.foreground-alt}
+tray-position = right
+
+wm-restack = bspwm
 
 [module/bspwm]
 type = internal/bspwm
@@ -141,93 +133,31 @@ label-empty = 
 
 label-empty-foreground = ${colors.foreground-alt}
 label-empty-padding = 1
-[module/i3]
-type = internal/i3
-format = <label-state> <label-mode>
-index-sort = true
-wrapping-scroll = false
-strip-wsnumbers = true
 
-; Only show workspaces on the same output as the bar
-;pin-workspaces = true
+[module/battery_work]
 
-label-mode-padding = 2
-label-mode-foreground = #000
-label-mode-background = ${colors.primary}
+type = internal/battery
+battery = BAT0
+adapter = AC
+full-at = 95
 
-; focused = Active workspace on focused monitor
-label-focused = %name%
-label-focused-background = ${module/bspwm.label-focused-background}
-label-focused-underline = ${module/bspwm.label-focused-underline}
-label-focused-padding = ${module/bspwm.label-focused-padding}
+label-discharging = %percentage%%
+label-charging = %percentage%%
+label-full = %percentage%%
 
-; unfocused = Inactive workspace on any monitor
-label-unfocused = %name%
-label-unfocused-padding = ${module/bspwm.label-occupied-padding}
+format-discharging = <ramp-capacity> <label-discharging>
+format-full = <ramp-capacity> <label-full>
+format-charging =  <label-charging>
 
-; visible = Active workspace on unfocused monitor
-label-visible = %name%
-label-visible-background = ${self.label-focused-background}
-label-visible-underline = ${self.label-focused-underline}
-label-visible-padding = ${self.label-focused-padding}
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
 
-; urgent = Workspace with urgency hint set
-label-urgent = %name%
-label-urgent-background = ${module/bspwm.label-urgent-background}
-label-urgent-padding = ${module/bspwm.label-urgent-padding}
+animation-charging-framerate = 750
 
-[module/player_previous]
-type = custom/script
-interval = 1
-label = %output%
-exec = ~/.config/polybar/scripts/playerctl_previous.sh
-click-left = playerctl previous
-[module/player_stop]
-type = custom/script
-interval = 1
-label = %output%
-click-left = playerctl stop
-[module/player_playpause]
-type = custom/script
-interval = 1
-label = %output%
-exec = ~/.config/polybar/scripts/playerctl_playpause.sh
-click-left = playerctl play-pause
-[module/player_next]
-type = custom/script
-interval = 1
-label = %output%
-exec = ~/.config/polybar/scripts/playerctl_next.sh
-click-left = playerctl next
-[module/player_title]
-type = custom/script
-interval = 1
-label = "%output:0:45:...%"
-exec = ~/.config/polybar/scripts/playerctl_title.sh
-scroll-up = playerctl previous
-scroll-down = playerctl next
-
-[module/mpd]
-type = internal/mpd
-format-online = <icon-prev> <toggle> <icon-next> <label-song>
-host = 127.0.0.1
-port = 6600
-interval = 2
-icon-prev = 
-icon-stop = 
-icon-play = 
-icon-pause = 
-icon-next = 
-
-label-song-maxlen = 25
-label-song-ellipsis = true
-
-bar-progress-width = 10
-bar-progress-indicator = |
-bar-progress-fill = ─
-bar-progress-empty = ─
-
-[module/battery]
+[module/battery_home]
 
 type = internal/battery
 battery = BAT1
@@ -249,22 +179,6 @@ ramp-capacity-3 = 
 ramp-capacity-4 = 
 
 animation-charging-framerate = 750
-
-[module/cpu]
-type = internal/cpu
-interval = 2
-format-prefix = " "
-format-prefix-foreground = ${colors.foreground-alt}
-# format-underline = ${xrdb:color1}
-label = %percentage%%
-
-[module/memory]
-type = internal/memory
-interval = 2
-format-prefix = " "
-format-prefix-foreground = ${colors.foreground-alt}
-# format-underline = ${xrdb:color6}
-label = %percentage_used%%
 
 [module/date]
 type = internal/date
@@ -314,15 +228,6 @@ ramp-1 = 
 ramp-2 = 
 ramp-foreground = ${colors.foreground-alt}
 
-[module/keyboard]
-type = internal/xkeyboard
-
-format = <label-layout>
-format-spacing = 0
-label-layout = %layout%:%number%
-label-layout-padding = 2
-label-layout-foreground = ${colors.foreground}
-
 [module/powermenu]
 type = custom/script
 exec = echo "Power Button"
@@ -335,13 +240,4 @@ tail = false
 [settings]
 screenchange-reload = true
 compositing-background = xor
-;compositing-background = screen
 compositing-foreground = source
-;compositing-border = over
-
-[global/wm]
-margin-top = 0
-margin-bottom = 0
-
-; vim:ft=dosini
-

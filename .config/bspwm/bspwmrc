@@ -16,8 +16,6 @@ gap=10
 
 sxhkd &
 
-#bspc monitor eDP1 -d 壱 弐 参 肆 伍 陸 漆 捌 玖 拾
-
 source "$HOME/.config/bspwm/scripts/set_desktops.sh"
 
 background=$(xrdb -query | grep "background" | cut -f2 | sed -r 's/#//' | head -n 1)
