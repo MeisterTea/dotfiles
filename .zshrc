@@ -1,5 +1,4 @@
 source ~/.config/tty.sh
-
 source /usr/share/zsh/scripts/zplug/init.zsh
 
 # Theme
@@ -28,8 +27,11 @@ POWERLEVEL9K_LEFT_SUBSEGMENT_SEPARATOR='\uE0C6'
 #POWERLEVEL9K_RIGHT_SUBSEGMENT_SEPARATOR='\uE0C7'
 
 # Plugins
-
-zplug "bhilburn/powerlevel9k", use:powerlevel9k.zsh-theme
+if [ "$TERM" != 'linux' ]; then
+  zplug "bhilburn/powerlevel9k", use:powerlevel9k.zsh-theme
+else 
+  export PS1="%{%F{yellow}%}%n%{%f%} %~ › "
+fi
 zplug "zsh-users/zsh-completions"
 zplug "zsh-users/zsh-autosuggestions"
 zplug "zsh-users/zsh-syntax-highlighting"

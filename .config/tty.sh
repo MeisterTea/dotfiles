@@ -1,4 +1,5 @@
 if [ "$TERM" = "linux" ]; then
+    setfont -h16 /usr/share/kbd/consolefonts/eurlatgr.psfu.gz # easier to maintain than /etc/vconsole.conf
     echo -en "\e]PB282828" # S_base00
     echo -en "\e]PA98971a" # S_base01
     echo -en "\e]P032302f" # S_base02
@@ -17,4 +18,3 @@ if [ "$TERM" = "linux" ]; then
     echo -en "\e]PD689d6a" # S_violet
     clear # against bg artifacts
   fi
-
