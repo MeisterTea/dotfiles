@@ -27,9 +27,10 @@ POWERLEVEL9K_LEFT_SUBSEGMENT_SEPARATOR='\uE0C6'
 #POWERLEVEL9K_RIGHT_SUBSEGMENT_SEPARATOR='\uE0C7'
 
 # Plugins
-if [ "$TERM" != 'linux' ]; then
+if [ "$TERM" = 'linux' ]; then
   zplug "bhilburn/powerlevel9k", use:powerlevel9k.zsh-theme
 else 
+  #source ~/.config/ps1_builder.sh
   export PS1="%{%F{yellow}%}%n%{%f%} %~ › "
 fi
 zplug "zsh-users/zsh-completions"
