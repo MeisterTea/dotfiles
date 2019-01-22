@@ -23,7 +23,6 @@ POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND='yellow'
 if [ "$TERM" != 'linux' ]; then
   zplug "bhilburn/powerlevel9k", use:powerlevel9k.zsh-theme
 else 
-  #source ~/.config/ps1_builder.sh
   export PS1="%{%F{yellow}%}%n%{%f%} %~ › "
 fi
 zplug "zsh-users/zsh-completions"
@@ -139,6 +138,7 @@ alias la='exa -a'
 alias ll='exa -l'
 alias lal='exa -la'
 alias cal='cal -m'
+alias ra='ranger'
 
 alias ranger='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"' # cd to closed directory
 alias scrot='scrot -q 100 ~/Pictures/screenshots/%Y-%m-%d-%T-screenshot.png'
