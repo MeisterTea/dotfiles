@@ -13,7 +13,7 @@ if [ "$TERM" = "linux" ]; then
     echo -en "\e]P9ff0000" # S_orange
     echo -en "\e]P7ffd7af" # S_base2
     echo -en "\e]P483a598" # S_blue
-    echo -en "\e]P37f7804" # S_yellow
+    echo -en "\e]P3d79921" # S_yellow
     echo -en "\e]PFa89984" # S_base3
     echo -en "\e]PD689d6a" # S_violet
     clear # against bg artifacts
