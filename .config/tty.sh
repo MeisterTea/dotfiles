@@ -17,4 +17,5 @@ if [ "$TERM" = "linux" ]; then
     echo -en "\e]PFd79921" # S_base3
     echo -en "\e]PD689d6a" # S_violet
     clear # against bg artifacts
+    echo "$(</etc/motd)"
   fi
