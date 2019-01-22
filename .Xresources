@@ -49,7 +49,6 @@ URxvt*background:                 [80]#000000
 URxvt*foreground:                 [100]#ffffff
 URxvt.transparent:                true
 URxvt.shading:                    0
-URxvt.blurRadius:                 25x50
 URxvt.cursorColor:                #ebdbb2
 ! ! Black + DarkGrey
 URxvt.color0:                     #282828

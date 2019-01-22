@@ -126,7 +126,7 @@ label-occupied-foreground = ${colors.foreground-alt}
 label-occupied-padding = 1
 
 label-urgent =  
-label-urgent-background = ${xrdb:foreground:#ff0000}
+label-urgent-foreground = #d79921
 label-urgent-padding = 1
 
 label-empty = 
