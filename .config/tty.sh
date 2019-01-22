@@ -10,11 +10,11 @@ if [ "$TERM" = "linux" ]; then
     echo -en "\e]P1fb4934" # S_red
     echo -en "\e]PCebdbb2" # S_base0
     echo -en "\e]PE689d6a" # S_base1
-    echo -en "\e]P9d79921" # S_orange
-    echo -en "\e]P798971a" # S_base2
+    echo -en "\e]P9ff0000" # S_orange
+    echo -en "\e]P7ffd7af" # S_base2
     echo -en "\e]P483a598" # S_blue
-    echo -en "\e]P3fabd2f" # S_yellow
-    echo -en "\e]PFd79921" # S_base3
+    echo -en "\e]P37f7804" # S_yellow
+    echo -en "\e]PFa89984" # S_base3
     echo -en "\e]PD689d6a" # S_violet
     clear # against bg artifacts
     echo "$(</etc/motd)"
