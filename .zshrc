@@ -2,7 +2,6 @@ source ~/.config/tty.sh
 source /usr/share/zsh/scripts/zplug/init.zsh
 
 # Theme
-
 POWERLEVEL9K_MODE='nerdfont-complete'
 POWERLEVEL9K_STATUS_CROSS=true
 
@@ -15,17 +14,11 @@ POWERLEVEL9K_TIME_FORMAT="%B%D{%H:%M:%S}"
 
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon dir dir_writable vcs)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=()
-# POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status virtualenv time)
 
 POWERLEVEL9K_OS_ICON_FOREGROUND="108"
 POWERLEVEL9K_VCS_MODIFIED_BACKGROUND='yellow'
 POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND='yellow'
-
-#POWERLEVEL9K_LEFT_SEGMENT_SEPARATOR='\uE0C6'
-#POWERLEVEL9K_LEFT_SUBSEGMENT_SEPARATOR='\uE0C6'
-#POWERLEVEL9K_RIGHT_SEGMENT_SEPARATOR='\uE0C7'
-#POWERLEVEL9K_RIGHT_SUBSEGMENT_SEPARATOR='\uE0C7'
-
+#
 # Plugins
 if [ "$TERM" != 'linux' ]; then
   zplug "bhilburn/powerlevel9k", use:powerlevel9k.zsh-theme
@@ -39,32 +32,21 @@ zplug "zsh-users/zsh-syntax-highlighting"
 zplug "zsh-users/zsh-history-substring-search"
 zplug "yukiycino-dotfiles/fancy-ctrl-z"
 
-# Zsh parameters
-
 # History configuration
-
 HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
 
-# Command correction
+setopt correct # Command correction
 
-setopt correct
 
-# Hidden files tab completion
+setopt globdots # Hidden files tab completion
 
-setopt globdots
+stty -ixon # Disables XON/XOFF flow control
 
-# Disables XON/XOFF flow control
-stty -ixon
-
-# Tab menu
-
-# Tab colors
-zstyle -e ':completion:*:default' list-colors 'reply=("${PREFIX:+=(#bi)($PREFIX:t)(?)*==34=34}:${(s.:.)LS_COLORS}")';
+zstyle -e ':completion:*:default' list-colors 'reply=("${PREFIX:+=(#bi)($PREFIX:t)(?)*==34=34}:${(s.:.)LS_COLORS}")'; # Tab colors
 
 # Completion options
-
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
 
 zstyle ':completion:*:*:*:*:*' menu select
@@ -81,11 +63,9 @@ zstyle ':completion:*' group-name ''
 zstyle ':completion:*' verbose yes
 
 fpath=(~/.zsh/completion $fpath)
-#fpath=(~/.zsh/completion/zsh-completions/src $fpath)
 autoload -Uz compinit && compinit -i
 
-# Set up Node Version Manager
-source /usr/share/nvm/init-nvm.sh
+source /usr/share/nvm/init-nvm.sh # Set up Node Version Manager
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
@@ -144,7 +124,6 @@ bindkey '^[[B' history-substring-search-down
 # Aliases
 
 # Shortcuts
-
 alias v='nvim'
 alias vi='nvim'
 alias vim='nvim'
@@ -154,22 +133,29 @@ alias tb='taskbook'
 alias please='sudo'
 alias fuck='killall -9'
 alias ag='ag --path-to-ignore ~/.ignore'
-alias icat="kitty +kitten icat"
-alias d="kitty +kitten diff"
-alias nf="neofetch --kitty ~/.config/neofetch/image/"
-
-alias gt1="git log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all"
-alias gt2="git log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all"
-
-alias ranger='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"' # cd to closed directory
 alias grep='grep --color=auto'
 alias ls='exa'
 alias la='exa -a'
 alias ll='exa -l'
 alias lal='exa -la'
-
-alias scrot='scrot -q 100 ~/Pictures/screenshots/%Y-%m-%d-%T-screenshot.png'
 alias cal='cal -m'
+
+alias ranger='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"' # cd to closed directory
+alias scrot='scrot -q 100 ~/Pictures/screenshots/%Y-%m-%d-%T-screenshot.png'
+
+# Kitty related
+alias icat="kitty +kitten icat"
+alias d="kitty +kitten diff"
+alias nf="neofetch --kitty ~/.config/neofetch/image/"
+
+# Tmux related
+alias td="tmux detach"
+alias ta="tmux attach"
+alias tn="tmux new"
+
+# Git related
+alias gt1="git log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all"
+alias gt2="git log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all"
 
 zplug load
 
