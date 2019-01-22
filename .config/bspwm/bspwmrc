@@ -2,10 +2,12 @@
 
 bspc config external_rules_command "$HOME/.config/bspwm/external_rules"
 
+source "$HOME/.config/bspwm/scripts/set_desktops.sh"
+
 sourcesList=(
 	"/etc/profile"
 	"${HOME}/.profile"
-	"${XDG_CONFIG_HOME:-"$HOME/.config"}/bspwm/autostart"
+  "${XDG_CONFIG_HOME:-"$HOME/.config"}/bspwm/autostart"
   )
 
   for file in "${sourcesList[@]}"; do
@@ -15,8 +17,6 @@ done
 gap=10
 
 sxhkd &
-
-source "$HOME/.config/bspwm/scripts/set_desktops.sh"
 
 background=$(xrdb -query | grep "background" | cut -f2 | sed -r 's/#//' | head -n 1)
 foreground=$(xrdb -query | grep "foreground" | cut -f2 | sed -r 's/#//' | head -n 1)
