@@ -1,1 +1,0 @@
-/home/bamboozilla/.config/bspwm/scripts/autostart/work.sh
