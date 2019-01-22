@@ -21,13 +21,13 @@ POWERLEVEL9K_OS_ICON_FOREGROUND="108"
 POWERLEVEL9K_VCS_MODIFIED_BACKGROUND='yellow'
 POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND='yellow'
 
-POWERLEVEL9K_LEFT_SEGMENT_SEPARATOR='\uE0C6'
-POWERLEVEL9K_LEFT_SUBSEGMENT_SEPARATOR='\uE0C6'
+#POWERLEVEL9K_LEFT_SEGMENT_SEPARATOR='\uE0C6'
+#POWERLEVEL9K_LEFT_SUBSEGMENT_SEPARATOR='\uE0C6'
 #POWERLEVEL9K_RIGHT_SEGMENT_SEPARATOR='\uE0C7'
 #POWERLEVEL9K_RIGHT_SUBSEGMENT_SEPARATOR='\uE0C7'
 
 # Plugins
-if [ "$TERM" = 'linux' ]; then
+if [ "$TERM" != 'linux' ]; then
   zplug "bhilburn/powerlevel9k", use:powerlevel9k.zsh-theme
 else 
   #source ~/.config/ps1_builder.sh
@@ -151,17 +151,18 @@ alias vim='nvim'
 alias emacs='emacs -nw'
 alias bc='bc -ql'
 alias tb='taskbook'
+alias please='sudo'
 alias fuck='killall -9'
 alias ag='ag --path-to-ignore ~/.ignore'
+alias icat="kitty +kitten icat"
+alias d="kitty +kitten diff"
+alias nf="neofetch --kitty ~/.config/neofetch/image/"
 
-# Git
+alias gt1="git log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all"
+alias gt2="git log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all"
 
-alias gitTree1="git log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all"
-alias gitTree2="git log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all"
-
-# cd to closed directory
-
-alias ranger='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'
+alias ranger='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"' # cd to closed directory
+alias grep='grep --color=auto'
 alias ls='exa'
 alias la='exa -a'
 alias ll='exa -l'
