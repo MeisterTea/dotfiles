@@ -5,17 +5,17 @@ if [ "$TERM" = "linux" ]; then
     echo -en "\e]P032302f" # S_base02
     echo -en "\e]P6689d6a" # S_cyan
     echo -en "\e]P8d79921" # S_base03
-    echo -en "\e]P2b8bb26" # S_green
+    echo -en "\e]P298971a" # S_green
     echo -en "\e]P5d3869b" # S_magenta
-    echo -en "\e]P1fb4934" # S_red
+    echo -en "\e]P1cc241d" # S_red
     echo -en "\e]PCebdbb2" # S_base0
     echo -en "\e]PE689d6a" # S_base1
-    echo -en "\e]P9ff0000" # S_orange
-    echo -en "\e]P7ffd7af" # S_base2
-    echo -en "\e]P483a598" # S_blue
+    echo -en "\e]P9d79921" # S_orange
+    echo -en "\e]P7ebdbb2" # S_base2 => modified to get a creme tone
+    echo -en "\e]P4458588" # S_blue
     echo -en "\e]P3d79921" # S_yellow
     echo -en "\e]PFa89984" # S_base3
-    echo -en "\e]PD689d6a" # S_violet
+    echo -en "\e]PDb16286" # S_violet
     clear # against bg artifacts
     echo "$(</etc/motd)"
   fi
