@@ -159,7 +159,7 @@ let g:ack_mappings = {
       \ "gv": "<C-W><CR>:exe 'wincmd ' (&splitright ? 'L' : 'H')<CR><C-W>p<C-W>J" }
 let g:ackprg = 'ag --path-to-ignore ~/.ignore --vimgrep --smart-case'
 
-set diffopt=filler,iwhite " Hides whitespaces in Gdiff
+set diffopt=vertical,filler,iwhite " vertical split + hides whitespaces in Gdiff
 
 " ES6+ support on js files
 let g:jsx_ext_required = 0
@@ -215,6 +215,9 @@ nnoremap <leader>gs :Gstatus<CR>
 nnoremap <leader>gc :Gcommit -v -q<CR>
 nnoremap <leader>gt :Gcommit -v -q %:p<CR>
 nnoremap <leader>gd :Gdiff<CR>
+
+" Leaves Gdiff open for commit hash
+nnoremap <leader>gdc :Gdiff 
 nnoremap <leader>ge :Gedit<CR>
 nnoremap <leader>gr :Gread<CR>
 nnoremap <leader>gw :Gwrite<CR><CR>
