@@ -20,16 +20,17 @@
   selected-urgent-background: #b4575e;
   selected-urgent-foreground: @foreground;
 
+  scrollbar: #353b49;
   background-color: @background;
   background: #232731aa;
-  foreground: #bed7e2;
+  foreground: #839496;
   border-color: @background;
-  spacing: 2;
 }
 
 window {
   background-color: @background;
   border: 2;
+  width: 30%;
   padding: 3ch;
 }
 
@@ -39,16 +40,14 @@ mainbox {
 }
 
 listview {
-  border: 2px solid 0 0;
-  padding: 2px 0 0 0.1em;
-  border-color: @separatorcolor;
-  spacing: 2px;
-  scrollbar: @scrollbar;
+  spacing: 0;
+  padding: 2px;
+  scrollbar: true;
 }
 
 element {
   border: 0;
-  padding: 2px;
+  padding: 8px 8px 8px 16px;
 }
 
 element.normal.normal {
@@ -99,7 +98,7 @@ element.alternate.active {
 scrollbar {
   width: 4px;
   border:0;
-  handle-color: @scrollbar-handle;
+  handle-color: @scrollbar;
   handle-width: 8px;
   padding: 0;
 }
