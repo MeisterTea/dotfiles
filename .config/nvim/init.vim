@@ -101,6 +101,8 @@ nnoremap <SPACE> <Nop>
 map <space> <leader>
 nnoremap <Leader><space> :noh<cr>
 
+
+set fcs=eob:\ 
 set encoding=utf8
 set mouse=a
 set incsearch
@@ -190,6 +192,8 @@ let g:limelight_conceal_guifg = 'DarkGray'
 let NERDTreeMinimalUI=1
 let g:WebDevIconsUnicodeDecorateFolderNodes = 1
 let g:DevIconsEnableFoldersOpenClose = 1
+let g:NERDTreeDirArrowExpandable="›"
+let g:NERDTreeDirArrowCollapsible=" "
 highlight! link NERDTreeFlags NERDTreeDir
 hi NERDTreeClosable ctermfg=green
 hi NERDTreeOpenable ctermfg=green
@@ -254,5 +258,3 @@ nmap td :tabclose<CR>
 nnoremap <leader>tb :TagbarToggle<CR>
 nnoremap <leader>ut :UndotreeToggle<CR>
 nnoremap <leader>ll :Limelight!!<CR>
-
-set fcs=eob:\ 
