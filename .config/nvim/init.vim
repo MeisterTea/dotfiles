@@ -137,6 +137,11 @@ set hidden
 
 au FileType qf wincmd J " Full width quickfix window
 
+" highlight current line number
+set cursorline
+hi CursorLine   cterm=NONE ctermbg=None
+hi CursorLineNR ctermfg=yellow ctermbg=None
+
 " Python path
 let g:python_host_prog = '/usr/bin/python2'
 let g:python3_host_prog = '/usr/bin/python3'
