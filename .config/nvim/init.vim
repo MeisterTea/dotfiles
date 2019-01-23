@@ -193,11 +193,11 @@ let NERDTreeMinimalUI=1
 let g:WebDevIconsUnicodeDecorateFolderNodes = 1
 let g:DevIconsEnableFoldersOpenClose = 1
 let g:NERDTreeDirArrowExpandable="›"
-let g:NERDTreeDirArrowCollapsible=" "
-highlight! link NERDTreeFlags NERDTreeDir
+let g:NERDTreeDirArrowCollapsible=""
 hi NERDTreeClosable ctermfg=green
 hi NERDTreeOpenable ctermfg=green
 hi NERDTreeDir ctermfg=green
+hi NERDTreeFlags ctermfg=white
 
 " Nerdcommenter settings
 let g:NERDSpaceDelims = 1
