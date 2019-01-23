@@ -16,6 +16,7 @@ if [ "$TERM" = "linux" ]; then
     echo -en "\e]P3d79921" # S_yellow
     echo -en "\e]PFa89984" # S_base3
     echo -en "\e]PDb16286" # S_violet
+    echo -e '\033[?2c' # blinking underline
     clear # against bg artifacts
     echo "$(</etc/motd)"
   fi
