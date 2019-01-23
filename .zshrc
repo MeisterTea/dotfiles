@@ -1,4 +1,3 @@
-source ~/.config/tty.sh
 source /usr/share/zsh/scripts/zplug/init.zsh
 
 # Theme
