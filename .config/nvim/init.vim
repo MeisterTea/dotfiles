@@ -163,6 +163,8 @@ highlight SignColumn ctermbg=NONE cterm=NONE guibg=NONE gui=NONE
 
 " Airline
 let g:airline_powerline_fonts = 1
+let g:airline#extensions#whitespace#checks = 0
+let g:airline_skip_empty_sections = 1
 
 " Easymotion
 nmap s <Plug>(easymotion-overwin-f2)
@@ -248,7 +250,3 @@ nmap td :tabclose<CR>
 nnoremap <leader>tb :TagbarToggle<CR>
 nnoremap <leader>ut :UndotreeToggle<CR>
 nnoremap <leader>ll :Limelight!!<CR>
-
-
-let g:airline#extensions#whitespace#checks = 0
-let g:airline_skip_empty_sections = 1
