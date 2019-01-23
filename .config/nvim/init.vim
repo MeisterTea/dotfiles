@@ -64,8 +64,7 @@ Plug 'SirVer/ultisnips'
 
 Plug 'scrooloose/nerdcommenter' " Easy commenting
 
-"Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
-Plug 'majutsushi/tagbar'
+Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
 
 Plug 'craigemery/vim-autotag' " Automatic tags update
 
@@ -84,10 +83,6 @@ Plug 'junegunn/fzf.vim'
 Plug 'mileszs/ack.vim' " Ack search
 
 Plug 'mattn/emmet-vim' " Emmet support
-
-" Plug 'SirVer/ultisnips' " UltiSnips engine
-
-" Plug 'honza/vim-snippets' " UltiSnips snippets
 
 Plug 'ryanoasis/vim-devicons' " Needs to be loaded last
 
@@ -189,6 +184,11 @@ highlight ALEWarningSign ctermbg=237 ctermfg=yellow
 let g:limelight_conceal_ctermfg = 'gray'
 let g:limelight_conceal_guifg = 'DarkGray'
 
+" NERDTree colors
+hi NERDTreeClosable ctermfg=green
+hi NERDTreeOpenable ctermfg=green
+hi NERDTreeDir ctermfg=green
+
 " Nerdcommenter settings
 let g:NERDSpaceDelims = 1
 let g:NERDCompactSexyComs = 1
@@ -229,7 +229,8 @@ nnoremap <leader>go :Git checkout<Space>
 nnoremap <leader>gps :Dispatch! git push<CR>
 nnoremap <leader>gpl :Dispatch! git pull<CR>
 
-" NerdTree bindings
+"" NerdTree bindings
+" Double tap b when on tmux
 map <C-b> <esc>:NERDTreeToggle<CR>
 
 " Fix errors or warnings
@@ -247,3 +248,7 @@ nmap td :tabclose<CR>
 nnoremap <leader>tb :TagbarToggle<CR>
 nnoremap <leader>ut :UndotreeToggle<CR>
 nnoremap <leader>ll :Limelight!!<CR>
+
+
+let g:airline#extensions#whitespace#checks = 0
+let g:airline_skip_empty_sections = 1
