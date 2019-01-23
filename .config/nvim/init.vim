@@ -186,7 +186,11 @@ highlight ALEWarningSign ctermbg=237 ctermfg=yellow
 let g:limelight_conceal_ctermfg = 'gray'
 let g:limelight_conceal_guifg = 'DarkGray'
 
-" NERDTree colors
+" NERDTree config
+let NERDTreeMinimalUI=1
+let g:WebDevIconsUnicodeDecorateFolderNodes = 1
+let g:DevIconsEnableFoldersOpenClose = 1
+highlight! link NERDTreeFlags NERDTreeDir
 hi NERDTreeClosable ctermfg=green
 hi NERDTreeOpenable ctermfg=green
 hi NERDTreeDir ctermfg=green
