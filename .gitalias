@@ -824,10 +824,10 @@
   ##my aliases
 
   # search log in all branches
-  lall = log --all --pretty=oneline --short --grep
+  lall = log --all --pretty=oneline -i --grep
 
   # search log in all branches and give us the branch of the commit
-  lalls = log --all --source --pretty=oneline --short --grep 
+  lalls = log --all --source --pretty=oneline -i --grep
 
   # list file changes on a specific commit
   fc =  diff-tree --no-commit-id --name-status -r
