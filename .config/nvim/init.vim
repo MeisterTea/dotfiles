@@ -254,3 +254,5 @@ nmap td :tabclose<CR>
 nnoremap <leader>tb :TagbarToggle<CR>
 nnoremap <leader>ut :UndotreeToggle<CR>
 nnoremap <leader>ll :Limelight!!<CR>
+
+set fcs=eob:\ 
