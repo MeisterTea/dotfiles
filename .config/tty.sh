@@ -7,7 +7,7 @@ if [ "$TERM" = "linux" ]; then
     echo -en "\e]P8d79921" # S_base03
     echo -en "\e]P298971a" # S_green
     echo -en "\e]P5d3869b" # S_magenta
-    echo -en "\e]P1cc241d" # S_red
+    echo -en "\e]P1b14e4e" # S_red
     echo -en "\e]PCebdbb2" # S_base0
     echo -en "\e]PE689d6a" # S_base1
     echo -en "\e]P9d79921" # S_orange
