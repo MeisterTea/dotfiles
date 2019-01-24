@@ -8,7 +8,7 @@
 
 call plug#begin('~/.local/share/nvim/plugged')
 
-Plug 'morhetz/gruvbox' " Theme
+Plug 'MeisterTea/gruvbox' " Theme
 
 Plug 'tmhedberg/matchit' " extends % pairing to html etc...
 
@@ -139,8 +139,8 @@ au FileType qf wincmd J " Full width quickfix window
 
 " highlight current line number
 set cursorline
-hi CursorLine   cterm=NONE ctermbg=None
-hi CursorLineNR ctermfg=yellow ctermbg=None
+hi cursorline ctermbg=none
+hi cursorlinenr ctermfg=yellow ctermbg=None
 
 " Python path
 let g:python_host_prog = '/usr/bin/python2'
@@ -182,6 +182,11 @@ map <Leader>k <Plug>(easymotion-k)
 " Ncm2 settings
 let ncm2#popup_delay = 200
 let g:ncm2#matcher = 'substrfuzzy'
+
+" signify colors
+highlight SignifySignAdd    cterm=bold ctermbg=None  ctermfg=green
+highlight SignifySignDelete cterm=bold ctermbg=None  ctermfg=red
+highlight SignifySignChange cterm=bold ctermbg=None  ctermfg=yellow
 
 " ALE colors
 let g:ale_sign_error = '✖'
