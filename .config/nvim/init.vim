@@ -191,8 +191,8 @@ highlight SignifySignChange cterm=bold ctermbg=None  ctermfg=yellow
 " ALE colors
 let g:ale_sign_error = '✖'
 let g:ale_sign_warning = '⚠'
-highlight ALEErrorSign ctermbg=237 ctermfg=red
-highlight ALEWarningSign ctermbg=237 ctermfg=yellow
+highlight ALEErrorSign ctermbg=None ctermfg=red
+highlight ALEWarningSign ctermbg=None ctermfg=yellow
 
 " Limelight colors
 let g:limelight_conceal_ctermfg = 'gray'
