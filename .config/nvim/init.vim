@@ -46,6 +46,7 @@ Plug 'pangloss/vim-javascript' " Javascript
 Plug 'mxw/vim-jsx' " JSX
 Plug 'posva/vim-vue' " Vue
 Plug 'ap/vim-css-color' " CSS
+Plug 'lumiliet/vim-twig' " Twig
 
 " Autocompletion
 Plug 'ncm2/ncm2' " Autocompletion plugin
