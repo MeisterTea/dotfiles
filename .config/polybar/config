@@ -72,7 +72,8 @@ font-5 = "Font Awesome 5 Free:style=Solid:pixelsize=11:antialias=true;1"
 font-6 = "Font Awesome 5 Brands:pixelsize=11:antialias=true;1"
 
 modules-left = bspwm
-modules-right = volume battery_work date powermenu
+modules-center = date
+modules-right = volume battery_work powermenu
 
 tray-position = right
 
@@ -184,13 +185,12 @@ animation-charging-framerate = 750
 type = internal/date
 interval = 5
 
-date =
+date = "%a."
 date-alt = " %Y-%m-%d"
 
 time = %H:%M
 time-alt = %H:%M:%S
 
-format-prefix = 
 # format-underline = ${xrdb:color4}
 
 label = %date% %time%
