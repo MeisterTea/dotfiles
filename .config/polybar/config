@@ -43,7 +43,7 @@ tray-position = right
 wm-restack = bspwm
 
 [bar/work]
-monitor = eDP1
+monitor = eDP-1
 width = 99%
 height = 32
 offset-x = 8

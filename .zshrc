@@ -17,10 +17,10 @@ POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=()
 POWERLEVEL9K_OS_ICON_FOREGROUND="108"
 POWERLEVEL9K_VCS_MODIFIED_BACKGROUND='yellow'
 POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND='yellow'
-#
+
 # Plugins
 if [ "$TERM" != 'linux' ]; then
-  zplug "bhilburn/powerlevel9k", use:powerlevel9k.zsh-theme
+  source  ~/.config/zsh/powerlevel9k/powerlevel9k.zsh-theme
 else 
   export PS1="%{%F{yellow}%}%n%{%f%} %~ › "
 fi
@@ -159,3 +159,4 @@ alias gt2="git log --graph --abbrev-commit --decorate --format=format:'%C(bold b
 zplug load
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
