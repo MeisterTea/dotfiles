@@ -81,8 +81,6 @@ Plug 'tpope/vim-surround' " Surrounding
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
-Plug 'mileszs/ack.vim' " Ack search
-
 Plug 'mattn/emmet-vim' " Emmet support
 
 Plug 'ryanoasis/vim-devicons' " Needs to be loaded last
@@ -130,12 +128,6 @@ filetype plugin on
 " No more warnings about unsaved file
 set hidden
 
-" Folding
-" set foldcolumn=2
-" set foldmethod=syntax " Autofolding
-" set foldlevelstart=99 " No default folding
-" hi Folded guibg=NONE ctermbg=NONE
-
 au FileType qf wincmd J " Full width quickfix window
 
 " highlight current line number
@@ -154,13 +146,35 @@ cnoremap $m <CR>:m''<CR>
 cnoremap $M <CR>:M''<CR>
 cnoremap $d <CR>:d<CR>``
 
-" Split rightward so as not to displace a left NERDTree
-let g:ack_mappings = {
-      \ "h": "<C-W><CR>:exe 'wincmd ' (&splitbelow ? 'J' : 'K')<CR><C-W>p<C-W>J<C-W>p",
-      \ "H": "<C-W><CR>:exe 'wincmd ' (&splitbelow ? 'J' : 'K')<CR><C-W>p<C-W>J",
-      \ "v": "<C-W><CR>:exe 'wincmd ' (&splitright ? 'L' : 'H')<CR><C-W>p<C-W>J<C-W>p",
-      \ "gv": "<C-W><CR>:exe 'wincmd ' (&splitright ? 'L' : 'H')<CR><C-W>p<C-W>J" }
-let g:ackprg = 'ag --path-to-ignore ~/.ignore --vimgrep --smart-case'
+" Fzf
+let g:fzf_colors =
+\ { 'fg':      ['fg', 'Normal'],
+  \ 'bg':      ['bg', 'Normal'],
+  \ 'hl':      ['fg', 'Comment'],
+  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+  \ 'hl+':     ['fg', 'Statement'],
+  \ 'info':    ['fg', 'PreProc'],
+  \ 'border':  ['fg', 'Ignore'],
+  \ 'prompt':  ['fg', 'Conditional'],
+  \ 'pointer': ['fg', 'Exception'],
+  \ 'marker':  ['fg', 'Keyword'],
+  \ 'spinner': ['fg', 'Label'],
+  \ 'header':  ['fg', 'Comment'] }
+
+" C-f bindings
+command! -bang -nargs=* Rg
+  \ call fzf#vim#grep(
+  \   'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
+  \   <bang>0 ? fzf#vim#with_preview('up:60%')
+  \           : fzf#vim#with_preview('right:50%:hidden', '?'),
+  \   <bang>0)
+
+" C-p bindings
+command! -bang -nargs=? -complete=dir Files
+  \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
+
+
 
 set diffopt=vertical,filler,iwhite " vertical split + hides whitespaces in Gdiff
 
@@ -203,8 +217,8 @@ let g:limelight_conceal_guifg = 'DarkGray'
 let NERDTreeMinimalUI=1
 let g:WebDevIconsUnicodeDecorateFolderNodes = 1
 let g:DevIconsEnableFoldersOpenClose = 1
-let g:NERDTreeDirArrowExpandable="›"
-let g:NERDTreeDirArrowCollapsible=""
+"let g:NERDTreeDirArrowExpandable="›"
+"let g:NERDTreeDirArrowCollapsible=""
 hi NERDTreeClosable ctermfg=green
 hi NERDTreeOpenable ctermfg=green
 hi NERDTreeDir ctermfg=green
@@ -258,10 +272,10 @@ map <C-b> <esc>:NERDTreeToggle<CR>
 map <C-e> <esc>:ALEFix<CR>
 
 " Search all files content
-map <C-f> <esc>:Ack 
+map <C-f> <esc>:Rg 
 
 " Search all files names
-map <C-p> <esc>:GFiles<CR>
+map <C-p> <esc>:Files<CR>
 
 " Misc bindings
 nmap t% :tabedit %<CR>

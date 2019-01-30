@@ -91,6 +91,9 @@ zstyle ':completion:*:*:*:*:*' menu select
     export VISUAL=nvim
     export EDITOR="$VISUAL"
 
+export FZF_DEFAULT_COMMAND="fd --type file --follow --color=always --exclude .git"
+export FZF_DEFAULT_OPTS="--ansi"
+
 # Fixes keys
 bindkey -e
 bindkey "\e[1~" beginning-of-line
@@ -144,6 +147,7 @@ alias cal='cal -m'
 alias ra='ranger'
 alias rago='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"' # cd to closed directory
 alias scrot='scrot -q 100 ~/Pictures/screenshots/%Y-%m-%d-%T-screenshot.png'
+alias rndbg='adb shell input keyevent 82'
 
 # Kitty related
 alias icat="kitty +kitten icat"
