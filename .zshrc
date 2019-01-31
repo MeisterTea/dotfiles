@@ -20,7 +20,7 @@ POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND='yellow'
 
 # Plugins
 if [ "$TERM" != 'linux' ]; then
-  source  ~/.config/zsh/powerlevel9k/powerlevel9k.zsh-theme
+  source /usr/share/zsh-theme-powerlevel9k/powerlevel9k.zsh-theme
 else 
   export PS1="%{%F{yellow}%}%n%{%f%} %~ › "
 fi
@@ -48,45 +48,48 @@ zstyle -e ':completion:*:default' list-colors 'reply=("${PREFIX:+=(#bi)($PREFIX:
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
 
 zstyle ':completion:*:*:*:*:*' menu select
-zstyle ':completion:*:matches' group 'yes'
-zstyle ':completion:*:options' description 'yes'
-zstyle ':completion:*:options' auto-description '%d'
-zstyle ':completion:*:corrections' format ' %F{green}-- %d (errors: %e) --%f'
-zstyle ':completion:*:descriptions' format ' %F{yellow}-- %d --%f'
-zstyle ':completion:*:messages' format ' %F{purple} -- %d --%f'
-zstyle ':completion:*:warnings' format ' %F{red}-- no matches found --%f'
-zstyle ':completion:*:default' list-prompt '%S%M matches%s'
-zstyle ':completion:*' format ' %F{yellow}-- %d --%f'
-zstyle ':completion:*' group-name ''
-zstyle ':completion:*' verbose yes
+  zstyle ':completion:*:matches' group 'yes'
+  zstyle ':completion:*:options' description 'yes'
+  zstyle ':completion:*:options' auto-description '%d'
+  zstyle ':completion:*:corrections' format ' %F{green}-- %d (errors: %e) --%f'
+  zstyle ':completion:*:descriptions' format ' %F{yellow}-- %d --%f'
+  zstyle ':completion:*:messages' format ' %F{purple} -- %d --%f'
+  zstyle ':completion:*:warnings' format ' %F{red}-- no matches found --%f'
+  zstyle ':completion:*:default' list-prompt '%S%M matches%s'
+  zstyle ':completion:*' format ' %F{yellow}-- %d --%f'
+  zstyle ':completion:*' group-name ''
+  zstyle ':completion:*' verbose yes
 
-fpath=(~/.zsh/completion $fpath)
-autoload -Uz compinit && compinit -i
+  fpath=(~/.zsh/completion $fpath)
+  autoload -Uz compinit && compinit -i
 
-source /usr/share/nvm/init-nvm.sh # Set up Node Version Manager
+  source /usr/share/nvm/init-nvm.sh # Set up Node Version Manager
 
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+  export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+    [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
-export ANDROID_HOME=${HOME}/Android/Sdk 
-export SURIKAT_SETTINGS=/home/bamboozilla/.config/wildfly/crm-manager.properties
-export JAVA_HOME="/usr/lib/jvm/java-8-openjdk/"
-export _JAVA_AWT_WM_NONREPARENTING=1 # Fixes grey java apps
-export PATH=${PATH}:${HOME}/.bin
-export PATH=${PATH}:${ANDROID_HOME}/emulator 
-export PATH=${PATH}:${ANDROID_HOME}/tools 
-export PATH=${PATH}:${ANDROID_HOME}/platform-tools
-export PATH=${PATH}:/root/.gem/ruby/2.4.0/bin
-export PATH=${PATH}:${HOME}/.yarn/bin
-export PATH=${PATH}:/opt/drush/drush:/usr/local/bin/drush
-export PATH=${PATH}:/opt/mongodb/bin
-export PATH=${PATH}:${JAVA_HOME}/bin:$PATH
-export PATH=${PATH}:${HOME}/.cargo/bin
+    export ANDROID_HOME=${HOME}/Android/Sdk 
+    export SURIKAT_SETTINGS=/home/bamboozilla/.config/wildfly/crm-manager.properties
+    export JAVA_HOME="/usr/lib/jvm/java-8-openjdk/"
+    export _JAVA_AWT_WM_NONREPARENTING=1 # Fixes grey java apps
+    export PATH=${PATH}:${HOME}/.bin
+    export PATH=${PATH}:${ANDROID_HOME}/emulator 
+    export PATH=${PATH}:${ANDROID_HOME}/tools 
+    export PATH=${PATH}:${ANDROID_HOME}/platform-tools
+    export PATH=${PATH}:/root/.gem/ruby/2.4.0/bin
+    export PATH=${PATH}:${HOME}/.yarn/bin
+    export PATH=${PATH}:/opt/drush/drush:/usr/local/bin/drush
+    export PATH=${PATH}:/opt/mongodb/bin
+    export PATH=${PATH}:${JAVA_HOME}/bin:$PATH
+    export PATH=${PATH}:${HOME}/.cargo/bin
 
-export _JAVA_OPTIONS=-Djava.io.tmpdir=/var/tmp
-#export TERM="xterm-256color"
-export VISUAL=nvim
-export EDITOR="$VISUAL"
+    export FZF_DEFAULT_COMMAND='fd --type f --exclude .git'
+    export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
+    export _JAVA_OPTIONS=-Djava.io.tmpdir=/var/tmp
+    #export TERM="xterm-256color"
+    export VISUAL=nvim
+    export EDITOR="$VISUAL"
 
 export FZF_DEFAULT_COMMAND="fd --type file --follow --color=always --exclude .git"
 export FZF_DEFAULT_OPTS="--ansi"
