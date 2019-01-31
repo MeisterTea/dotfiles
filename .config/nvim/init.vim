@@ -106,6 +106,8 @@ set encoding=utf8
 set mouse=a
 set incsearch
 set number
+set list
+set listchars=trail:~
 set clipboard=unnamed " Fixes tmux clipboard usage
 
 set tabstop=2
