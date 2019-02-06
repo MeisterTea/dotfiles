@@ -17,9 +17,9 @@ if [ "$instance" = kitty ] && [ "$state" = floating ] ; then
 fi
 
 if [ "$class" = Google-chrome-beta ]
-	then
-		if [[ $(xprop -id "$wid" | grep WM_WINDOW_ROLE) = *'= "pop-up"' ]]
-			then
-				echo "state=floating"
-		fi
+then
+  if [[ $(xprop -id "$wid" | grep WM_WINDOW_ROLE) = *'= "pop-up"' ]]
+  then
+    echo "state=floating"
   fi
+fi

@@ -1,4 +1,4 @@
 feh --bg-fill ~/Pictures/Wallpapers/firewatch_orange.png
-compton -b &
+dbus-launch compton -CG --config ~/.compton.conf &
 polybar home &
 

@@ -100,14 +100,16 @@ nnoremap <SPACE> <Nop>
 map <space> <leader>
 nnoremap <Leader><space> :noh<cr>
 
-
-set fcs=eob:\ 
+" disable help
+nmap <F1> :echo<CR>
+imap <F1> <C-o>:echo<CR>
+set fcs=eob:\
 set encoding=utf8
 set mouse=a
 set incsearch
 set number
 set list
-set listchars=trail:~
+set listchars=tab:»\ ,extends:›,precedes:‹,nbsp:·,trail:·
 set clipboard=unnamed " Fixes tmux clipboard usage
 
 set tabstop=2
