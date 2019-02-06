@@ -100,10 +100,8 @@ nnoremap <SPACE> <Nop>
 map <space> <leader>
 nnoremap <Leader><space> :noh<cr>
 
-" disable help
-nmap <F1> :echo<CR>
-imap <F1> <C-o>:echo<CR>
-set fcs=eob:\
+" Don't delete whitespace below !
+set fcs=eob:\ 
 set encoding=utf8
 set mouse=a
 set incsearch
