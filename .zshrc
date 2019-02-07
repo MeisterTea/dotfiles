@@ -69,7 +69,6 @@ zstyle ':completion:*:*:*:*:*' menu select
     [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
     export ANDROID_HOME=${HOME}/Android/Sdk 
-    export SURIKAT_SETTINGS=/home/bamboozilla/.config/wildfly/crm-manager.properties
     export JAVA_HOME="/usr/lib/jvm/java-8-openjdk/"
     export _JAVA_AWT_WM_NONREPARENTING=1 # Fixes grey java apps
     export PATH=${PATH}:${HOME}/.bin
