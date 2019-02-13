@@ -100,6 +100,10 @@ nnoremap <SPACE> <Nop>
 map <space> <leader>
 nnoremap <Leader><space> :noh<cr>
 
+" Disables help menu
+nmap <F1> :echo<CR>
+imap <F1> <C-o>:echo<CR>
+
 " Don't delete whitespace below !
 set fcs=eob:\ 
 set encoding=utf8
@@ -227,6 +231,7 @@ hi NERDTreeDir ctermfg=green
 hi NERDTreeFlags ctermfg=white
 
 " Nerdcommenter settings
+let g:NERDDefaultAlign = 'left'
 let g:NERDSpaceDelims = 1
 let g:NERDCompactSexyComs = 1
 
