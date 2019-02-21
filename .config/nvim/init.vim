@@ -43,6 +43,7 @@ Plug 'tmhedberg/SimpylFold' " Python folding
 " Syntastic coloration
 Plug 'leafgarland/typescript-vim' " Typescript
 Plug 'pangloss/vim-javascript' " Javascript
+Plug 'jparise/vim-graphql' " GraphQL
 Plug 'mxw/vim-jsx' " JSX
 Plug 'posva/vim-vue' " Vue
 Plug 'ap/vim-css-color' " CSS
