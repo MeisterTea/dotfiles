@@ -80,7 +80,7 @@ tray-position = right
 wm-restack = bspwm
 
 [bar/work_external]
-monitor = DP2-1
+monitor = HDMI-2
 width = 99%
 height = 32
 offset-x = 8
