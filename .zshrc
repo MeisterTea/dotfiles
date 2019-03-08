@@ -145,6 +145,9 @@ alias ra='ranger'
 alias rago='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"' # cd to closed directory
 alias scrot='scrot -q 100 ~/Pictures/screenshots/%Y-%m-%d-%T-screenshot.png'
 alias rndbg='adb shell input keyevent 82'
+alias grep="rg"
+alias find="fd"
+alias f="fd"
 
 # Kitty related
 alias icat="kitty +kitten icat"
