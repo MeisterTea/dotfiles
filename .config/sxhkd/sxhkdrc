@@ -153,8 +153,8 @@ ctrl + space
 ctrl + shift + space
     ~/.config/bspwm/misc/application_switcher
 
-super + shift + e
-  kitty ranger
+# super + shift + e
+#   kitty ranger
 
 Print + shift
   flameshot gui
@@ -171,8 +171,8 @@ super + {Left,Down,Up,Right}
 super + ctrl + f
   bspc window -t floating
 
-super + d
-  ~/.config/bspwm/scripts/draw.sh
+# super + d
+#   ~/.config/bspwm/scripts/draw.sh
 
 alt + {_,shift +} Tab
   alt + Tab bspc node -f last
