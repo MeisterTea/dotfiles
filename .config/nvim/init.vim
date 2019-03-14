@@ -285,9 +285,24 @@ map <C-f> <esc>:Rg
 " Search all files names
 map <C-p> <esc>:Files<CR>
 
+" Tabs bindings
+nnoremap t% :tabedit %<CR>
+nnoremap td :tabclose<CR>
+nnoremap tn :tabnew<CR>
+nnoremap tj  :tabfirst<CR>
+nnoremap tl  :tabnext<CR>
+nnoremap th  :tabprev<CR>
+nnoremap tk  :tablast<CR>
+nnoremap tt  :tabedit<Space>
+nnoremap tl  :tabnext<Space>
+nnoremap tm  :tabm<Space>
+
+" Alternatively use
+"nnoremap th :tabnext<CR>
+"nnoremap tl :tabprev<CR>
+"nnoremap tn :tabnew<CR>
+
 " Misc bindings
-nmap t% :tabedit %<CR>
-nmap td :tabclose<CR>
 nnoremap <leader>tb :TagbarToggle<CR>
 nnoremap <leader>ut :UndotreeToggle<CR>
 nnoremap <leader>ll :Limelight!!<CR>
