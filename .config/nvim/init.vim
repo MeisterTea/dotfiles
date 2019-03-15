@@ -288,11 +288,10 @@ nnoremap t% :tabedit %<CR>
 nnoremap td :tabclose<CR>
 nnoremap tn :tabnew<CR>
 nnoremap tj  :tabfirst<CR>
-nnoremap tl  :tabnext<CR>
 nnoremap th  :tabprev<CR>
+nnoremap tl  :tabnext<CR>
 nnoremap tk  :tablast<CR>
 nnoremap tt  :tabedit<Space>
-nnoremap tl  :tabnext<Space>
 nnoremap tm  :tabm<Space>
 
 " Alternatively use
@@ -301,6 +300,7 @@ nnoremap tm  :tabm<Space>
 "nnoremap tn :tabnew<CR>
 
 " Misc bindings
+nnoremap <leader>gy :Goyo<CR>
 nnoremap <leader>tb :TagbarToggle<CR>
 nnoremap <leader>ut :UndotreeToggle<CR>
 nnoremap <leader>ll :Limelight!!<CR>
