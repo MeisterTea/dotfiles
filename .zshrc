@@ -20,7 +20,7 @@ POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND='yellow'
 
 # Plugins
 if [ "$TERM" != 'linux' ]; then
-  source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
+  source /usr/share/zsh-theme-powerlevel9k/powerlevel9k.zsh-theme
 else 
   export PS1="%{%F{yellow}%}%n%{%f%} %~ › "
 fi

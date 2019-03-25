@@ -7,7 +7,8 @@
   g = grep
   l = log
   m = merge
-  o = checkout
+  mt = mergetool
+  co = checkout
   p = pull
   r = remote
   s = status
