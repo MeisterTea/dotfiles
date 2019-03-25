@@ -3,10 +3,12 @@ module.exports = {
   'env': {
     'node': true,
     'es6': true,
+    "react-native/react-native": true,
     "jest/globals": true
   },
   "plugins": [
     "react",
+    "react-native",
     "jest",
     "chai-expect"
   ],
@@ -16,6 +18,7 @@ module.exports = {
     "plugin:react/recommended"
   ],
   'rules': {
+    "arrow-spacing": 'error',
     'no-multiple-empty-lines': ["error", { "max": 1, "maxEOF": 1}],
     'space-in-parens': ["error", "never"],
     "indent": ["error", 2, {"SwitchCase": 1, "ignoredNodes": ["JSXElement"]}],
@@ -41,6 +44,12 @@ module.exports = {
       "ignoreCase": true,
       "reservedFirst": true,
     }],
+    "react/jsx-closing-bracket-location": 'error',
+    "react-native/no-unused-styles": 2,
+    "react-native/split-platform-components": 2,
+    "react-native/no-inline-styles": 2,
+    "react-native/no-color-literals": 2,
+    "react-native/no-raw-text": 2,
     'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off'
   },
