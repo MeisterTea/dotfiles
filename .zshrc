@@ -140,8 +140,6 @@ alias la='exa -a'
 alias ll='exa -l'
 alias lal='exa -la'
 alias cal='cal -m'
-alias ra='ranger'
-alias rago='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"' # cd to closed directory
 alias scrot='scrot -q 100 ~/Pictures/screenshots/%Y-%m-%d-%T-screenshot.png'
 alias rndbg='adb shell input keyevent 82'
 alias grep="rg"
@@ -166,3 +164,53 @@ zplug load
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+export FZF_CTRL_T_OPTS="--preview '(highlight -O ansi -l {} 2> /dev/null || nvim {} || tree -C {}) 2> /dev/null | head -200'"
+
+_fzf_compgen_path() {
+  fd --hidden --follow --exclude ".git" . "$1"
+}
+
+_fzf_compgen_dir() {
+  fd --type d --hidden --follow --exclude ".git" . "$1"
+}
+
+
+# pierpo/fzf-docker
+# doesn't work with zplug...
+
+_fzf_complete_docker() {
+  # Get all Docker commands
+  #
+  # Cut below "Management Commands:", then exclude "Management Commands:",
+  # "Commands:" and the last line of the help. Then keep the first column and
+  # delete empty lines
+  DOCKER_COMMANDS=$(docker --help 2>&1 >/dev/null |
+    sed -n -e '/Management Commands:/,$p' |
+    grep -v "Management Commands:" |
+    grep -v "Commands:" |
+    grep -v 'COMMAND --help' |
+    grep .
+  )
+
+  ARGS="$@"
+  if [[ $ARGS == 'docker ' ]]; then
+    _fzf_complete "--reverse -n 1 --height=80%" "$@" < <(
+      echo $DOCKER_COMMANDS
+    )
+  elif [[ $ARGS == 'docker rmi'* || $ARGS == 'docker -f'* ]]; then
+    _fzf_complete "--multi --reverse" "$@" < <(
+      docker images --format '{{.Repository}}:{{.Tag}}'
+    )
+  elif [[ $ARGS == 'docker start'* || $ARGS == 'docker restart'* || $ARGS == 'docker stop'* || $ARGS == 'docker rm'* || $ARGS == 'docker exec'* || $ARGS == 'docker kill'* ]]; then
+    _fzf_complete "--multi --reverse" "$@" < <(
+      docker ps --format '{{.Names}}'
+    )
+  fi
+}
+
+_fzf_complete_docker_post() {
+  # Post-process the fzf output to keep only the command name and not the explanation with it
+  awk '{print $1}'
+}
+
+[ -n "$BASH" ] && complete -F _fzf_complete_docker -o default -o bashdefault docker
