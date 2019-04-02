@@ -30,6 +30,7 @@ Plug 'ludovicchabant/vim-gutentags' " Automatic ctags generation for versionned 
 Plug 'tpope/vim-unimpaired'
 Plug 'junegunn/gv.vim'
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rhubarb'
 Plug 'mhinz/vim-signify'
 
 Plug 'lervag/vimtex'
@@ -192,6 +193,7 @@ highlight SignColumn ctermbg=NONE cterm=NONE guibg=NONE gui=NONE
 
 " Airline
 let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#whitespace#checks = []
 let g:airline_skip_empty_sections = 1
 
