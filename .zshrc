@@ -131,7 +131,6 @@ alias vim='nvim'
 alias sv='sudo -E nvim'
 alias emacs='emacs -nw'
 alias bc='bc -ql'
-alias tb='taskbook'
 alias please='sudo'
 alias fuck='killall -9'
 alias ag='ag --path-to-ignore ~/.ignore'
@@ -145,6 +144,7 @@ alias rndbg='adb shell input keyevent 82'
 alias grep="rg"
 alias find="fd"
 alias f="fd"
+alias g="git"
 
 # Kitty related
 alias icat="kitty +kitten icat"
