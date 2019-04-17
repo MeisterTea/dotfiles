@@ -129,6 +129,7 @@ alias v='nvim'
 alias vi='nvim'
 alias vim='nvim'
 alias sv='sudo -E nvim'
+alias v.="nvim ."
 alias emacs='emacs -nw'
 alias bc='bc -ql'
 alias please='sudo'
