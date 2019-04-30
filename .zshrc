@@ -1,3 +1,8 @@
+set -o emacs
+# fzf must be placed after emacs settings or C-T won't work in tmux
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+
 source /usr/share/zsh/scripts/zplug/init.zsh
 
 # Theme
@@ -114,10 +119,6 @@ bindkey "\e[H" beginning-of-line
 # Enables shift tab
 bindkey '^[[Z' reverse-menu-complete
 
-# Enables emacs mode
-
-set -o emacs
-
 # Arrows search
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
@@ -162,8 +163,6 @@ alias gt1="git log --graph --abbrev-commit --decorate --format=format:'%C(bold b
 alias gt2="git log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all"
 
 zplug load
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 export FZF_CTRL_T_OPTS="--preview '(highlight -O ansi -l {} 2> /dev/null || nvim {} || tree -C {}) 2> /dev/null | head -200'"
 
