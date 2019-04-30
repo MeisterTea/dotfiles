@@ -12,6 +12,7 @@
   co = checkout
   p = pull
   r = remote
+  rb = rebase
   s = status
   w = whatchanged
 
