@@ -149,6 +149,7 @@ alias find="fd"
 alias f="fd"
 alias g="git"
 alias tm="tmux"
+alias sd="systemctl"
 
 # Kitty related
 alias icat="kitty +kitten icat"
