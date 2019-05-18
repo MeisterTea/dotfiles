@@ -148,6 +148,7 @@ alias grep="rg"
 alias find="fd"
 alias f="fd"
 alias g="git"
+alias tm="tmux"
 
 # Kitty related
 alias icat="kitty +kitten icat"
