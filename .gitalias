@@ -16,6 +16,7 @@
   s = status
   w = whatchanged
 
+
   aa = add --all
 
   # add by patch - looks at each change, and asks if we want to put it in the repo.
@@ -837,3 +838,8 @@
 
   # get branches containing the specified commit
   whereis = branch --contains
+
+  # after merge
+  aftermerge = !"sh -c 'git pull && \
+    git fetch --prune && \
+    git branch -d @{-1}'"
