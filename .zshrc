@@ -148,6 +148,8 @@ alias grep="rg"
 alias find="fd"
 alias f="fd"
 alias g="git"
+alias tm="tmux"
+alias sd="systemctl"
 alias :q="exit"
 
 # Kitty related
