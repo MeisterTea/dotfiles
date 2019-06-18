@@ -51,11 +51,15 @@ Plug 'ap/vim-css-color' " CSS
 Plug 'lumiliet/vim-twig' " Twig
 
 " Autocompletion
+
+" Include Phpactor
+Plug 'phpactor/phpactor' ,  {'do': 'composer install', 'for': 'php'}
+
 Plug 'ncm2/ncm2' " Autocompletion plugin
 Plug 'roxma/nvim-yarp' " Dependency of ncm2
+Plug 'phpactor/ncm2-phpactor'
 
 autocmd BufEnter * call ncm2#enable_for_buffer()
-
 set completeopt=noinsert,menuone,noselect
 
 Plug 'ncm2/ncm2-bufword' " Keywords
