@@ -123,6 +123,14 @@ bindkey '^[[Z' reverse-menu-complete
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 
+# Alt backspace deletes part of path
+backward-kill-dir () {
+    local WORDCHARS=${WORDCHARS/\/}
+    zle backward-kill-word
+}
+zle -N backward-kill-dir
+bindkey '^[^?' backward-kill-dir
+
 # Aliases
 
 # Shortcuts
@@ -152,6 +160,7 @@ alias t="tmux"
 alias tm="tmux"
 alias sd="systemctl"
 alias :q="exit"
+alias reset-vending="adb shell pm clear com.android.vending"
 
 # Kitty related
 alias icat="kitty +kitten icat"
