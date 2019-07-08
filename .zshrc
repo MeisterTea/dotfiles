@@ -145,6 +145,7 @@ alias bc='bc -ql'
 alias please='sudo'
 alias fuck='killall -9'
 alias ag='ag --path-to-ignore ~/.ignore'
+alias rsync='rsync -avh --info=progress2'
 alias ls='exa'
 alias la='exa -a'
 alias ll='exa -l'
@@ -158,7 +159,7 @@ alias f="fd"
 alias g="git"
 alias t="tmux"
 alias tm="tmux"
-alias sd="systemctl"
+alias sd="sudo systemctl"
 alias :q="exit"
 alias reset-vending="adb shell pm clear com.android.vending"
 

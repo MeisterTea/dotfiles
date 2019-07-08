@@ -10,7 +10,10 @@ call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'MeisterTea/gruvbox' " Theme
 
-Plug 'tmhedberg/matchit' " extends % pairing to html etc...
+Plug 'tmhedberg/matchit' " Extends % pairing to html etc...
+
+Plug 'arecarn/vim-crunch' " I won't have to leave vim ever again !
+Plug 'arecarn/vim-selection' " Dependency
 
 Plug 'janko-m/vim-test'
 

@@ -82,13 +82,14 @@ function select_option {
         fi
         clear
         echo "$container"
-        options=("Logs depuis 30 minutes" "Tous les logs" "Bash" "Quitter")
+        options=("Infos" "Logs depuis 30 minutes" "Tous les logs" "Bash" "Quitter")
 
         select_option "${options[@]}"
         choice=$?
         clear
         case $choice in
-          0) docker logs $containerId --since '30m' -f;;
-          1) docker logs $containerId -f;;
-          2) docker exec -it $containerId /bin/bash;;
+          0) docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' $containerId;;
+          1) docker logs $containerId --since '30m' -f;;
+          2) docker logs $containerId -f;;
+          3) docker exec -it $containerId /bin/bash;;
         esac
