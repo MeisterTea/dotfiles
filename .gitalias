@@ -3,7 +3,7 @@
   a = add
   b = branch
   c = commit
-  d = diff
+  d = "!git diff | diff-so-fancy"
   f = fetch
   g = grep
   l = log
