@@ -3,19 +3,28 @@
 displays=$(xrandr -q | grep ' connected' | awk '{print $1}')
 echo $displays
 displaysCount=$(echo "$displays" | wc -l)
-if [ "$displaysCount" -eq 1 ]; then
-  if [ "$displays" = 'eDP1' ]; then 
-    bspc monitor 'eDP1' -d 壱 弐 参 肆 伍 陸 漆 捌 玖 拾
-  else
-    bspc monitor "$displays" -d 壱 弐 参 肆 伍 陸 漆 捌 玖 拾
+
+is_internal()
+{
+  display=$1
+  [ "$display" = 'eDP1' ] || [ "$display" = 'eDP-1' ]
+}
+
+pkill polybar
+  if [ "$displaysCount" -eq 1 ]; then
+    bspc monitor $displays -d 1 2 3 4 5 6 7 8 9 0
+    MONITOR=$displays polybar top &
+
+    exit 0
   fi
-else
+
   for display in $displays
   do
-    if [ "$display" = 'eDP1' ]; then
-      bspc monitor "$display" -d 壱 弐 参 肆 伍
+    if is_internal $display; then
+      bspc monitor "$display" -d 1 2 3 4 5
+      MONITOR=$display polybar top &
     else
-      bspc monitor "$display"  -d 陸 漆 捌 玖 拾
+      bspc monitor "$display"  -d 6 7 8 9 0
+      MONITOR=$display polybar top &
     fi
   done
-fi

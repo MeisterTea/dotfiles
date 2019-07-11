@@ -1,0 +1,3 @@
+#!/bin/sh
+
+~/.config/bspwm/scripts/set_desktops.sh
