@@ -134,6 +134,7 @@ bindkey '^[^?' backward-kill-dir
 # Aliases
 
 # Shortcuts
+alias y='yarn'
 alias v='nvim'
 alias vi='nvim'
 alias vim='nvim'
