@@ -26,7 +26,7 @@ POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND='yellow'
 # Plugins
 if [ "$TERM" != 'linux' ]; then
   source /usr/share/zsh-theme-powerlevel9k/powerlevel9k.zsh-theme
-else 
+else
   export PS1="%{%F{yellow}%}%n%{%f%} %~ › "
 fi
 zplug "zsh-users/zsh-completions"
@@ -145,7 +145,6 @@ alias dc='docker-compose'
 alias bc='bc -ql'
 alias please='sudo'
 alias fuck='killall -9'
-alias ag='ag --path-to-ignore ~/.ignore'
 alias rsync='rsync -avh --info=progress2'
 alias ls='exa'
 alias la='exa -a'
