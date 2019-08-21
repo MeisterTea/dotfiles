@@ -10,6 +10,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'MeisterTea/gruvbox' " Theme
 
+
 Plug 'tmhedberg/matchit' " Extends % pairing to html etc...
 
 Plug 'arecarn/vim-crunch' " I won't have to leave vim ever again !
@@ -52,6 +53,7 @@ Plug 'mxw/vim-jsx' " JSX
 Plug 'posva/vim-vue' " Vue
 Plug 'ap/vim-css-color' " CSS
 Plug 'lumiliet/vim-twig' " Twig
+Plug 'chr4/nginx.vim' " Nginx
 
 " Autocompletion
 
@@ -200,7 +202,7 @@ highlight SignColumn ctermbg=NONE cterm=NONE guibg=NONE gui=NONE
 
 " Airline
 let g:airline_powerline_fonts = 1
-" let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#whitespace#checks = []
 let g:airline_skip_empty_sections = 1
 
