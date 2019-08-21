@@ -10,6 +10,9 @@ call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'MeisterTea/gruvbox' " Theme
 
+Plug 'vim-scripts/BufOnly.vim'
+Plug 'vim-scripts/Rename'
+Plug 'vim-scripts/bufkill.vim'
 
 Plug 'tmhedberg/matchit' " Extends % pairing to html etc...
 
@@ -39,7 +42,7 @@ Plug 'mhinz/vim-signify'
 
 Plug 'lervag/vimtex'
 
-Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle','NERDTreeFind'] }
+Plug 'scrooloose/nerdtree', { 'on': ['NERDTree', 'NERDTreeToggle','NERDTreeFind'] }
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
@@ -249,18 +252,6 @@ let g:user_emmet_expandabbr_key='<S-tab>' " use Emmet without needing tentacles 
 
 set statusline+=%{gutentags#statusline()} " Writing tags status display
 
-"NERDTree behavior
-function! s:updateNerdTreeDir()
-  if exists("g:NERDTree") && g:NERDTree.IsOpen() | exec ":NERDTreeFind" | endif
-endfunction
-autocmd BufWinEnter * call s:updateNerdTreeDir() " Needed for C-p tree update
-
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif " Close NerdTree buffer if it's the last one
-
-" Open NerdTree when opening a folder
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTreeToggle' argv()[0] | wincmd p | ene | endif
-
 " Fugitive git bindings
 nnoremap <leader>ga :Git add %:p<CR><CR>
 nnoremap <leader>gs :Gstatus<CR>
@@ -315,6 +306,16 @@ nnoremap <leader>gy :Goyo<CR>
 nnoremap <leader>tb :TagbarToggle<CR>
 nnoremap <leader>ut :UndotreeToggle<CR>
 nnoremap <leader>ll :Limelight!!<CR>
+
+" Buffers navigation
+nmap <C-h> :bp<CR>
+nmap <C-l> :bn<CR>
+
+" Kill current buffer
+nnoremap <C-q> :BD<CR>
+
+" Kill all buffers but active one
+nmap <leader>bc :BufOnly<CR>
 
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
