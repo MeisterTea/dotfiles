@@ -182,7 +182,7 @@ let g:fzf_colors =
   \ 'spinner': ['fg', 'Label'],
   \ 'header':  ['fg', 'Comment'] }
 
-" C-f bindings
+" Content search
 command! -bang -nargs=* Rg
   \ call fzf#vim#grep(
   \   'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
@@ -190,11 +190,23 @@ command! -bang -nargs=* Rg
   \           : fzf#vim#with_preview('right:50%:hidden', '?'),
   \   <bang>0)
 
-" C-p bindings
+" Any files names search
+command! -bang -nargs=? -complete=dir AllFiles
+  \ call fzf#vim#files(<q-args>, fzf#vim#with_preview({
+  \'source': 'fd -H --no-ignore ',
+  \}), <bang>0)
+
+" Hidden files names search
+command! -bang -nargs=? -complete=dir HFiles
+  \ call fzf#vim#files(<q-args>, fzf#vim#with_preview({
+  \'source': 'fd -H ',
+  \}), <bang>0)
+
+" Files names search
 command! -bang -nargs=? -complete=dir Files
-  \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
-
-
+  \ call fzf#vim#files(<q-args>, fzf#vim#with_preview({
+  \'source': 'fd ',
+  \}), <bang>0)
 
 set diffopt=vertical,filler,iwhite " vertical split + hides whitespaces in Gdiff
 
@@ -206,7 +218,7 @@ highlight SignColumn ctermbg=NONE cterm=NONE guibg=NONE gui=NONE
 " Airline
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#fnamemod = ':t'
+let g:airline#extensions#tabline#fnamemod = ':t' " Only displays filenames
 let g:airline#extensions#whitespace#checks = []
 let g:airline_skip_empty_sections = 1
 
@@ -287,11 +299,17 @@ map <Leader>n :NERDTreeFind<cr>
 " Fix errors or warnings
 map <C-e> <esc>:ALEFix<CR>
 
-" Search all files content
-map <C-f> <esc>:Rg 
+" Dodges NERDTree and search all files content
+nnoremap <silent> <expr> <C-f> (expand('%') =~ 'NERD_tree' ? "\<c-w>\<c-w>" : '').":Rg "
 
-" Search all files names
-map <C-p> <esc>:Files<CR>
+" Dodges NERDTree and search all files names
+nnoremap <silent> <expr> <leader>a (expand('%') =~ 'NERD_tree' ? "\<c-w>\<c-w>" : '').":AllFiles\<cr>"
+
+" Dodges NERDTree and search hidden files names
+nnoremap <silent> <expr> <leader>h (expand('%') =~ 'NERD_tree' ? "\<c-w>\<c-w>" : '').":HFiles\<cr>"
+
+" Dodges NERDTree and search hidden files names
+nnoremap <silent> <expr> <C-p> (expand('%') =~ 'NERD_tree' ? "\<c-w>\<c-w>" : '').":Files\<cr>"
 
 " Tabs bindings
 nnoremap t% :tabedit %<CR>
