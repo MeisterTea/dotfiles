@@ -294,7 +294,6 @@ nnoremap <leader>gpl :Dispatch! git pull<CR>
 "" NerdTree bindings
 " Double tap b when on tmux
 map <C-b> <esc>:NERDTreeToggle<CR>
-map <Leader>n :NERDTreeFind<cr>
 
 " Fix errors or warnings
 map <C-e> <esc>:ALEFix<CR>
