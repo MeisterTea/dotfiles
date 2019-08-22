@@ -206,6 +206,7 @@ highlight SignColumn ctermbg=NONE cterm=NONE guibg=NONE gui=NONE
 " Airline
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline#extensions#whitespace#checks = []
 let g:airline_skip_empty_sections = 1
 
@@ -242,6 +243,12 @@ hi NERDTreeClosable ctermfg=green
 hi NERDTreeOpenable ctermfg=green
 hi NERDTreeDir ctermfg=green
 hi NERDTreeFlags ctermfg=white
+
+"NERDTree behavior
+function! s:updateNerdTreeDir()
+  if exists("g:NERDTree") && g:NERDTree.IsOpen() | exec ":NERDTreeFind" | endif
+endfunction
+autocmd BufWinEnter * call s:updateNerdTreeDir() " Needed for C-p tree update
 
 " Nerdcommenter settings
 let g:NERDDefaultAlign = 'left'
