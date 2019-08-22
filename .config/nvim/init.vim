@@ -193,19 +193,19 @@ command! -bang -nargs=* Rg
 " Any files names search
 command! -bang -nargs=? -complete=dir AllFiles
   \ call fzf#vim#files(<q-args>, fzf#vim#with_preview({
-  \'source': 'fd -H --no-ignore ',
+  \'source': 'fd -t f -H --no-ignore ',
   \}), <bang>0)
 
 " Hidden files names search
 command! -bang -nargs=? -complete=dir HFiles
   \ call fzf#vim#files(<q-args>, fzf#vim#with_preview({
-  \'source': 'fd -H ',
+  \'source': 'fd -t f -H ',
   \}), <bang>0)
 
 " Files names search
 command! -bang -nargs=? -complete=dir Files
   \ call fzf#vim#files(<q-args>, fzf#vim#with_preview({
-  \'source': 'fd ',
+  \'source': 'fd -t f ',
   \}), <bang>0)
 
 set diffopt=vertical,filler,iwhite " vertical split + hides whitespaces in Gdiff
