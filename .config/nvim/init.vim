@@ -53,6 +53,7 @@ Plug 'leafgarland/typescript-vim' " Typescript
 Plug 'pangloss/vim-javascript' " Javascript
 Plug 'jparise/vim-graphql' " GraphQL
 Plug 'mxw/vim-jsx' " JSX
+Plug 'styled-components/vim-styled-components', { 'branch': 'main' } " Styled components
 Plug 'posva/vim-vue' " Vue
 Plug 'ap/vim-css-color' " CSS
 Plug 'lumiliet/vim-twig' " Twig
