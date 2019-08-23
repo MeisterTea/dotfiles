@@ -161,7 +161,10 @@ alias t="tmux"
 alias tm="tmux"
 alias sd="sudo systemctl"
 alias :q="exit"
+
+# Android related
 alias reset-vending="adb shell pm clear com.android.vending"
+alias logcat="adb logcat -v color"
 
 # Kitty related
 alias icat="kitty +kitten icat"
