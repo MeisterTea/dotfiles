@@ -61,4 +61,4 @@ bspc rule -a 'Firefox Developer Edition':Dialog state=floating
 
 xsetroot -cursor_name left_ptr
 
-setxkbmap -option grp:alt_shift_toggle us,'us(intl)' &
+setxkbmap -option caps:super,grp:alt_shift_toggle us,'us(intl)' &

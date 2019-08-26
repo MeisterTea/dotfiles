@@ -145,11 +145,14 @@ XF86AudioMute
 XF86Audio{Prev,Next,Play,Stop}
   playerctl {previous, next, play-pause, stop}
 
-# Show dmenu bar
+alt + super + {q,w,e}
+  playerctl {previous, play-pause, next}
+
+# Show rofi
 ctrl + space
     ~/.config/bspwm/misc/application_launcher
 
-# Show dmenu bar (windows)
+# Show rofi bar 
 ctrl + shift + space
     ~/.config/bspwm/misc/application_switcher
 
