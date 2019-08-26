@@ -49,12 +49,13 @@ Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'tmhedberg/SimpylFold' " Python folding
 
 " Syntastic coloration
+Plug 'jparise/vim-graphql' " GraphQL
 Plug 'leafgarland/typescript-vim' " Typescript
 Plug 'pangloss/vim-javascript' " Javascript
-Plug 'jparise/vim-graphql' " GraphQL
-Plug 'mxw/vim-jsx' " JSX
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' } " Styled components
+Plug 'maxmellon/vim-jsx-pretty' " React
 Plug 'posva/vim-vue' " Vue
+Plug 'evanleck/vim-svelte' " Svelte
 Plug 'ap/vim-css-color' " CSS
 Plug 'lumiliet/vim-twig' " Twig
 Plug 'chr4/nginx.vim' " Nginx
