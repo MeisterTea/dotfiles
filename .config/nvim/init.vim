@@ -10,6 +10,10 @@ call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'MeisterTea/gruvbox' " Theme
 
+Plug 'vim-scripts/BufOnly.vim'
+Plug 'vim-scripts/Rename'
+Plug 'vim-scripts/bufkill.vim'
+
 Plug 'tmhedberg/matchit' " Extends % pairing to html etc...
 
 Plug 'arecarn/vim-crunch' " I won't have to leave vim ever again !
@@ -38,7 +42,7 @@ Plug 'mhinz/vim-signify'
 
 Plug 'lervag/vimtex'
 
-Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle','NERDTreeFind'] }
+Plug 'scrooloose/nerdtree', { 'on': ['NERDTree', 'NERDTreeToggle','NERDTreeFind'] }
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
@@ -49,9 +53,11 @@ Plug 'leafgarland/typescript-vim' " Typescript
 Plug 'pangloss/vim-javascript' " Javascript
 Plug 'jparise/vim-graphql' " GraphQL
 Plug 'mxw/vim-jsx' " JSX
+Plug 'styled-components/vim-styled-components', { 'branch': 'main' } " Styled components
 Plug 'posva/vim-vue' " Vue
 Plug 'ap/vim-css-color' " CSS
 Plug 'lumiliet/vim-twig' " Twig
+Plug 'chr4/nginx.vim' " Nginx
 
 " Autocompletion
 
@@ -177,7 +183,7 @@ let g:fzf_colors =
   \ 'spinner': ['fg', 'Label'],
   \ 'header':  ['fg', 'Comment'] }
 
-" C-f bindings
+" Content search
 command! -bang -nargs=* Rg
   \ call fzf#vim#grep(
   \   'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
@@ -185,11 +191,23 @@ command! -bang -nargs=* Rg
   \           : fzf#vim#with_preview('right:50%:hidden', '?'),
   \   <bang>0)
 
-" C-p bindings
+" Any files names search
+command! -bang -nargs=? -complete=dir AllFiles
+  \ call fzf#vim#files(<q-args>, fzf#vim#with_preview({
+  \'source': 'fd -t f -H --no-ignore ',
+  \}), <bang>0)
+
+" Hidden files names search
+command! -bang -nargs=? -complete=dir HFiles
+  \ call fzf#vim#files(<q-args>, fzf#vim#with_preview({
+  \'source': 'fd -t f -H ',
+  \}), <bang>0)
+
+" Files names search
 command! -bang -nargs=? -complete=dir Files
-  \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
-
-
+  \ call fzf#vim#files(<q-args>, fzf#vim#with_preview({
+  \'source': 'fd -t f ',
+  \}), <bang>0)
 
 set diffopt=vertical,filler,iwhite " vertical split + hides whitespaces in Gdiff
 
@@ -200,7 +218,8 @@ highlight SignColumn ctermbg=NONE cterm=NONE guibg=NONE gui=NONE
 
 " Airline
 let g:airline_powerline_fonts = 1
-" let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#fnamemod = ':t' " Only displays filenames
 let g:airline#extensions#whitespace#checks = []
 let g:airline_skip_empty_sections = 1
 
@@ -238,6 +257,12 @@ hi NERDTreeOpenable ctermfg=green
 hi NERDTreeDir ctermfg=green
 hi NERDTreeFlags ctermfg=white
 
+"NERDTree behavior
+function! s:updateNerdTreeDir()
+  if exists("g:NERDTree") && g:NERDTree.IsOpen() | exec ":NERDTreeFind" | endif
+endfunction
+autocmd BufWinEnter * call s:updateNerdTreeDir() " Needed for C-p tree update
+
 " Nerdcommenter settings
 let g:NERDDefaultAlign = 'left'
 let g:NERDSpaceDelims = 1
@@ -246,18 +271,6 @@ let g:NERDCompactSexyComs = 1
 let g:user_emmet_expandabbr_key='<S-tab>' " use Emmet without needing tentacles fingers
 
 set statusline+=%{gutentags#statusline()} " Writing tags status display
-
-"NERDTree behavior
-function! s:updateNerdTreeDir()
-  if exists("g:NERDTree") && g:NERDTree.IsOpen() | exec ":NERDTreeFind" | endif
-endfunction
-autocmd BufWinEnter * call s:updateNerdTreeDir() " Needed for C-p tree update
-
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif " Close NerdTree buffer if it's the last one
-
-" Open NerdTree when opening a folder
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTreeToggle' argv()[0] | wincmd p | ene | endif
 
 " Fugitive git bindings
 nnoremap <leader>ga :Git add %:p<CR><CR>
@@ -286,11 +299,17 @@ map <C-b> <esc>:NERDTreeToggle<CR>
 " Fix errors or warnings
 map <C-e> <esc>:ALEFix<CR>
 
-" Search all files content
-map <C-f> <esc>:Rg 
+" Dodges NERDTree and search all files content
+nnoremap <silent> <expr> <C-f> (expand('%') =~ 'NERD_tree' ? "\<c-w>\<c-w>" : '').":Rg "
 
-" Search all files names
-map <C-p> <esc>:Files<CR>
+" Dodges NERDTree and search all files names
+nnoremap <silent> <expr> <leader>a (expand('%') =~ 'NERD_tree' ? "\<c-w>\<c-w>" : '').":AllFiles\<cr>"
+
+" Dodges NERDTree and search hidden files names
+nnoremap <silent> <expr> <leader>h (expand('%') =~ 'NERD_tree' ? "\<c-w>\<c-w>" : '').":HFiles\<cr>"
+
+" Dodges NERDTree and search hidden files names
+nnoremap <silent> <expr> <C-p> (expand('%') =~ 'NERD_tree' ? "\<c-w>\<c-w>" : '').":Files\<cr>"
 
 " Tabs bindings
 nnoremap t% :tabedit %<CR>
@@ -313,6 +332,16 @@ nnoremap <leader>gy :Goyo<CR>
 nnoremap <leader>tb :TagbarToggle<CR>
 nnoremap <leader>ut :UndotreeToggle<CR>
 nnoremap <leader>ll :Limelight!!<CR>
+
+" Buffers navigation
+nmap <C-h> :bp<CR>
+nmap <C-l> :bn<CR>
+
+" Kill current buffer
+nnoremap <C-q> :BD<CR>
+
+" Kill all buffers but active one
+nmap <leader>bc :BufOnly<CR>
 
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
