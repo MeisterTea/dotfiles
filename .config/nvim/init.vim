@@ -53,7 +53,7 @@ Plug 'jparise/vim-graphql' " GraphQL
 Plug 'leafgarland/typescript-vim' " Typescript
 Plug 'pangloss/vim-javascript' " Javascript
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' } " Styled components
-Plug 'maxmellon/vim-jsx-pretty' " React
+Plug 'mxw/vim-jsx' " JSX
 Plug 'posva/vim-vue' " Vue
 Plug 'evanleck/vim-svelte' " Svelte
 Plug 'ap/vim-css-color' " CSS
