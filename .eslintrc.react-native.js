@@ -18,6 +18,7 @@ module.exports = {
     "plugin:react/recommended"
   ],
   'rules': {
+    "import/order": "error",
     "comma-spacing": 'error',
     "arrow-spacing": 'error',
     'no-multiple-empty-lines': ["error", { "max": 1, "maxEOF": 1}],

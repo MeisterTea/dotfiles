@@ -5,6 +5,7 @@ module.exports = {
     },
     extends: ['plugin:vue/recommended'],
     rules: {
+      'import/order': 'error',
       'brace-style': ['error'],
         'curly': ['error', 'multi-line'],
         'quotes': ['error', 'single'],
