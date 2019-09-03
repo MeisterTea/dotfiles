@@ -5,23 +5,7 @@ set -o emacs
 
 source /usr/share/zsh/scripts/zplug/init.zsh
 
-# Theme
-POWERLEVEL9K_MODE='nerdfont-complete'
-POWERLEVEL9K_STATUS_CROSS=true
-
-POWERLEVEL9K_SHORTEN_STRATEGY="truncate_middle"
-POWERLEVEL9K_SHORTEN_DIR_LENGTH=4
-
-POWERLEVEL9K_TIME_BACKGROUND="yellow"
-POWERLEVEL9K_TIME_FOREGROUND="black"
-POWERLEVEL9K_TIME_FORMAT="%B%D{%H:%M:%S}"
-
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon dir dir_writable vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=()
-
-POWERLEVEL9K_OS_ICON_FOREGROUND="108"
-POWERLEVEL9K_VCS_MODIFIED_BACKGROUND='yellow'
-POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND='yellow'
+[[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
 
 # Plugins
 if [ "$TERM" != 'linux' ]; then
