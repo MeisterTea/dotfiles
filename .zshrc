@@ -25,7 +25,7 @@ POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND='yellow'
 
 # Plugins
 if [ "$TERM" != 'linux' ]; then
-  source /usr/share/zsh-theme-powerlevel9k/powerlevel9k.zsh-theme
+  zplug "romkatv/powerlevel10k", use:powerlevel10k.zsh-theme
 else
   export PS1="%{%F{yellow}%}%n%{%f%} %~ › "
 fi
@@ -68,7 +68,7 @@ zstyle ':completion:*' verbose yes
 fpath=(~/.zsh/completion $fpath)
 autoload -Uz compinit && compinit -i
 
-# source /usr/share/nvm/init-nvm.sh # Set up Node Version Manager
+source /usr/share/nvm/init-nvm.sh # Set up Node Version Manager
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
   [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
@@ -77,13 +77,12 @@ export ANDROID_HOME=${HOME}/Android/Sdk
 export JAVA_HOME="/usr/lib/jvm/java-8-openjdk/"
 export _JAVA_AWT_WM_NONREPARENTING=1 # Fixes grey java apps
 export PATH=${PATH}:${HOME}/.bin
+export PATH=${PATH}:/opt/
 export PATH=${PATH}:${ANDROID_HOME}/emulator 
 export PATH=${PATH}:${ANDROID_HOME}/tools 
 export PATH=${PATH}:${ANDROID_HOME}/platform-tools
 export PATH=${PATH}:/root/.gem/ruby/2.4.0/bin
 export PATH=${PATH}:${HOME}/.yarn/bin
-export PATH=${PATH}:/opt/drush/drush:/usr/local/bin/drush
-export PATH=${PATH}:/opt/mongodb/bin
 export PATH=${PATH}:${JAVA_HOME}/bin:$PATH
 export PATH=${PATH}:${HOME}/.cargo/bin
 
