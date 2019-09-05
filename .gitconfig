@@ -1,0 +1,22 @@
+[user]
+  email = git@pasquierfrancois.com
+  name = MeisterTea
+[diff]
+  tool = meld
+[difftool]
+  prompt = false
+  keepBackup = false
+[merge]
+  tool = meld
+[mergetool]
+  prompt = true
+	keepBackup = false
+[mergetool "vimdiff"]
+  cmd = nvim $MERGED -c 'Gdiff'
+[alias]
+  d = difftool
+[core]
+  pager = less -
+  excludesfile = ~/.gitignore
+[include]
+  path = .gitalias
