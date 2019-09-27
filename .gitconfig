@@ -10,7 +10,7 @@
   tool = meld
 [mergetool]
   prompt = true
-	keepBackup = false
+  keepBackup = false
 [mergetool "vimdiff"]
   cmd = nvim $MERGED -c 'Gdiff'
 [alias]

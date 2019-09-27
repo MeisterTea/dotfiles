@@ -142,7 +142,7 @@ alias f="fd"
 alias g="git"
 alias t="tmux"
 alias tm="tmux"
-alias sd="sudo systemctl"
+alias sysd="sudo systemctl"
 alias :q="exit"
 
 # Android related
