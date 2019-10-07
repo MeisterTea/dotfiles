@@ -49,6 +49,7 @@ Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'tmhedberg/SimpylFold' " Python folding
 
 " Syntastic coloration
+Plug 'udalov/kotlin-vim' " Kotlin
 Plug 'jparise/vim-graphql' " GraphQL
 Plug 'leafgarland/typescript-vim' " Typescript
 Plug 'pangloss/vim-javascript' " Javascript
@@ -63,7 +64,7 @@ Plug 'chr4/nginx.vim' " Nginx
 " Autocompletion
 
 " Include Phpactor
-Plug 'phpactor/phpactor' ,  {'do': 'composer install', 'for': 'php'}
+Plug 'phpactor/phpactor', {'for': 'php', 'do': 'composer install'}
 
 Plug 'ncm2/ncm2' " Autocompletion plugin
 Plug 'roxma/nvim-yarp' " Dependency of ncm2
