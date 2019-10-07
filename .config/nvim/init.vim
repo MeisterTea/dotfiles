@@ -49,6 +49,7 @@ Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'tmhedberg/SimpylFold' " Python folding
 
 " Syntastic coloration
+Plug 'udalov/kotlin-vim' " Kotlin
 Plug 'jparise/vim-graphql' " GraphQL
 Plug 'leafgarland/typescript-vim' " Typescript
 Plug 'pangloss/vim-javascript' " Javascript
