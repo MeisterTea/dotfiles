@@ -64,7 +64,7 @@ Plug 'chr4/nginx.vim' " Nginx
 " Autocompletion
 
 " Include Phpactor
-Plug 'phpactor/phpactor' ,  {'do': 'composer install', 'for': 'php'}
+Plug 'phpactor/phpactor', {'for': 'php', 'do': 'composer install'}
 
 Plug 'ncm2/ncm2' " Autocompletion plugin
 Plug 'roxma/nvim-yarp' " Dependency of ncm2
