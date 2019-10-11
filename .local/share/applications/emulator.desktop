@@ -4,4 +4,4 @@ Version=1.0
 Terminal=false
 Type=Application
 Name=Emulator
-Exec=optirun emulator -avd rn
+Exec=emulator -avd rn10

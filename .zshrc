@@ -117,6 +117,7 @@ bindkey '^[^?' backward-kill-dir
 # Aliases
 
 # Shortcuts
+alias delta='delta --theme 1337'
 alias y='yarn'
 alias v='nvim'
 alias vi='nvim'
@@ -224,4 +225,3 @@ _fzf_complete_docker_post() {
 }
 
 [ -n "$BASH" ] && complete -F _fzf_complete_docker -o default -o bashdefault docker
-
