@@ -71,7 +71,7 @@ export PATH=${PATH}:${JAVA_HOME}/bin:$PATH
 export PATH=${PATH}:${HOME}/.cargo/bin
 
 export FZF_DEFAULT_COMMAND='fd --type f --follow --color=always --exclude .git'
-export FZF_DEFAULT_OPTS="--bind ctrl-a:select-all,ctrl-d:deselect-all,ctrl-t:toggle-all"
+export FZF_DEFAULT_OPTS="--ansi --bind ctrl-a:select-all,ctrl-d:deselect-all,ctrl-t:toggle-all"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 export _JAVA_OPTIONS=-Djava.io.tmpdir=/var/tmp
@@ -227,5 +227,5 @@ _fzf_complete_docker_post() {
 [ -n "$BASH" ] && complete -F _fzf_complete_docker -o default -o bashdefault docker
 
 lps() {
-  lpass show -c --password $(lpass ls -l | fzf | awk '{print $(NF)}' | sed 's/\]//g')
+  lpass show -c --password $(lpass ls -l | fzf | rg -oP '(?<=id: ).*(?=] )')
 }
