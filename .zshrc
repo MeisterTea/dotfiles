@@ -25,6 +25,7 @@ HISTSIZE=1000
 SAVEHIST=1000
 
 setopt correct # Command correction
+setopt auto_pushd # Enables cd -TAB completion
 
 
 setopt globdots # Hidden files tab completion
