@@ -121,7 +121,6 @@ bindkey '^[^?' backward-kill-dir
 # Aliases
 
 # Shortcuts
-alias startx='ssh-agent startx'
 alias delta='delta --theme 1337'
 alias y='yarn'
 alias v='nvim'
