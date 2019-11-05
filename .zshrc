@@ -59,7 +59,8 @@ export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
   [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
 export ENABLE_FLUTTER_DESKTOP=true
-export ANDROID_HOME=${HOME}/Android/Sdk 
+export ANDROID_HOME=${HOME}/Android/Sdk
+export GOPATH=${HOME}/go
 export JAVA_HOME="/usr/lib/jvm/java-8-openjdk/"
 export _JAVA_AWT_WM_NONREPARENTING=1 # Fixes grey java apps
 export PATH=${PATH}:${HOME}/.bin
