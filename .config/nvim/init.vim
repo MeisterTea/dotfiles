@@ -52,6 +52,7 @@ Plug 'tmhedberg/SimpylFold' " Python folding
 Plug 'udalov/kotlin-vim' " Kotlin
 Plug 'jparise/vim-graphql' " GraphQL
 Plug 'leafgarland/typescript-vim' " Typescript
+Plug 'peitalin/vim-jsx-typescript' " Tsx
 Plug 'pangloss/vim-javascript' " Javascript
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' } " Styled components
 Plug 'mxw/vim-jsx' " JSX
