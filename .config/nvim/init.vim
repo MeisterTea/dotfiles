@@ -261,10 +261,10 @@ hi NERDTreeDir ctermfg=green
 hi NERDTreeFlags ctermfg=white
 
 "NERDTree behavior
-function! s:updateNerdTreeDir()
-  if exists("g:NERDTree") && g:NERDTree.IsOpen() | exec ":NERDTreeFind" | endif
-endfunction
-autocmd BufWinEnter * call s:updateNerdTreeDir() " Needed for C-p tree update
+" function! s:updateNerdTreeDir()
+"   if exists("g:NERDTree") && g:NERDTree.IsOpen() | exec ":NERDTreeFind" | endif
+" endfunction
+" autocmd BufWinEnter * call s:updateNerdTreeDir() " Needed for C-p tree update
 
 " Nerdcommenter settings
 let g:NERDDefaultAlign = 'left'

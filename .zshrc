@@ -103,6 +103,12 @@ bindkey "\eOH" beginning-of-line
 bindkey "\eOF" end-of-line
 bindkey "\e[H" beginning-of-line
 
+function cf-widget() { cf }
+
+zle -N cf-widget
+
+bindkey "^f" cf-widget
+
 # Enables shift tab
 bindkey '^[[Z' reverse-menu-complete
 
@@ -141,6 +147,7 @@ alias lal='exa -la'
 alias cal='cal -m'
 alias scrot='scrot -q 100 ~/Pictures/screenshots/%Y-%m-%d-%T-screenshot.png'
 alias rndbg='adb shell input keyevent 82'
+alias rg="rg"
 alias grep="rg"
 alias find="fd"
 alias f="fd"
