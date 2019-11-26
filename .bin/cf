@@ -1,6 +1,6 @@
 #/bin/sh
 
-query=$(sk --ansi -i -c 'rg -S --smart-case --color=always --line-number "{}"')
+query=$(sk --ansi -i -c 'rg -S --color=always --line-number "{}"' --preview "~/.bin/dependencies/preview.sh {}")
 
 file=$(echo $query | awk -F ':' '{print $1}')
 line=$(echo $query | awk -F ':' '{print $2}')
