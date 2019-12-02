@@ -812,4 +812,4 @@
 
   l = !"zsh -c '~/.bin/git/browse'"
 
-  h = !"zsh -c '~/.bin/git/history ' \"$@\""
+  h = !zsh -c 'source $HOME/.bin/git/history && gitSkHistory ${GIT_PREFIX:-./}$0'
