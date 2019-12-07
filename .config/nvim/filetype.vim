@@ -17,5 +17,6 @@ let g:ale_fixers = {
 \ 'svelte': ['stylelint', 'eslint'],
 \ 'jsx': ['stylelint', 'eslint'],
 \ 'vue': ['stylelint', 'eslint'],
+\ 'css': ['stylelint'],
 \ 'rust': ['rustfmt']
 \}

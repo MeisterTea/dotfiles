@@ -260,11 +260,15 @@ hi NERDTreeOpenable ctermfg=green
 hi NERDTreeDir ctermfg=green
 hi NERDTreeFlags ctermfg=white
 
+" Opens NERDTree on entering directory
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
+
 "NERDTree behavior
-" function! s:updateNerdTreeDir()
-"   if exists("g:NERDTree") && g:NERDTree.IsOpen() | exec ":NERDTreeFind" | endif
-" endfunction
-" autocmd BufWinEnter * call s:updateNerdTreeDir() " Needed for C-p tree update
+function! s:updateNerdTreeDir()
+  if exists("g:NERDTree") && g:NERDTree.IsOpen() | exec ":NERDTreeFind" | endif
+endfunction
+autocmd BufWinEnter * call s:updateNerdTreeDir() " Needed for C-p tree update
 
 " Nerdcommenter settings
 let g:NERDDefaultAlign = 'left'
@@ -337,8 +341,8 @@ nnoremap <leader>ut :UndotreeToggle<CR>
 nnoremap <leader>ll :Limelight!!<CR>
 
 " Buffers navigation
-nmap <C-h> :bp<CR>
-nmap <C-l> :bn<CR>
+" nnoremap <expr> <C-h> expand('%') =~ 'NERD_tree' ? '' : ':bp<CR>'
+" nnoremap <expr> <C-l> expand('%') =~ 'NERD_tree' ? '' : ':bn<CR>'
 
 " Kill current buffer
 nnoremap <C-q> :BD<CR>
