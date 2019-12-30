@@ -58,6 +58,8 @@ Plug 'styled-components/vim-styled-components', { 'branch': 'main' } " Styled co
 Plug 'mxw/vim-jsx' " JSX
 Plug 'posva/vim-vue' " Vue
 Plug 'evanleck/vim-svelte' " Svelte
+Plug 'dart-lang/dart-vim-plugin' " Dart
+Plug 'thosakwe/vim-flutter' " Flutter
 Plug 'ap/vim-css-color' " CSS
 Plug 'lumiliet/vim-twig' " Twig
 Plug 'chr4/nginx.vim' " Nginx
@@ -252,6 +254,7 @@ let g:limelight_conceal_ctermfg = 'gray'
 let g:limelight_conceal_guifg = 'DarkGray'
 
 " NERDTree config
+let g:NERDTreeIgnore = ['^node_modules$']
 let NERDTreeMinimalUI=1
 let g:WebDevIconsUnicodeDecorateFolderNodes = 1
 let g:DevIconsEnableFoldersOpenClose = 1
@@ -352,3 +355,18 @@ nmap <leader>bc :BufOnly<CR>
 
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
+
+function! PxToRem()
+  let remNumber = expand("<cword>")/16.0
+   " substitute(remNumber, '^\s*\(.\{-}\)\s*$', '\1', '')
+
+  " if remNumber % 1 == 0:
+  "   remNumber = int(remNumber)
+  " else:
+  "   remNumber = remNumber
+
+  execute "normal! diwi\<C-r>\<C-r>=remNumber\<CR>\<Esc>"
+  :echo remNumber
+endfunction
+
+nnoremap <leader>m :call PxToRem()<CR>
