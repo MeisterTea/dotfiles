@@ -55,7 +55,7 @@ Plug 'leafgarland/typescript-vim' " Typescript
 Plug 'peitalin/vim-jsx-typescript' " Tsx
 Plug 'pangloss/vim-javascript' " Javascript
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' } " Styled components
-Plug 'mxw/vim-jsx' " JSX
+Plug 'MaxMEllon/vim-jsx-pretty' " JSX
 Plug 'posva/vim-vue' " Vue
 Plug 'evanleck/vim-svelte' " Svelte
 Plug 'dart-lang/dart-vim-plugin' " Dart
