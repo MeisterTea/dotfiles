@@ -49,20 +49,8 @@ Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'tmhedberg/SimpylFold' " Python folding
 
 " Syntastic coloration
-Plug 'udalov/kotlin-vim' " Kotlin
-Plug 'jparise/vim-graphql' " GraphQL
-Plug 'leafgarland/typescript-vim' " Typescript
-Plug 'peitalin/vim-jsx-typescript' " Tsx
-Plug 'pangloss/vim-javascript' " Javascript
+Plug 'sheerun/vim-polyglot' " S Y N T A X
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' } " Styled components
-Plug 'MaxMEllon/vim-jsx-pretty' " JSX
-Plug 'posva/vim-vue' " Vue
-Plug 'evanleck/vim-svelte' " Svelte
-Plug 'dart-lang/dart-vim-plugin' " Dart
-Plug 'thosakwe/vim-flutter' " Flutter
-Plug 'ap/vim-css-color' " CSS
-Plug 'lumiliet/vim-twig' " Twig
-Plug 'chr4/nginx.vim' " Nginx
 
 " Autocompletion
 
@@ -114,6 +102,8 @@ function! s:patch_colors()
 endfunction
 autocmd! ColorScheme gruvbox call s:patch_colors()
 silent! colorscheme gruvbox
+
+let g:vim_jsx_pretty_colorful_config = 1
 
 nnoremap <SPACE> <Nop>
 " bottom right trick
