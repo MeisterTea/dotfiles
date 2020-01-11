@@ -58,6 +58,7 @@ source /usr/share/nvm/init-nvm.sh # Set up Node Version Manager
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
   [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
+export MAKEFLAGS="-j$(nproc)"
 export ENABLE_FLUTTER_DESKTOP=true
 export GOPATH=${HOME}/go
 export ANDROID_HOME=${HOME}/Android/Sdk
