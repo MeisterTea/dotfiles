@@ -103,6 +103,8 @@ endfunction
 autocmd! ColorScheme gruvbox call s:patch_colors()
 silent! colorscheme gruvbox
 
+let g:vim_jsx_pretty_colorful_config = 1
+
 nnoremap <SPACE> <Nop>
 " bottom right trick
 map <space> <leader>
