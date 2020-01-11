@@ -1,8 +1,8 @@
 #!/bin/sh
 
-ln -s ../../../etc/issue /etc/issue
-ln -s ../../../etc/locale.conf /etc/locale.conf
-ln -s ../../../etc/makepkg.conf /etc/makepkg.conf
-ln -s ../../../etc/mkinitcpio.conf /etc/mkinitcpio.conf
-ln -s ../../../etc/pacman.conf /etc/pacman.conf
-ln -s ../../../etc/vconsole.conf /etc/vconsole.conf
+ln -sfn ../../../etc/issue /etc/issue
+ln -sfn ../../../etc/locale.conf /etc/locale.conf
+ln -sfn ../../../etc/makepkg.conf /etc/makepkg.conf
+ln -sfn ../../../etc/mkinitcpio.conf /etc/mkinitcpio.conf
+ln -sfn ../../../etc/pacman.conf /etc/pacman.conf
+ln -sfn ../../../etc/vconsole.conf /etc/vconsole.conf
