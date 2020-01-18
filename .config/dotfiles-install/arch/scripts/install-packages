@@ -1,5 +1,10 @@
 #!/bin/sh
 
-sudo pacman -S --noconfirm aria2
+sudo pacman -S --noconfirm aria2 &&
+./yay-install &&
+yay -S --noconfirm composer
+yay -S --noconfirm neovim
+yay -S --noconfirm vim-plug
+nvim +'PlugInstall --sync' +qa
 
 # yay -S --noconfirm > ./pkglist.txt
