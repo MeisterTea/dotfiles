@@ -10,11 +10,9 @@ font:
   italic:
     family: DejaVuSansMono Nerd Font
 
-  size: 8.0
+  size: 12.0
 
   use_thin_strokes: true
-
-render_timer: false
 
 colors:
   # Default colors
