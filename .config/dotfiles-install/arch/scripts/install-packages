@@ -1,3 +1,5 @@
 #!/bin/sh
 
-yay -S --noconfirm > ./pkglist.txt
+sudo pacman -S --noconfirm aria2
+
+# yay -S --noconfirm > ./pkglist.txt
