@@ -1,15 +1,15 @@
 #!/bin/bash
 
-ln -sf /usr/share/zoneinfo/Europe/Paris /etc/localtime
-hwclock --systohc
+sudo ln -sf /usr/share/zoneinfo/Europe/Paris /etc/localtime
+sudo hwclock --systohc
 ./etc-symbolic-link &&
-locale-gen
+sudo locale-gen
 read -p "Enter Your hostname: "  hostname
-echo "$hostname" > /etc/hostname
-echo -e "127.0.0.1	localhost\n::1		localhost\n127.0.1.1	$hostname.localdomain	$hostname" > /etc/hosts
+sudo echo "$hostname" > /etc/hostname
+sudo echo -e "127.0.0.1	localhost\n::1		localhost\n127.0.1.1	$hostname.localdomain	$hostname" > /etc/hosts
 sudo pacman -S --noconfirm --needed aria2 &&
 ./yay-install &&
 yay -S --noconfirm --needed mkinitcpio-colors-git
-mkinitcpio -P
-pacman -S refind-efi &&
-refind-install
+sudo mkinitcpio -P
+sudo pacman -S refind-efi &&
+sudo refind-install
