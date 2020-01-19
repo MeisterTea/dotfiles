@@ -1,9 +1,11 @@
 #!/bin/sh
 
-sudo ln -sfn ${PWD}/../etc/issue /etc/issue
-sudo ln -sfn ${PWD}/../etc/locale.gen /etc/locale.gen
-sudo ln -sfn ${PWD}/../etc/locale.conf /etc/locale.conf
-sudo ln -sfn ${PWD}/../etc/makepkg.conf /etc/makepkg.conf
-sudo ln -sfn ${PWD}/../etc/mkinitcpio.conf /etc/mkinitcpio.conf
-sudo ln -sfn ${PWD}/../etc/pacman.conf /etc/pacman.conf
-sudo ln -sfn ${PWD}/../etc/vconsole.conf /etc/vconsole.conf
+root_dir=$(dirname $0)
+
+sudo ln -sfn $root_dir/../etc/issue /etc/issue
+sudo ln -sfn $root_dir/../etc/locale.gen /etc/locale.gen
+sudo ln -sfn $root_dir/../etc/locale.conf /etc/locale.conf
+sudo ln -sfn $root_dir/../etc/makepkg.conf /etc/makepkg.conf
+sudo ln -sfn $root_dir/../etc/mkinitcpio.conf /etc/mkinitcpio.conf
+sudo ln -sfn $root_dir/../etc/pacman.conf /etc/pacman.conf
+sudo ln -sfn $root_dir/../etc/vconsole.conf /etc/vconsole.conf
