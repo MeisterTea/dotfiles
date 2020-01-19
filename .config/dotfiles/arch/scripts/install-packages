@@ -4,11 +4,12 @@ sudo pacman -S --noconfirm --needed aria2 &&
 
 ./yay-install &&
 
+yay -S --noconfirm --needed mkinitcpio-colors-git
 yay -S --noconfirm --needed composer
 yay -S --noconfirm --needed neovim
 yay -S --noconfirm --needed vim-plug
 nvim +'PlugInstall --sync' +qa
 
-yay -S --noconfirm --needed > ./desktop-environment-packages.txt
+yay -S --noconfirm --needed - < ./desktop-environment-packages.txt
 
-# yay -S --noconfirm --needed > ./pkglist.txt
+# yay -S --noconfirm --needed - < ./pkglist.txt
