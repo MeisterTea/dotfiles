@@ -30,8 +30,8 @@ dotfiles push origin master
 echo 'alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME"' >> $HOME/.zshrc
 source ~/.zshrc
 # Add .dotfiles directory to .gitignore to prevent recursion issues
-echo ".dotfiles" >> .gitignore
-git clone --bare https://MeisterTea@github.com/MeisterTea/dotfiles.git $HOME/.dotfiles
+echo ".dotfiles.git" >> ~/.gitignore
+git clone --bare https://MeisterTea@github.com/MeisterTea/dotfiles.git $HOME/.dotfiles.git
 dotfiles checkout
 dotfiles config --local status.showUntrackedFiles no
 ```
