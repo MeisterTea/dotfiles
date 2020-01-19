@@ -1,6 +1,7 @@
 #!/bin/sh
 
 ln -sfn ${PWD}/../etc/issue /etc/issue
+ln -sfn ${PWD}/../etc/locale.gen /etc/locale.gen
 ln -sfn ${PWD}/../etc/locale.conf /etc/locale.conf
 ln -sfn ${PWD}/../etc/makepkg.conf /etc/makepkg.conf
 ln -sfn ${PWD}/../etc/mkinitcpio.conf /etc/mkinitcpio.conf

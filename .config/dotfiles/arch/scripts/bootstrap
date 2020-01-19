@@ -1,4 +1,12 @@
+#!/bin/bash
+
 ln -sf /usr/share/zoneinfo/Europe/Paris /etc/localtime
 hwclock --systohc
-cat ./locale.gen > /etc/locale.gen
+./etc-symbolic-link &&
 locale-gen
+read -p "Enter Your hostname: "  hostname
+echo "$hostname" > /etc/hostname
+echo -e "127.0.0.1	localhost\n::1		localhost\n127.0.1.1	$hostname.localdomain	$hostname" > /etc/hosts
+mkinitcpio -P
+pacman -S refind-efi &&
+refind-install
