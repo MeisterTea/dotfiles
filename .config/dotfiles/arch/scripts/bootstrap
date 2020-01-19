@@ -1,5 +1,6 @@
 #!/bin/bash
 
+sudo pacman -Syy
 sudo ln -sf /usr/share/zoneinfo/Europe/Paris /etc/localtime
 sudo hwclock --systohc
 ./etc-symbolic-link &&
