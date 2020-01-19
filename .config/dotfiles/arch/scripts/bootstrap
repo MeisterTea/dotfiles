@@ -11,5 +11,5 @@ sudo pacman -S --noconfirm --needed aria2 &&
 ./yay-install &&
 yay -S --noconfirm --needed mkinitcpio-colors-git
 sudo mkinitcpio -P
-sudo pacman -S refind-efi &&
-sudo --noconfirm --needed refind-install
+sudo pacman -S --noconfirm --needed refind-efi &&
+sudo refind-install
