@@ -1,0 +1,4 @@
+ln -sf /usr/share/zoneinfo/Europe/Paris /etc/localtime
+hwclock --systohc
+cat ./locale.gen > /etc/locale.gen
+locale-gen
