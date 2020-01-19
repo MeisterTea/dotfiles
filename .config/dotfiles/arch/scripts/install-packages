@@ -1,10 +1,5 @@
 #!/bin/sh
 
-sudo pacman -S --noconfirm --needed aria2 &&
-
-./yay-install &&
-
-yay -S --noconfirm --needed mkinitcpio-colors-git
 yay -S --noconfirm --needed composer
 yay -S --noconfirm --needed neovim
 yay -S --noconfirm --needed vim-plug

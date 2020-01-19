@@ -7,6 +7,9 @@ locale-gen
 read -p "Enter Your hostname: "  hostname
 echo "$hostname" > /etc/hostname
 echo -e "127.0.0.1	localhost\n::1		localhost\n127.0.1.1	$hostname.localdomain	$hostname" > /etc/hosts
+sudo pacman -S --noconfirm --needed aria2 &&
+./yay-install &&
+yay -S --noconfirm --needed mkinitcpio-colors-git
 mkinitcpio -P
 pacman -S refind-efi &&
 refind-install
