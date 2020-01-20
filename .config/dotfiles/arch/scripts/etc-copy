@@ -1,8 +1,0 @@
-#!/bin/sh
-
-cp ../../../etc/issue /etc/issue
-cp ../../../etc/locale.conf /etc/locale.conf
-cp ../../../etc/makepkg.conf /etc/makepkg.conf
-cp ../../../etc/mkinitcpio.conf /etc/mkinitcpio.conf
-cp ../../../etc/pacman.conf /etc/pacman.conf
-cp ../../../etc/vconsole.conf /etc/vconsole.conf
