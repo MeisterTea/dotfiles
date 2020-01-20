@@ -1,6 +1,6 @@
 #!/bin/sh
 
-dtf="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
+dtf="/usr/bin/git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME"
 if [[ $# -eq 0 ]] ; then
   ${dtf} 'status'
   exit 0
