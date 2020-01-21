@@ -1,6 +1,4 @@
-#!/bin/bash
-
-gvfd-mtp
+gvfs-mtp
 thunar-archive-plugin
 thunar-volman
 tumbler
