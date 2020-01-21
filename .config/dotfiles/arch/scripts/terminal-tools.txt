@@ -1,3 +1,5 @@
+fzf
+skim
 kitty
 exa
 fd
