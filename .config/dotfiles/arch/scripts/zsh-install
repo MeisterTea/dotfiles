@@ -1,5 +1,5 @@
 #!/bin/sh
 
 yay -S --noconfirm --needed zsh zplug &&
-zsh -c 'zplug install' &&
+zsh -c 'source ~/.zshrc && zplug install'
 chsh -s $(which zsh)
