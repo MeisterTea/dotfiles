@@ -1,0 +1,6 @@
+#!/bin/bash
+
+gvfd-mtp
+thunar-archive-plugin
+thunar-volman
+tumbler

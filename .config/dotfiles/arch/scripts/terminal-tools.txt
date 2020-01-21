@@ -1,0 +1,17 @@
+kitty
+exa
+fd
+sd
+ripgrep
+delta
+diff-so-fancy
+wget
+nvm
+tmux
+htop
+gotop-bin
+docker
+docker-compose
+jq
+ncdu
+weechat
