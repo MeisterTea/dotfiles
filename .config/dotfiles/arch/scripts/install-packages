@@ -1,5 +1,3 @@
 #!/bin/sh
 
 yay -S --noconfirm --needed - < ./desktop-environment-packages.txt
-
-# yay -S --noconfirm --needed - < ./pkglist.txt
