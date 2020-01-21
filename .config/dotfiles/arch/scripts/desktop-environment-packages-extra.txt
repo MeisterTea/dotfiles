@@ -22,6 +22,6 @@ slack-desktop
 discord
 spotify
 
-capitainer-cursors
+capitaine-cursors
 la-capitaine-icon-theme
 osx-arc-darker
