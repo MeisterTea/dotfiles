@@ -105,6 +105,10 @@ silent! colorscheme gruvbox
 
 let g:vim_jsx_pretty_colorful_config = 1
 
+" Move me to ftdetect
+autocmd FileType php setlocal tabstop=4
+autocmd FileType php setlocal shiftwidth=0
+
 nnoremap <SPACE> <Nop>
 " bottom right trick
 map <space> <leader>
@@ -332,6 +336,17 @@ nnoremap <leader>gy :Goyo<CR>
 nnoremap <leader>tb :TagbarToggle<CR>
 nnoremap <leader>ut :UndotreeToggle<CR>
 nnoremap <leader>ll :Limelight!!<CR>
+
+" UltiSnips
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+
+" Phpactor
+noremap <Leader>c :call phpactor#ContextMenu()<CR>
+noremap <Leader>g :call phpactor#GotoDefinition()<CR>
+noremap <Leader>t :call phpactor#Transform()<CR>
+noremap <Leader>u :call phpactor#UseAdd()<CR>
 
 " Buffers navigation
 " nnoremap <expr> <C-h> expand('%') =~ 'NERD_tree' ? '' : ':bp<CR>'
