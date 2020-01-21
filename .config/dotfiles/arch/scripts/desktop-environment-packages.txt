@@ -15,3 +15,5 @@ picom
 dunst
 network-manager-applet
 rofi
+i3lock-color
+imagemagick
