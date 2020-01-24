@@ -5,7 +5,7 @@ set -o emacs
 
 source /usr/share/zsh/scripts/zplug/init.zsh
 
-[[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
+zplug romkatv/powerlevel10k, as:theme, depth:1
 
 # Plugins
 if [ "$TERM" != 'linux' ]; then
@@ -241,3 +241,5 @@ _fzf_complete_docker_post() {
 lps() {
   lpass show -c --password $(lpass ls -l | fzf | rg -oP '(?<=id: ).*(?=] )')
 }
+
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

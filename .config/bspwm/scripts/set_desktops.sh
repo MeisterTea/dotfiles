@@ -13,10 +13,12 @@ pkill polybar
 
 battery=$(fd BAT /sys/class/power_supply -x echo {/})
 
-if [ "$displaysCount" -eq 1 ]; then
+if [-z "$battery"]; then
+  bspc monitor $displays -d 1 2 3 4 5 6 7 8 9 0
+  MONITOR='DP-2' polybar desktop &
+elif [ "$displaysCount" -eq 1 ]; then
   bspc monitor $displays -d 1 2 3 4 5 6 7 8 9 0
   MONITOR=$displays BATTERY=$battery polybar top &
-
 else
   for display in $displays
   do

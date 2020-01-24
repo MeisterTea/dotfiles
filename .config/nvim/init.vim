@@ -19,6 +19,8 @@ Plug 'tmhedberg/matchit' " Extends % pairing to html etc...
 Plug 'arecarn/vim-crunch' " I won't have to leave vim ever again !
 Plug 'arecarn/vim-selection' " Dependency
 
+Plug 'ap/vim-css-color' " Highlight colors
+
 Plug 'janko-m/vim-test'
 
 Plug 'terryma/vim-multiple-cursors'
@@ -26,6 +28,20 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
 
 Plug 'easymotion/vim-easymotion'
+
+Plug 'svermeulen/vim-subversive'
+
+function! BuildComposer(info)
+  if a:info.status != 'unchanged' || a:info.force
+    if has('nvim')
+      !cargo build --release --locked
+    else
+      !cargo build --release --locked --no-default-features --features json-rpc
+    endif
+  endif
+endfunction
+
+Plug 'euclio/vim-markdown-composer', { 'do': function('BuildComposer') }
 
 " Focus !
 Plug 'junegunn/limelight.vim'
@@ -102,6 +118,11 @@ function! s:patch_colors()
 endfunction
 autocmd! ColorScheme gruvbox call s:patch_colors()
 silent! colorscheme gruvbox
+
+set termguicolors
+
+hi! Normal ctermbg=NONE guibg=NONE " Fix transparency with termguicolors
+
 
 let g:vim_jsx_pretty_colorful_config = 1
 
@@ -222,8 +243,13 @@ let g:airline#extensions#tabline#fnamemod = ':t' " Only displays filenames
 let g:airline#extensions#whitespace#checks = []
 let g:airline_skip_empty_sections = 1
 
+" Submersive
+nmap s <plug>(SubversiveSubstitute)
+nmap ss <plug>(SubversiveSubstituteLine)
+nmap S <plug>(SubversiveSubstituteToEndOfLine)
+
 " Easymotion
-nmap s <Plug>(easymotion-overwin-f2)
+nmap es <Plug>(easymotion-overwin-f2)
 let g:EasyMotion_smartcase = 1
 map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
