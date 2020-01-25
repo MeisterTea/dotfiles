@@ -75,6 +75,7 @@ export PATH=${PATH}:${HOME}/.yarn/bin
 export PATH=${PATH}:${JAVA_HOME}/bin:$PATH
 export PATH=${PATH}:${HOME}/.cargo/bin
 export PATH=${PATH}:${HOME}/.config/composer/vendor/bin/
+export PATH=$PATH:${HOME}/.local/bin/
 
 export FZF_DEFAULT_COMMAND='fd --type f --follow --color=always --exclude .git'
 export FZF_DEFAULT_OPTS="--ansi --bind ctrl-a:select-all,ctrl-d:deselect-all,ctrl-t:toggle-all"

@@ -63,7 +63,7 @@ font-4 = "Font Awesome 5 Brands:pixelsize=11:antialias=true;1"
 
 modules-left = bspwm
 modules-center = date
-modules-right = alsa battery sysmenu
+modules-right = alsa sysmenu
 
 separator =
 

@@ -1,6 +1,5 @@
 #!/bin/sh
 
-yay -S --noconfirm --needed ctags composer neovim vim-plug python-pip python2-pip &&
-sudo pip install neovim
-sudo pip2 install neovim
+yay -S --noconfirm --needed ctags composer neovim vim-plug python-pip &&
+pip install --user neovim
 nvim +'PlugInstall --sync' +qa
