@@ -4,7 +4,7 @@
     "javascriptreact": ["javascript", "css"],
     "javascript": ["javascript", "css"]
   },
-  "intelephense.licenceKey": "GIT_FILTERED2",
+  "intelephense.licenceKey": "GIT_FILTERED3",
   "languageserver": {
     "intelephense": {
       "command": "intelephense",
