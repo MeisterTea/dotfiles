@@ -1,2 +1,6 @@
 {
+  "snippets.extends": {
+  "javascriptreact": ["javascript", "css"],
+  "javascript": ["javascript", "css"]
+  }
 }

@@ -802,16 +802,10 @@
     prompt_example
   }
 
-  typeset -g POWERLEVEL9K_TRANSIENT_PROMPT=off
-
-  typeset -g POWERLEVEL9K_INSTANT_PROMPT=off
-
-  typeset -g POWERLEVEL9K_DISABLE_HOT_RELOAD=true
-
-  # If p10k is already loaded, reload configuration.
-  # This works even with POWERLEVEL9K_DISABLE_HOT_RELOAD=true.
-  (( ! $+functions[p10k] )) || p10k reload
+  # User-defined prompt segments can be customized the same way as built-in segments.
+  typeset -g POWERLEVEL9K_EXAMPLE_FOREGROUND=208
+  typeset -g POWERLEVEL9K_EXAMPLE_VISUAL_IDENTIFIER_EXPANSION='${P9K_VISUAL_IDENTIFIER}'
 }
 
-(( ${#p10k_config_opts} )) && setopt ${p10k_config_opts[@]}
-'builtin' 'unset' 'p10k_config_opts'
+(( ! p9k_classic_restore_aliases )) || setopt aliases
+'builtin' 'unset' 'p9k_classic_restore_aliases'
