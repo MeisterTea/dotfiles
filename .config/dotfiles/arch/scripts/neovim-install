@@ -2,4 +2,5 @@
 
 yay -S --noconfirm --needed ctags composer neovim vim-plug python-pip &&
 pip install --user neovim
-nvim +'PlugInstall --sync' +qa
+nvim +'PlugInstall --sync' +qa &&
+cd ~/.config/coc/extensions && npm install --global-style --ignore-scripts --no-bin-links --no-package-lock --only=pro
