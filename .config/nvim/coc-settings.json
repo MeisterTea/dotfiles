@@ -1,4 +1,5 @@
 {
+  "javascript.validate.enable": false,
   "snippets.extends": {
   "javascriptreact": ["javascript", "css"],
   "javascript": ["javascript", "css"]
