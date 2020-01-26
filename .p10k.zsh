@@ -1,10 +1,3 @@
-# Temporarily change options.
-'builtin' 'local' '-a' 'p10k_config_opts'
-[[ ! -o 'aliases'         ]] || p10k_config_opts+=('aliases')
-[[ ! -o 'sh_glob'         ]] || p10k_config_opts+=('sh_glob')
-[[ ! -o 'no_brace_expand' ]] || p10k_config_opts+=('no_brace_expand')
-'builtin' 'setopt' 'no_aliases' 'no_sh_glob' 'brace_expand'
-
 () {
   emulate -L zsh
   setopt no_unset extended_glob
@@ -802,10 +795,10 @@
     prompt_example
   }
 
-  # User-defined prompt segments can be customized the same way as built-in segments.
-  typeset -g POWERLEVEL9K_EXAMPLE_FOREGROUND=208
-  typeset -g POWERLEVEL9K_EXAMPLE_VISUAL_IDENTIFIER_EXPANSION='${P9K_VISUAL_IDENTIFIER}'
+  typeset -g POWERLEVEL9K_TRANSIENT_PROMPT=off
+
+  typeset -g POWERLEVEL9K_INSTANT_PROMPT=off
 }
 
-(( ! p9k_classic_restore_aliases )) || setopt aliases
-'builtin' 'unset' 'p9k_classic_restore_aliases'
+(( ${#p10k_config_opts} )) && setopt ${p10k_config_opts[@]}
+'builtin' 'unset' 'p10k_config_opts'
