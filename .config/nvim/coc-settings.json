@@ -1,7 +1,18 @@
 {
   "javascript.validate.enable": false,
   "snippets.extends": {
-  "javascriptreact": ["javascript", "css"],
-  "javascript": ["javascript", "css"]
+    "javascriptreact": ["javascript", "css"],
+    "javascript": ["javascript", "css"]
+  },
+  // "intelephense.licenceKey": "GIT_FILTERED",
+  "languageserver": {
+    "intelephense": {
+      "command": "intelephense",
+      "args": ["--stdio"],
+      "filetypes": ["php"],
+      "initializationOptions": {
+        "storagePath": "/tmp/intelephense"
+      }
+    }
   }
 }
