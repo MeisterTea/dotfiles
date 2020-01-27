@@ -119,6 +119,13 @@ Plug 'ryanoasis/vim-devicons' " Needs to be loaded last
 
 call plug#end()
 
+" Transparent popup menu
+set wildoptions=pum
+set pumblend=20
+
+" Transparent floating windows
+set winblend=10
+
 " Theme
 function! s:patch_colors()
   hi Normal ctermbg=none
@@ -216,6 +223,8 @@ let $FZF_DEFAULT_OPTS='--layout=reverse --color=fg:#ebdbb2,bg:#504945,hl:#ebdbb2
 
 " Using the custom window creation function
 let g:fzf_layout = { 'window': 'call FloatingFZF()' }
+
+let g:pumblend = 0
 
 " Function to create the custom floating window
 function! FloatingFZF()
