@@ -8,7 +8,8 @@
 
 call plug#begin('~/.local/share/nvim/plugged')
 
-Plug 'MeisterTea/gruvbox' " Theme
+" Plug 'MeisterTea/gruvbox' " Theme
+Plug 'gruvbox-community/gruvbox'
 
 Plug 'vim-scripts/BufOnly.vim'
 Plug 'vim-scripts/Rename'
@@ -131,12 +132,6 @@ set pumblend=20
 " Transparent floating windows
 set winblend=10
 
-" Theme
-function! s:patch_colors()
-  hi Normal ctermbg=none
-  highlight NonText ctermbg=none
-endfunction
-autocmd! ColorScheme gruvbox call s:patch_colors()
 silent! colorscheme gruvbox
 
 set termguicolors
