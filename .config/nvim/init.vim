@@ -18,7 +18,7 @@ Plug 'tmhedberg/matchit' " Extends % pairing to html etc...
 
 Plug 'ap/vim-css-color' " Highlight colors
 
-Plug 'janko-m/vim-test'
+Plug 'janko/vim-test'
 
 Plug 'terryma/vim-multiple-cursors'
 
@@ -430,3 +430,10 @@ nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
 
 nnoremap <silent> <leader>b :ToggleBlameLine<CR>
+
+" vim-test mappings
+nmap <silent> t<C-n> :TestNearest<CR>
+nmap <silent> t<C-f> :TestFile<CR>
+nmap <silent> t<C-s> :TestSuite<CR>
+nmap <silent> t<C-l> :TestLast<CR>
+nmap <silent> t<C-g> :TestVisit<CR>
