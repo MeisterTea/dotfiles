@@ -28,6 +28,8 @@ Plug 'easymotion/vim-easymotion'
 
 Plug 'svermeulen/vim-subversive'
 
+Plug 'rhysd/git-messenger.vim' " Git tool
+
 function! BuildComposer(info)
   if a:info.status != 'unchanged' || a:info.force
     if has('nvim')
@@ -412,12 +414,6 @@ let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
-" Phpactor
-noremap <Leader>c :call phpactor#ContextMenu()<CR>
-noremap <Leader>g :call phpactor#GotoDefinition()<CR>
-noremap <Leader>t :call phpactor#Transform()<CR>
-noremap <Leader>u :call phpactor#UseAdd()<CR>
-
 " Buffers navigation
 " nnoremap <expr> <C-h> expand('%') =~ 'NERD_tree' ? '' : ':bp<CR>'
 " nnoremap <expr> <C-l> expand('%') =~ 'NERD_tree' ? '' : ':bn<CR>'
@@ -430,18 +426,3 @@ nmap <leader>bc :BufOnly<CR>
 
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
-
-function! PxToRem()
-  let remNumber = expand("<cword>")/16.0
-   " substitute(remNumber, '^\s*\(.\{-}\)\s*$', '\1', '')
-
-  " if remNumber % 1 == 0:
-  "   remNumber = int(remNumber)
-  " else:
-  "   remNumber = remNumber
-
-  execute "normal! diwi\<C-r>\<C-r>=remNumber\<CR>\<Esc>"
-  :echo remNumber
-endfunction
-
-nnoremap <leader>m :call PxToRem()<CR>
