@@ -378,7 +378,7 @@ map <C-b> <esc>:NERDTreeToggle<CR>
 nnoremap <C-e> <esc>:ALEFix<CR><esc>:CocCommand eslint.executeAutofix<CR>
 
 " Dodges NERDTree and search all files content
-nnoremap <silent> <expr> <C-f> (expand('%') =~ 'NERD_tree' ? "\<c-w>\<c-w>" : '').":Rg "
+nnoremap <silent> <expr> <C-f> (expand('%') =~ 'NERD_tree' ? "\<c-w>\<c-w>" : '').":Rg\<cr>"
 
 " Dodges NERDTree and search all files names
 nnoremap <silent> <expr> <leader>a (expand('%') =~ 'NERD_tree' ? "\<c-w>\<c-w>" : '').":AllFiles\<cr>"
@@ -437,3 +437,5 @@ nmap <silent> t<C-f> :TestFile<CR>
 nmap <silent> t<C-s> :TestSuite<CR>
 nmap <silent> t<C-l> :TestLast<CR>
 nmap <silent> t<C-g> :TestVisit<CR>
+
+nmap <Leader>cr <Plug>(coc-calc-result-replace)
