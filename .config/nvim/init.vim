@@ -30,6 +30,8 @@ Plug 'svermeulen/vim-subversive'
 
 Plug 'rhysd/git-messenger.vim' " Git tool
 
+Plug 'tveskag/nvim-blame-line' " Gitlens like
+
 function! BuildComposer(info)
   if a:info.status != 'unchanged' || a:info.force
     if has('nvim')
@@ -426,3 +428,5 @@ nmap <leader>bc :BufOnly<CR>
 
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
+
+nnoremap <silent> <leader>b :ToggleBlameLine<CR>
