@@ -126,6 +126,4 @@ nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 
 nnoremap <leader>ca  <Plug>(coc-codeaction-selected)
 
-nnoremap <C-e> <esc>:CocCommand eslint.executeAutofix<CR>
-
 nmap <Leader>cr <Plug>(coc-calc-result-replace)

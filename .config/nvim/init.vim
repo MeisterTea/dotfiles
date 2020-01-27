@@ -371,7 +371,7 @@ nnoremap <leader>gpl :Dispatch! git pull<CR>
 map <C-b> <esc>:NERDTreeToggle<CR>
 
 " Fix errors or warnings
-map <C-e> <esc>:ALEFix<CR>
+nnoremap <C-e> <esc>:ALEFix<CR><esc>:CocCommand eslint.executeAutofix<CR>
 
 " Dodges NERDTree and search all files content
 nnoremap <silent> <expr> <C-f> (expand('%') =~ 'NERD_tree' ? "\<c-w>\<c-w>" : '').":Rg "
