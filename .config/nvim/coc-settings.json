@@ -1,4 +1,7 @@
 {
+  "emmet.includeLanguages": {
+    "javascript": "css"
+  },
   "javascript.validate.enable": false,
   "snippets.extends": {
     "javascriptreact": ["javascript", "css"],
