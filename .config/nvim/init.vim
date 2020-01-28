@@ -17,7 +17,7 @@ Plug 'vim-scripts/bufkill.vim'
 
 Plug 'tmhedberg/matchit' " Extends % pairing to html etc...
 
-Plug 'ap/vim-css-color' " Highlight colors
+Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
 
 Plug 'janko/vim-test'
 
@@ -124,6 +124,8 @@ Plug 'junegunn/fzf.vim'
 Plug 'ryanoasis/vim-devicons' " Needs to be loaded last
 
 call plug#end()
+
+let g:Hexokinase_highlighters = ['virtual']
 
 " Transparent popup menu
 set wildoptions=pum
