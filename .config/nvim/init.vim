@@ -29,9 +29,9 @@ Plug 'easymotion/vim-easymotion'
 
 Plug 'svermeulen/vim-subversive'
 
-Plug 'rhysd/git-messenger.vim' " Git tool
+Plug 'rhysd/git-messenger.vim' " Git tool <leader> gm
 
-Plug 'tveskag/nvim-blame-line' " Gitlens like
+Plug 'tveskag/nvim-blame-line' " Gitlens like <leader> b
 
 function! BuildComposer(info)
   if a:info.status != 'unchanged' || a:info.force
