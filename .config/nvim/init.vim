@@ -374,7 +374,7 @@ map <C-b> <esc>:NERDTreeToggle<CR>
 nnoremap <C-e> <esc>:ALEFix<CR><esc>:CocCommand eslint.executeAutofix<CR>
 
 " Dodges NERDTree and search all files content
-nnoremap <silent> <expr> <C-f> (expand('%') =~ 'NERD_tree' ? "\<c-w>\<c-w>" : '').":Rg\<cr>"
+nnoremap <silent> <expr> <C-f> (expand('%') =~ 'NERD_tree' ? "\<c-w>\<c-w>" : '').":Rg "
 
 " Dodges NERDTree and search all files names
 nnoremap <silent> <expr> <leader>a (expand('%') =~ 'NERD_tree' ? "\<c-w>\<c-w>" : '').":AllFiles\<cr>"
