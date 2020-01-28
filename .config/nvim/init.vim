@@ -25,6 +25,8 @@ Plug 'terryma/vim-multiple-cursors'
 
 Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
 
+" Plug 'puremourning/vimspector', {'do': './install_gadget.py --force-enable-chrome'} It may come useful
+
 Plug 'easymotion/vim-easymotion'
 
 Plug 'svermeulen/vim-subversive'
