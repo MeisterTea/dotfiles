@@ -60,22 +60,22 @@ export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 export MAKEFLAGS="-j$(nproc)"
 export ENABLE_FLUTTER_DESKTOP=true
-export GOPATH=${HOME}/go
-export ANDROID_HOME=${HOME}/Android/Sdk
+export GOPATH=$HOME/go
+export ANDROID_HOME=$HOME/Android/Sdk
 export JAVA_HOME="/usr/lib/jvm/java-8-openjdk/"
 export _JAVA_AWT_WM_NONREPARENTING=1 # Fixes grey java apps
-export PATH=${PATH}:${HOME}/.bin
-export PATH=${PATH}:/opt/
-export PATH=${PATH}:/opt/flutter/bin/
-export PATH=${PATH}:${ANDROID_HOME}/emulator 
-export PATH=${PATH}:${ANDROID_HOME}/tools 
-export PATH=${PATH}:${ANDROID_HOME}/platform-tools
-export PATH=${PATH}:/root/.gem/ruby/2.4.0/bin
-export PATH=${PATH}:${HOME}/.yarn/bin
-export PATH=${PATH}:${JAVA_HOME}/bin:$PATH
-export PATH=${PATH}:${HOME}/.cargo/bin
-export PATH=${PATH}:${HOME}/.config/composer/vendor/bin/
-export PATH=$PATH:${HOME}/.local/bin/
+export PATH=$PATH:$HOME/.bin
+export PATH=$PATH:/opt/
+export PATH=$PATH:/opt/flutter/bin/
+export PATH=$PATH:$ANDROID_HOME/emulator 
+export PATH=$PATH:$ANDROID_HOME/tools 
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+export PATH=$PATH:/root/.gem/ruby/2.4.0/bin
+export PATH=$PATH:$HOME/.yarn/bin
+export PATH=$PATH:$JAVA_HOME/bin:$PATH
+export PATH=$PATH:$HOME/.cargo/bin
+export PATH=$PATH:$HOME/.config/composer/vendor/bin/
+export PATH=$PATH:$HOME/.local/bin/
 
 export FZF_DEFAULT_COMMAND='fd --type f --follow --color=always --exclude .git'
 export FZF_DEFAULT_OPTS="--ansi --bind ctrl-a:select-all,ctrl-d:deselect-all,ctrl-t:toggle-all"
