@@ -1,0 +1,10 @@
+#!/bin/sh
+
+root_dir=$(dirname $0)
+
+yay -S --noconfirm --needed code
+
+while read EXTENSION
+do
+    code --install-extension $EXTENSION
+done < $root_dir/code_extensions
