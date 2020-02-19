@@ -21,13 +21,13 @@ echo "$hostname" | tee /etc/hostname
 echo -e "127.0.0.1	localhost\n::1		localhost\n127.0.1.1	$hostname.localdomain	$hostname" | tee /etc/hosts
 pacman -S --noconfirm --needed aria2 &&
 sudo -u $username $root_dir/yay-install &&
-sudo -u $username yay -S --noconfirm --needed mkinitcpio-colors-git
-sudo -u $username yay -S --noconfirm --needed intel-ucode
-mkinitcpio -P
+sudo -u $username yay -S --noconfirm --needed mkinitcpio-colors-git &&
+sudo -u $username yay -S --noconfirm --needed intel-ucode &&
+mkinitcpio -P &&
 pacman -S --noconfirm --needed refind-efi &&
 refind-install
 root_partition_uuid=$(findmnt / -o UUID -n)
-echo -e "\"Boot using default options\" \"root=UUID=$root_partition_uuid rw add_efi_memmap initrd=intel-ucode.img initrd=initramfs-%v.img\"\n\"Boot using fallback initramfs\" \"root=UUID=$root_partition_uuid rw add_efi_memmap initrd=intel-ucode.img initrd=initramfs-%v-fallback.img\"\n\"Boot to terminal\" \"root=UUID=$root_partition_uuid rw add_efi_memmap initrd=intel-ucode.img initrd=initramfs-%v.img systemd.unit=multi-user.target\"" | tee /boot/refind_linux.conf
-cp $root_dir/../boot/refind.conf /boot/EFI/refind/refind.conf
-pacman-key --refresh
+echo -e "\"Boot using default options\" \"root=UUID=$root_partition_uuid rw add_efi_memmap initrd=intel-ucode.img initrd=initramfs-%v.img\"\n\"Boot using fallback initramfs\" \"root=UUID=$root_partition_uuid rw add_efi_memmap initrd=intel-ucode.img initrd=initramfs-%v-fallback.img\"\n\"Boot to terminal\" \"root=UUID=$root_partition_uuid rw add_efi_memmap initrd=intel-ucode.img initrd=initramfs-%v.img systemd.unit=multi-user.target\"" | tee /boot/refind_linux.conf &&
+cp $root_dir/../boot/refind.conf /boot/EFI/refind/refind.conf &&
+pacman-key --refresh &&
 sudo -u $username make -C $root_dir install
