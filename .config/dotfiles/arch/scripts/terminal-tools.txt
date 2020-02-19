@@ -1,3 +1,4 @@
+wifi-menu
 fzf
 skim
 kitty
