@@ -1,7 +1,10 @@
 #!/bin/bash
 
-wget "https://raw.githubusercontent.com/MeisterTea/dotfiles/master/.config/dotfiles/arch/scripts/bootstrap"
-wget "https://raw.githubusercontent.com/MeisterTea/dotfiles/master/.config/dotfiles/arch/scripts/bootstrap_chroot"
-wget "https://raw.githubusercontent.com/MeisterTea/dotfiles/master/.config/dotfiles/arch/scripts/clone_repo"
+wget "https://raw.githubusercontent.com/MeisterTea/dotfiles/master/.config/dotfiles/arch/scripts/bootstrap" &&
+chmod +x ./bootstrap
+wget "https://raw.githubusercontent.com/MeisterTea/dotfiles/master/.config/dotfiles/arch/scripts/bootstrap_chroot" &&
+chmod +x ./bootstrap_chroot
+wget "https://raw.githubusercontent.com/MeisterTea/dotfiles/master/.config/dotfiles/arch/scripts/clone_repo" &&
+chmod +x ./clone_repo
 
 ./bootstrap
