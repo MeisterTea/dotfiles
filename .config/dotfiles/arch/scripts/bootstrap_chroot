@@ -29,3 +29,4 @@ root_partition_uuid=$(findmnt / -o UUID -n)
 echo -e "\"Boot using default options\" \"root=UUID=$root_partition_uuid rw add_efi_memmap initrd=intel-ucode.img initrd=initramfs-%v.img\"\n\"Boot using fallback initramfs\" \"root=UUID=$root_partition_uuid rw add_efi_memmap initrd=intel-ucode.img initrd=initramfs-%v-fallback.img\"\n\"Boot to terminal\" \"root=UUID=$root_partition_uuid rw add_efi_memmap initrd=intel-ucode.img initrd=initramfs-%v.img systemd.unit=multi-user.target\"" | tee /boot/refind_linux.conf
 cp $root_dir/../boot/refind.conf /boot/EFI/refind/refind.conf
 pacman-key --refresh
+cd $root_dir && make install
