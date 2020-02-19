@@ -1,0 +1,15 @@
+#!/bin/bash
+
+sed --in-place 's/^#\s*\(%wheel\s\+ALL=(ALL)\s\+ALL\)/\1/' /etc/sudoers
+read -p "choose your root password: " root_password
+echo "root:$root_password" | chpasswd
+read -p "choose your username: " username
+read -p "choose your password: " password
+useradd -m -g wheel $username &&
+echo "$username:$password" | chpasswd
+
+home="/home/$username"
+dotfiles="/usr/bin/git --git-dir=$home/.dotfiles.git/ --work-tree=$home"
+git clone --bare https://MeisterTea@github.com/MeisterTea/dotfiles.git $home/.dotfiles.git
+dotfiles checkout
+dotfiles config --local status.showUntrackedFiles no
