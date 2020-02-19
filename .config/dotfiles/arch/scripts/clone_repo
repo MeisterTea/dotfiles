@@ -1,6 +1,5 @@
 #!/bin/bash
 
-pacman -S --noconfirm --needed git
 dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME"
 git clone --bare https://MeisterTea@github.com/MeisterTea/dotfiles.git $HOME/.dotfiles.git
 $dotfiles checkout

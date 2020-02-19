@@ -10,6 +10,7 @@ echo "$username:$password" | chpasswd
 
 root_dir="/home/$username/.config/dotfiles/arch/scripts"
 
+pacman -S --noconfirm --needed git
 sudo -u $username ./clone_repo &&
 ln -sf /usr/share/zoneinfo/Europe/Paris /etc/localtime
 hwclock --systohc
