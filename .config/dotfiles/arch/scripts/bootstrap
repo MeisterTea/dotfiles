@@ -3,8 +3,10 @@
 root_dir=$(dirname $0)
 
 timedatectl set-ntp true &&
+curl -s "https://www.archlinux.org/mirrorlist/?country=FR&country=GB&protocol=https&use_mirror_status=on" | sed -e 's/^#Server/Server/' -e '/^#/d' | rankmirrors -n 5 - > /etc/pacman.d/mirrorlist
 pacstrap /mnt base base-devel linux linux-firmware &&
 genfstab -U /mnt >> /mnt/etc/fstab &&
+arch-chroot /mnt curl -s "https://www.archlinux.org/mirrorlist/?country=FR&country=GB&protocol=https&use_mirror_status=on" | sed -e 's/^#Server/Server/' -e '/^#/d' | rankmirrors -n 5 - > /etc/pacman.d/mirrorlist
 arch-chroot /mnt sudo pacman -Syy
 arch-chroot /mnt sudo pacman -S --noconfirm --needed networkmanager
 arch-chroot /mnt systemctl enable NetworkManager
