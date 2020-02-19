@@ -1,6 +1,6 @@
 #!/bin/sh
 
-git clone https://aur.archlinux.org/yay.git /tmp/yay-install
+git clone https://aur.archlinux.org/yay-bin.git /tmp/yay-install
 cd /tmp/yay-install
 makepkg -si --noconfirm &&
 rm -rf /tmp/yay-install
