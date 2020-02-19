@@ -10,7 +10,7 @@ echo "$username:$password" | chpasswd
 
 root_dir="/home/$username/.config/dotfiles/arch/scripts"
 
-./clone_repo $root_password $username $password &&
+sudo -u $username ./clone_repo &&
 ln -sf /usr/share/zoneinfo/Europe/Paris /etc/localtime
 hwclock --systohc
 $root_dir/etc-symbolic-link &&
