@@ -20,4 +20,4 @@ discord
 spotify
 capitaine-cursors
 la-capitaine-icon-theme
-osx-arc-darker
+osx-arc-shadow
