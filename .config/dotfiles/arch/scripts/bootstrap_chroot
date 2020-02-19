@@ -2,7 +2,7 @@
 
 root_dir=$(dirname $0)
 
-./clone_repo
+./clone_repo &&
 ln -sf /usr/share/zoneinfo/Europe/Paris /etc/localtime
 hwclock --systohc
 $root_dir/etc-symbolic-link &&

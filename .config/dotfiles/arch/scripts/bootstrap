@@ -11,5 +11,7 @@ arch-chroot /mnt sudo pacman -Syy
 arch-chroot /mnt sudo pacman -S --noconfirm --needed networkmanager
 arch-chroot /mnt systemctl enable NetworkManager
 cp ./bootstrap_chroot /mnt/
-arch-chroot /mnt bootstrap_chroot
+cp ./clone_repo /mnt/
+arch-chroot /mnt /bootstrap_chroot
 rm /mnt/bootstrap_chroot
+rm /mnt/clone_repo
