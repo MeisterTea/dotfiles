@@ -22,6 +22,7 @@ fonts:
 
 terminal-tools:
 	yay -S --noconfirm --needed - < ./terminal-tools.txt
+	nvm install node
 	yay -S --noconfirm --needed python-pip
 	pip install --user pipx
 
