@@ -3,6 +3,7 @@
 root_dir=$(dirname $0)
 
 aria2c -i $root_dir/fonts-list.txt -d ~/.local/share/fonts/ &&
+yay -S --noconfirm --needed fontconfig
 fc-cache
 
 yay -S --noconfirm --needed - < $root_dir/fonts-packages.txt
