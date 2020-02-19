@@ -22,7 +22,7 @@ fonts:
 
 terminal-tools:
 	yay -S --noconfirm --needed - < ./terminal-tools.txt
-	yay -S --noconfirm --needed python-pip &&
+	yay -S --noconfirm --needed python-pip
 	pip install --user pipx
 
 hack:
