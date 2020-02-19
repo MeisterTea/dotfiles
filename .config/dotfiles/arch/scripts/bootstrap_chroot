@@ -19,6 +19,7 @@ locale-gen
 read -p "Enter Your hostname: "  hostname
 echo "$hostname" | tee /etc/hostname
 echo -e "127.0.0.1	localhost\n::1		localhost\n127.0.1.1	$hostname.localdomain	$hostname" | tee /etc/hosts
+pacman -Syy
 pacman -S --noconfirm --needed aria2 &&
 sudo -u $username $root_dir/yay-install &&
 sudo -u $username yay -S --noconfirm --needed mkinitcpio-colors-git &&
