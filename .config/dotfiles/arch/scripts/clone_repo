@@ -1,10 +1,10 @@
 #!/bin/bash
 
 sed --in-place 's/^#\s*\(%wheel\s\+ALL=(ALL)\s\+ALL\)/\1/' /etc/sudoers
-read -s "choose your root password: " root_password
+read -p "choose your root password: " root_password
 echo "root:$root_password" | chpasswd
 read -p "choose your username: " username
-read -s "choose your password: " password
+read -p "choose your password: " password
 useradd -m -g wheel $username &&
 echo "$username:$password" | chpasswd
 
