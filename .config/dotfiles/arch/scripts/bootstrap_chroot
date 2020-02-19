@@ -20,8 +20,8 @@ echo "$hostname" | tee /etc/hostname
 echo -e "127.0.0.1	localhost\n::1		localhost\n127.0.1.1	$hostname.localdomain	$hostname" | tee /etc/hosts
 pacman -S --noconfirm --needed aria2 &&
 sudo -u $username $root_dir/yay-install &&
-yay -S --noconfirm --needed mkinitcpio-colors-git
-yay -S --noconfirm --needed intel-ucode
+sudo -u $username yay -S --noconfirm --needed mkinitcpio-colors-git
+sudo -u $username yay -S --noconfirm --needed intel-ucode
 mkinitcpio -P
 pacman -S --noconfirm --needed refind-efi &&
 refind-install
