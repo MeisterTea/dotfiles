@@ -15,14 +15,14 @@ zsh:
 	./zsh-install
 
 neovim:
-	./neovim-install
+	source /usr/share/nvm/init-nvm.sh ./neovim-install
 
 fonts:
 	./fonts-install
 
 terminal-tools:
 	yay -S --noconfirm --needed - < ./terminal-tools.txt
-	nvm install node
+	source /usr/share/nvm/init-nvm.sh && nvm install node
 	yay -S --noconfirm --needed python-pip
 	pip install --user pipx
 
