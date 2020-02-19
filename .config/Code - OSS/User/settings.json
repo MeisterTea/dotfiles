@@ -1,26 +1,31 @@
 {
-    "workbench.colorTheme": "Gruvbox Dark Soft",
-    "editor.fontFamily": "FuraCode Nerd Font",
-    "editor.fontLigatures": true,
-    "eslint.format.enable": true,
-    "vetur.format.defaultFormatter.html": "prettier",
-    "editor.formatOnSave": true,
-    "tslint.autoFixOnSave": true,
-    "gitlens.advanced.messages": {
-        "suppressShowKeyBindingsNotice": true
-    },
-    "intelephense.telemetry.enabled": false,
-    "[javascript]": {
-        "editor.defaultFormatter": "dbaeumer.vscode-eslint"
-    },
-    "multiCommand.commands": [
-        {
-            "command": "multiCommand.formatJavascript",
-            "sequence": [
-                "editor.action.formatDocument",
-                "stylelint.executeAutofix"
-            ]
-        }
-    ],
-    "editor.formatOnSaveTimeout": 5000
+  "workbench.colorTheme": "Gruvbox Dark Soft",
+  "editor.fontFamily": "Fira Code",
+  "editor.fontLigatures": true,
+  "eslint.format.enable": true,
+  "vetur.format.defaultFormatter.html": "prettier",
+  "editor.formatOnSave": true,
+  "tslint.autoFixOnSave": true,
+  "gitlens.advanced.messages": {
+    "suppressShowKeyBindingsNotice": true
+  },
+  "intelephense.telemetry.enabled": false,
+  "[javascript]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  },
+  "multiCommand.commands": [
+    {
+      "command": "multiCommand.formatJavascript",
+      "sequence": [
+        "editor.action.formatDocument",
+        "stylelint.executeAutofix"
+      ]
+    }
+  ],
+  "editor.formatOnSaveTimeout": 5000,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true,
+    "source.fixAll.stylelint": true
+  },
+  "workbench.iconTheme": "vscode-icons"
 }

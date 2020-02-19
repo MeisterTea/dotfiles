@@ -2,23 +2,10 @@
 
 root_dir=$(dirname $0)
 
-sudo pacman -Syy
-sudo pacman -S --noconfirm --needed networkmanager
-sudo ln -sf /usr/share/zoneinfo/Europe/Paris /etc/localtime
-sudo hwclock --systohc
-$root_dir/etc-symbolic-link &&
-sudo locale-gen
-read -p "Enter Your hostname: "  hostname
-echo "$hostname" | sudo tee /etc/hostname
-echo -e "127.0.0.1	localhost\n::1		localhost\n127.0.1.1	$hostname.localdomain	$hostname" | sudo tee /etc/hosts
-sudo pacman -S --noconfirm --needed aria2 &&
-$root_dir/yay-install &&
-yay -S --noconfirm --needed mkinitcpio-colors-git
-yay -S --noconfirm --needed intel-ucode
-sudo mkinitcpio -P
-sudo pacman -S --noconfirm --needed refind-efi &&
-sudo refind-install
-root_partition_uuid=$(findmnt / -o UUID -n)
-echo -e "\"Boot using default options\" \"root=UUID=$root_partition_uuid rw add_efi_memmap initrd=intel-ucode.img initrd=initramfs-%v.img\"\n\"Boot using fallback initramfs\" \"root=UUID=$root_partition_uuid rw add_efi_memmap initrd=intel-ucode.img initrd=initramfs-%v-fallback.img\"\n\"Boot to terminal\" \"root=UUID=$root_partition_uuid rw add_efi_memmap initrd=intel-ucode.img initrd=initramfs-%v.img systemd.unit=multi-user.target\"" | sudo tee /boot/refind_linux.conf
-sudo cp $root_dir/../boot/refind.conf /boot/EFI/refind/refind.conf
-sudo pacman-key - - refresh
+timedatectl set-ntp true &&
+pacstrap /mnt base base-devel linux linux-firmware &&
+genfstab -U /mnt >> /mnt/etc/fstab &&
+arch-chroot /mnt sudo pacman -Syy
+arch-chroot /mnt sudo pacman -S --noconfirm --needed networkmanager
+arch-chroot /mnt systemctl enable NetworkManager
+arch-chroot /mnt bootstrap_chroot

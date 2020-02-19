@@ -1,8 +1,3 @@
-# default
-
-bootstrap:
-	./bootstrap
-
 install:
 	make fonts
 	make terminal-tools
