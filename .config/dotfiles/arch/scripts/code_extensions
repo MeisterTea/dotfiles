@@ -17,3 +17,5 @@ gruntfuggly.todo-tree
 pflannery.vscode-versionlens
 octref.vetur
 vscodevim.vim
+prisma.vscode-graphql
+jpoissonnier.vscode-styled-components

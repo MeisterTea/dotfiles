@@ -21,3 +21,4 @@ spotify
 capitaine-cursors
 la-capitaine-icon-theme
 arc-gtk-theme
+meld
