@@ -6,5 +6,5 @@ yay -S --noconfirm --needed code
 
 while read EXTENSION
 do
-    code --install-extension $EXTENSION
+    code --install-extension $EXTENSION --force
 done < $root_dir/code_extensions
