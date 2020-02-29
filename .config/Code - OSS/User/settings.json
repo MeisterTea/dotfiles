@@ -27,5 +27,8 @@
     "source.fixAll.eslint": true,
     "source.fixAll.stylelint": true
   },
-  "workbench.iconTheme": "vscode-icons"
+  "workbench.iconTheme": "vscode-icons",
+  "todo-tree.tree.showScanModeButton": false,
+  "workbench.editor.enablePreview": false,
+  "editor.tabSize": 2
 }
