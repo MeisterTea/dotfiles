@@ -3,7 +3,8 @@
   a = add
   b = branch
   c = commit
-  d = "!git diff | diff-so-fancy"
+  d = "!git diff HEAD | diff-so-fancy"
+  ds = "!git diff --staged | diff-so-fancy"
   f = fetch
   g = grep
   m = merge
