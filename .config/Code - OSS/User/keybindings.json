@@ -26,5 +26,13 @@
         "key": "shift+5",
         "command": "editor.emmet.action.matchTag",
         "when": "vim.mode != 'Insert'"
+    },
+    {
+        "key": "ctrl+shift+enter",
+        "command": "extension.multiCommand.execute",
+        "args": {
+            "command": "multiCommand.splitBelow"
+        },
+        "when": "fileMatchOrMatchFocus && searchViewletVisible"
     }
 ]
