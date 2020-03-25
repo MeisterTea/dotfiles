@@ -1,4 +1,14 @@
 {
+  "[json]": {
+    "editor.tabSize": 2
+  },
+  "[css]": {
+    "editor.tabSize": 2
+  },
+  "[javascript]": {
+    "editor.tabSize": 2,
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  },
   "workbench.colorTheme": "Gruvbox Dark Soft",
   "editor.fontFamily": "Fira Code",
   "editor.fontLigatures": true,
@@ -10,15 +20,18 @@
     "suppressShowKeyBindingsNotice": true
   },
   "intelephense.telemetry.enabled": false,
-  "[javascript]": {
-    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
-  },
   "multiCommand.commands": [
     {
       "command": "multiCommand.formatJavascript",
       "sequence": [
         "editor.action.formatDocument",
         "stylelint.executeAutofix"
+      ]
+    },
+    {
+      "command": "multiCommand.splitBelow",
+      "sequence": [
+        "command": "search.action.openResultToSide",
       ]
     }
   ],
