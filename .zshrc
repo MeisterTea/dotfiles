@@ -158,6 +158,7 @@ alias t="tmux"
 alias tm="tmux"
 alias sysd="sudo systemctl"
 alias :q="exit"
+alias ytop="ytop -p"
 
 # Android related
 alias reset-vending="adb shell pm clear com.android.vending"
