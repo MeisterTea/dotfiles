@@ -30,5 +30,8 @@
   "workbench.iconTheme": "vscode-icons",
   "todo-tree.tree.showScanModeButton": false,
   "workbench.editor.enablePreview": false,
-  "editor.tabSize": 2
+  "editor.tabSize": 2,
+  "[php]": {
+    "editor.defaultFormatter": "bmewburn.vscode-intelephense-client"
+  }
 }
