@@ -3,3 +3,4 @@
 ln -s ~/.conf/bspwm/scripts/autostart/home.sh ~/.config/bspwm/scripts/autostart/loader.sh
 yay -S --noconfirm --needed - < ./desktop-environment-packages.txt
 yay -S --noconfirm --needed - < ./desktop-environment-packages-extra.txt
+systemctl --user enable pulseaudio
