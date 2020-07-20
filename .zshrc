@@ -76,6 +76,8 @@ export PATH=$PATH:$JAVA_HOME/bin:$PATH
 export PATH=$PATH:$HOME/.cargo/bin
 export PATH=$PATH:$HOME/.config/composer/vendor/bin/
 export PATH=$PATH:$HOME/.local/bin/
+export PATH="$PATH:$(go env GOPATH)/bin"
+export PATH=$PATH:$HOME/.deno/bin
 
 export FZF_DEFAULT_COMMAND='fd --type f --follow --color=always --exclude .git'
 export FZF_DEFAULT_OPTS="--ansi --bind ctrl-a:select-all,ctrl-d:deselect-all,ctrl-t:toggle-all"
@@ -159,6 +161,8 @@ alias tm="tmux"
 alias sysd="sudo systemctl"
 alias :q="exit"
 alias ytop="ytop -p"
+alias m="make"
+alias j="just"
 
 # Android related
 alias reset-vending="adb shell pm clear com.android.vending"
@@ -168,6 +172,7 @@ alias logcat="adb logcat -v color"
 alias icat="kitty +kitten icat"
 alias d="kitty +kitten diff"
 alias nf="neofetch --kitty ~/.config/neofetch/image/"
+alias sshk="infocmp xterm-kitty | ssh xargs tic -x -o \~/.terminfo /dev/stdin"
 
 # Tmux related
 alias td="tmux detach"

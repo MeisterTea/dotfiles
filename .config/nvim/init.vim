@@ -71,6 +71,7 @@ Plug 'tmhedberg/SimpylFold' " Python folding
 " Syntastic coloration
 Plug 'sheerun/vim-polyglot' " S Y N T A X
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' } " Styled components
+Plug 'vmchale/just-vim'
 
 " Autocompletion
 
