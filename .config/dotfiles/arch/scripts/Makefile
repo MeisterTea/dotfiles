@@ -6,6 +6,7 @@ install:
 	make toys
 	make zsh
 	make neovim
+	make nohang
 	make desktop-environment
 	make thunar-extra
 
@@ -16,6 +17,10 @@ desktop-environment:
 .PHONY: zsh
 zsh:
 	./zsh-install
+
+.PHONY: nohang
+nohang:
+	./nohang-install
 
 .PHONY: neovim
 neovim:

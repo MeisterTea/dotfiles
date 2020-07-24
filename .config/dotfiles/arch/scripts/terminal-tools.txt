@@ -12,10 +12,11 @@ wget
 nvm
 tmux
 htop
-gotop-bin
+ytop-bin
 docker
 docker-compose
 jq
 ncdu
 weechat
 openssh
+udisks2

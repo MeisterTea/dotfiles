@@ -2,3 +2,4 @@ dex2jar-git
 wireshark-qt
 radare2-cutter
 jd-gui-bin
+mitmproxy

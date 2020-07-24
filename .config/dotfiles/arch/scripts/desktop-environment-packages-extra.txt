@@ -5,6 +5,10 @@ lxappearance
 autorandr
 arandr
 thunar
+thunar-shares-plugin
+gvfs
+gvfs-smb
+sshfs
 flameshot
 gimp
 cups
