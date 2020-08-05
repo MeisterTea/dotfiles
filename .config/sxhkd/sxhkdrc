@@ -4,7 +4,7 @@ super + Return
 
 # program launcher
 super + @space
-  rofi -show drun
+  rofi -show drun -matching fuzzy
 
 # make sxhkd reload its configuration files:
 super + Escape
