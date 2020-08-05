@@ -23,3 +23,4 @@ udisks2
 tealdeer
 zoxide
 bandwhich
+diskonaut
