@@ -55,6 +55,8 @@ autoload -Uz compinit && compinit -i
 
 source /usr/share/nvm/init-nvm.sh # Set up Node Version Manager
 
+eval "$(zoxide init zsh)"
+
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
   [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
@@ -131,6 +133,7 @@ bindkey '^[^?' backward-kill-dir
 # Aliases
 
 # Shortcuts
+alias cat="bat --plain"
 alias delta='delta --theme 1337'
 alias y='yarn'
 alias v='nvim'

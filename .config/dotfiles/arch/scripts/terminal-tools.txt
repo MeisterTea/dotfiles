@@ -20,3 +20,6 @@ ncdu
 weechat
 openssh
 udisks2
+tealdeer
+zoxide
+bandwhich
