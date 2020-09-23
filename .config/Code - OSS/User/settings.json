@@ -15,20 +15,12 @@
   "editor.fontLigatures": true,
   "eslint.format.enable": true,
   "vetur.format.defaultFormatter.html": "prettier",
-  "editor.formatOnSave": true,
   "tslint.autoFixOnSave": true,
   "gitlens.advanced.messages": {
     "suppressShowKeyBindingsNotice": true
   },
   "intelephense.telemetry.enabled": false,
   "multiCommand.commands": [
-    {
-      "command": "multiCommand.formatJavascript",
-      "sequence": [
-        "editor.action.formatDocument",
-        "stylelint.executeAutofix"
-      ]
-    },
     {
       "command": "multiCommand.splitBelow",
       "sequence": [
@@ -39,10 +31,11 @@
     }
   ],
   "editor.formatOnSaveTimeout": 5000,
+  "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true,
-    "source.fixAll.stylelint": true
   },
+  "vetur.format.enable": false, // Disable fucking prettier
   "workbench.iconTheme": "vscode-icons",
   "todo-tree.tree.showScanModeButton": false,
   "workbench.editor.enablePreview": false,
@@ -52,5 +45,13 @@
   },
   "window.zoomLevel": 0,
   "go.formatTool": "goimports",
-  "go.useLanguageServer": true
+  "go.useLanguageServer": true,
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "vue"
+  ],
+  "[vue]": {
+    "editor.defaultFormatter": "octref.vetur"
+  }
 }
