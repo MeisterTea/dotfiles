@@ -53,5 +53,13 @@
   ],
   "[vue]": {
     "editor.defaultFormatter": "octref.vetur"
-  }
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  },
+  "tabnine.experimentalAutoImports": true,
+  "files.exclude": {
+    "node_modules": true,
+    "tags": true
+  },
 }

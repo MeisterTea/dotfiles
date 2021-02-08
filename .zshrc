@@ -80,6 +80,7 @@ export PATH=$PATH:$HOME/.config/composer/vendor/bin/
 export PATH=$PATH:$HOME/.local/bin/
 export PATH="$PATH:$(go env GOPATH)/bin"
 export PATH=$PATH:$HOME/.deno/bin
+PATH="$PATH:$(ruby -e 'puts Gem.user_dir')/bin"
 
 export FZF_DEFAULT_COMMAND='fd --type f --follow --color=always --exclude .git'
 export FZF_DEFAULT_OPTS="--ansi --bind ctrl-a:select-all,ctrl-d:deselect-all,ctrl-t:toggle-all"
