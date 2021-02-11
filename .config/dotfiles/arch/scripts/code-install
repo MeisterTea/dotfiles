@@ -2,7 +2,7 @@
 
 root_dir=$(dirname $0)
 
-yay -S --noconfirm --needed code
+yay -S --noconfirm --needed visual-studio-code-bin
 
 while read EXTENSION
 do
