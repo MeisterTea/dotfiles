@@ -6,6 +6,10 @@ super + Return
 super + @space
   rofi -show drun -matching fuzzy
 
+# password manager
+super + p
+  bwmenu
+
 # make sxhkd reload its configuration files:
 super + Escape
   pkill -USR1 -x sxhkd
