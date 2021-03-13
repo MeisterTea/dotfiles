@@ -169,6 +169,14 @@ alias ytop="ytop -p"
 alias m="make"
 alias j="just"
 
+# Mirrors updating
+alias update-mirrors='export TMPFILE="$(mktemp)"; \
+	sudo true; \
+	rate-arch-mirrors --max-delay=21600 | tee -a $TMPFILE \
+	  && sudo mv /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist-backup \
+	  && sudo mv $TMPFILE /etc/pacman.d/mirrorlist \
+	  && ua-drop-caches'
+
 # Android related
 alias reset-vending="adb shell pm clear com.android.vending"
 alias logcat="adb logcat -v color"
