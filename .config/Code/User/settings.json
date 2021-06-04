@@ -1,4 +1,7 @@
 {
+  "editor.fontFamily": "'Fira Code iScript', 'Fira Code'",
+  "editor.fontLigatures": true,
+  "editor.tabSize": 2,
     "workbench.colorTheme": "Gruvbox Dark Medium",
     "vim.normalModeKeyBindingsNonRecursive": [
     {
@@ -9,6 +12,19 @@
         }
       ]
     }
-],
-"todo-tree.tree.showScanModeButton": false
+  ],
+  "files.exclude": {
+    "node_modules": true,
+    "tags": true
+  },
+  "files.insertFinalNewline": true,
+  "todo-tree.general.tags": [
+    "BUG",
+    "HACK",
+    "FIXME",
+    "TODO",
+    "XXX",
+    "[ ]",
+    "[x]"
+  ],
 }
