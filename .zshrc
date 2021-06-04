@@ -143,6 +143,7 @@ alias vim='nvim'
 alias sv='sudo -E nvim'
 alias v.="nvim ."
 alias j="just"
+alias get_idf='. $HOME/esp/esp-idf/export.sh'
 alias emacs='emacs -nw'
 alias dc='docker-compose'
 alias bc='bc -ql'
