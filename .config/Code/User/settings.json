@@ -1,5 +1,5 @@
 {
-  "editor.fontFamily": "'Fira Code iScript', 'Fira Code'",
+  "editor.fontFamily": "'Fira Code'",
   "editor.fontLigatures": true,
   "editor.tabSize": 2,
     "workbench.colorTheme": "Gruvbox Dark Medium",
