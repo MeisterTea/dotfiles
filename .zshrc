@@ -1,36 +1,39 @@
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+HISTSIZE=1000
+SAVEHIST=1000
+
 set -o emacs
+
 # fzf must be placed after emacs settings or C-T won't work in tmux
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+export ZPLUG_HOME=$(brew --prefix)/opt/zplug
+source $ZPLUG_HOME/init.zsh
 
-source /usr/share/zsh/scripts/zplug/init.zsh
+export NVM_DIR="$HOME/.nvm"
+  [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+  [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+
+eval "$(zoxide init zsh)"
 
 zplug romkatv/powerlevel10k, as:theme, depth:1
-
-# Plugins
-if [ "$TERM" != 'linux' ]; then
-  zplug "romkatv/powerlevel10k", use:powerlevel10k.zsh-theme
-else
-  export PS1="%{%F{yellow}%}%n%{%f%} %~ › "
-fi
 zplug "zsh-users/zsh-completions"
 zplug "zsh-users/zsh-autosuggestions"
 zplug "zsh-users/zsh-syntax-highlighting"
 zplug "zsh-users/zsh-history-substring-search"
 zplug "yukiycino-dotfiles/fancy-ctrl-z"
 
-# History configuration
-HISTFILE=~/.histfile
-HISTSIZE=1000
-SAVEHIST=1000
+zplug load
+
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 setopt correct # Command correction
 setopt auto_pushd # Enables cd -TAB completion
 
-
 setopt globdots # Hidden files tab completion
-
-stty -ixon # Disables XON/XOFF flow control
 
 zstyle -e ':completion:*:default' list-colors 'reply=("${PREFIX:+=(#bi)($PREFIX:t)(?)*==34=34}:${(s.:.)LS_COLORS}")'; # Tab colors
 
@@ -53,62 +56,15 @@ zstyle ':completion:*' verbose yes
 fpath=(~/.zsh/completion $fpath)
 autoload -Uz compinit && compinit -i
 
-source /usr/share/nvm/init-nvm.sh # Set up Node Version Manager
-
-eval "$(zoxide init zsh)"
-
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-  [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-
-export MAKEFLAGS="-j$(nproc)"
-export ENABLE_FLUTTER_DESKTOP=true
-export GOPATH=$HOME/go
-export ANDROID_HOME=$HOME/Android/Sdk
-export JAVA_HOME="/usr/lib/jvm/java-8-openjdk/"
-export _JAVA_AWT_WM_NONREPARENTING=1 # Fixes grey java apps
-export PATH=$PATH:$HOME/.bin
-export PATH=$PATH:/opt/
-export PATH=$PATH:/opt/flutter/bin/
-export PATH=$PATH:$ANDROID_HOME/emulator 
-export PATH=$PATH:$ANDROID_HOME/tools 
-export PATH=$PATH:$ANDROID_HOME/platform-tools
-export PATH=$PATH:/root/.gem/ruby/2.4.0/bin
-export PATH=$PATH:$HOME/.yarn/bin
-export PATH=$PATH:$JAVA_HOME/bin:$PATH
-export PATH=$PATH:$HOME/.cargo/bin
-export PATH=$PATH:$HOME/.config/composer/vendor/bin/
-export PATH=$PATH:$HOME/.local/bin/
-export PATH="$PATH:$(go env GOPATH)/bin"
-export PATH=$PATH:$HOME/.deno/bin
-PATH="$PATH:$(ruby -e 'puts Gem.user_dir')/bin"
+export MAKEFLAGS="-j$(sysctl -n hw.logicalcpu)"
 
 export FZF_DEFAULT_COMMAND='fd --type f --follow --color=always --exclude .git'
 export FZF_DEFAULT_OPTS="--ansi --bind ctrl-a:select-all,ctrl-d:deselect-all,ctrl-t:toggle-all"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_CTRL_T_OPTS="--preview '(highlight -O ansi -l {} 2> /dev/null || nvim {} || tree -C {}) 2> /dev/null | head -200'"
 
-export _JAVA_OPTIONS=-Djava.io.tmpdir=/var/tmp
-export VISUAL=nvim
-export EDITOR="$VISUAL"
-
-# Fixes keys
-bindkey -e
-bindkey "\e[1~" beginning-of-line
-bindkey "\e[4~" end-of-line
-bindkey "\e[5~" beginning-of-history
-bindkey "\e[6~" end-of-history
-bindkey "\e[7~" beginning-of-line
-bindkey "\e[3~" delete-char
-bindkey "\e[2~" quoted-insert
-bindkey "\e[5C" forward-word
-bindkey "\e[5D" backward-word
-bindkey "\e\e[C" forward-word
-bindkey "\e\e[D" backward-word
-bindkey "\e[1;5C" forward-word
-bindkey "\e[1;5D" backward-word
-bindkey "\e[8~" end-of-line
-bindkey "\eOH" beginning-of-line
-bindkey "\eOF" end-of-line
-bindkey "\e[H" beginning-of-line
+export PATH="$PATH:$HOME/.rvm/bin"
+export PATH=$PATH:$HOME/.bin
 
 function cf-widget() { cf }
 
@@ -131,11 +87,6 @@ backward-kill-dir () {
 zle -N backward-kill-dir
 bindkey '^[^?' backward-kill-dir
 
-# Aliases
-
-# Shortcuts
-alias cat="bat --plain"
-alias delta='delta --theme 1337'
 alias y='yarn'
 alias v='nvim'
 alias vi='nvim'
@@ -143,10 +94,8 @@ alias vim='nvim'
 alias sv='sudo -E nvim'
 alias v.="nvim ."
 alias j="just"
-alias get_idf='. $HOME/esp/esp-idf/export.sh'
 alias emacs='emacs -nw'
 alias dc='docker-compose'
-alias bc='bc -ql'
 alias please='sudo'
 alias fuck='pkill -9'
 alias rsync='rsync -avh --info=progress2'
@@ -154,39 +103,15 @@ alias ls='exa'
 alias la='exa -a'
 alias ll='exa -l'
 alias lal='exa -la'
-alias cal='cal -m'
-alias scrot='scrot -q 100 ~/Pictures/screenshots/%Y-%m-%d-%T-screenshot.png'
-alias rndbg='adb shell input keyevent 82'
 alias rg="rg"
 alias grep="rg"
 alias find="fd"
 alias f="fd"
 alias g="git"
 alias t="tmux"
-alias tm="tmux"
-alias sysd="sudo systemctl"
 alias :q="exit"
-alias ytop="ytop -p"
 alias m="make"
 alias j="just"
-
-# Mirrors updating
-alias update-mirrors='export TMPFILE="$(mktemp)"; \
-	sudo true; \
-	rate-arch-mirrors --max-delay=21600 | tee -a $TMPFILE \
-	  && sudo mv /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist-backup \
-	  && sudo mv $TMPFILE /etc/pacman.d/mirrorlist \
-	  && ua-drop-caches'
-
-# Android related
-alias reset-vending="adb shell pm clear com.android.vending"
-alias logcat="adb logcat -v color"
-
-# Kitty related
-alias icat="kitty +kitten icat"
-alias d="kitty +kitten diff"
-alias nf="neofetch --kitty ~/.config/neofetch/image/"
-alias sshk="infocmp xterm-kitty | ssh xargs tic -x -o \~/.terminfo /dev/stdin"
 
 # Tmux related
 alias td="tmux detach"
@@ -196,10 +121,6 @@ alias tn="tmux new"
 # Git related
 alias gt1="git log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all"
 alias gt2="git log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all"
-
-zplug load
-
-export FZF_CTRL_T_OPTS="--preview '(highlight -O ansi -l {} 2> /dev/null || nvim {} || tree -C {}) 2> /dev/null | head -200'"
 
 _fzf_compgen_path() {
   fd --hidden --follow --exclude ".git" . "$1"
@@ -218,9 +139,6 @@ fif() {
 rp() {
   sd $1 $2 $(fif $1)
 }
-
-# pierpo/fzf-docker
-# doesn't work with zplug...
 
 _fzf_complete_docker() {
   # Get all Docker commands
@@ -258,9 +176,3 @@ _fzf_complete_docker_post() {
 }
 
 [ -n "$BASH" ] && complete -F _fzf_complete_docker -o default -o bashdefault docker
-
-lps() {
-  lpass show -c --password $(lpass ls -l | fzf | rg -oP '(?<=id: ).*(?=] )')
-}
-
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
