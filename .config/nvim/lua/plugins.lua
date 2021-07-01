@@ -12,7 +12,6 @@ vim.api.nvim_command('autocmd BufWritePost plugins.lua PackerCompile') -- Auto c
 
 return require('packer').startup(function()
   use 'wbthomason/packer.nvim' -- Package manager
-  use 'neovim/nvim-lspconfig'
   use {
 	  'kabouzeid/nvim-lspinstall',
 	  config = function()
@@ -20,15 +19,37 @@ return require('packer').startup(function()
 
       local function setup_servers()
         require'lspinstall'.setup()
-        local servers = require'lspinstall'.installed_servers()
-        for _, server in pairs(servers) do
+
+        local installed_servers = require'lspinstall'.installed_servers()
+        for _, server in pairs(installed_servers) do
           require'lspconfig'[server].setup{}
         end
+
+        --#no-lsp comment dart javascript jsdoc regex swift toml tsx
+      
+        --[[ #install-me "bash",
+        "css",
+        "dockerfile",
+        "go",
+        "graphql",
+        "html",
+        "java",
+        "json",
+        "lua",
+        "php",
+        "python",
+        "ruby",
+        "rust",
+        "svelte",
+        "typescript",
+        "vue",
+        "yaml" ]]
       end
 
       setup_servers()
     end,
-	  event = 'BufRead'
+    event = 'BufRead',
+    requires = {'neovim/nvim-lspconfig'},
   }
   use {
     'nvim-treesitter/nvim-treesitter',
