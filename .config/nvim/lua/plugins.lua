@@ -13,21 +13,17 @@ vim.api.nvim_command('autocmd BufWritePost plugins.lua PackerCompile') -- Auto c
 return require('packer').startup(function()
   use 'wbthomason/packer.nvim' -- Package manager
   use {
-	  'kabouzeid/nvim-lspinstall',
-	  config = function()
+    'kabouzeid/nvim-lspinstall',
+    config = function()
       require'lspinstall'.setup() -- important
 
-      local function setup_servers()
-        require'lspinstall'.setup()
+      local installed_servers = require'lspinstall'.installed_servers()
+      for _, server in pairs(installed_servers) do
+        require'lspconfig'[server].setup{}
+      end
 
-        local installed_servers = require'lspinstall'.installed_servers()
-        for _, server in pairs(installed_servers) do
-          require'lspconfig'[server].setup{}
-        end
-
-        --#no-lsp comment dart javascript jsdoc regex swift toml tsx
-      
-        --[[ #install-me "bash",
+      --[[ local required_servers = {
+        "bash",
         "css",
         "dockerfile",
         "go",
@@ -43,13 +39,16 @@ return require('packer').startup(function()
         "svelte",
         "typescript",
         "vue",
-        "yaml" ]]
-      end
+        "yaml"
+      }
 
-      setup_servers()
+      for _, server in pairs(required_servers) do
+        if not vim.tbl_contains(installed_servers, server) then
+          require'lspinstall'.install_server(server)
+        end
+      end ]]
     end,
-    event = 'BufRead',
-    requires = {'neovim/nvim-lspconfig'},
+    requires = {'neovim/nvim-lspconfig'}
   }
   use {
     'nvim-treesitter/nvim-treesitter',
