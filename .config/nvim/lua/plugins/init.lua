@@ -143,4 +143,5 @@ return require('packer').startup(function()
     config = function() require'plugins.config.numb' end,
     event = "BufRead",
   }
+  use 'rmagatti/auto-session'
 end)
