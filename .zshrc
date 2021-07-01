@@ -10,8 +10,17 @@ set -o emacs
 # fzf must be placed after emacs settings or C-T won't work in tmux
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-export ZPLUG_HOME=$(brew --prefix)/opt/zplug
-source $ZPLUG_HOME/init.zsh
+ZPLUG_LOCAL_HOME=/usr/share/zsh/scripts/zplug
+unameOut="$(uname -s)"
+case "${unameOut}" in
+    Linux*)     ZPLUG_LOCAL_HOME=/usr/share/zsh/scripts/zplug;;
+    Darwin*)    ZPLUG_LOCAL_HOME=$(brew --prefix)/opt/zplug;alias nproc='sysctl -n hw.ncpu';;
+    CYGWIN*)    machine=Cygwin;;
+    MINGW*)     machine=MinGw;;
+    *)          machine="UNKNOWN:${unameOut}"
+esac
+
+source $ZPLUG_LOCAL_HOME/init.zsh
 
 export NVM_DIR="$HOME/.nvm"
   [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
@@ -56,7 +65,7 @@ zstyle ':completion:*' verbose yes
 fpath=(~/.zsh/completion $fpath)
 autoload -Uz compinit && compinit -i
 
-export MAKEFLAGS="-j$(sysctl -n hw.logicalcpu)"
+export MAKEFLAGS="-j$(nproc)"
 
 export FZF_DEFAULT_COMMAND='fd --type f --follow --color=always --exclude .git'
 export FZF_DEFAULT_OPTS="--ansi --bind ctrl-a:select-all,ctrl-d:deselect-all,ctrl-t:toggle-all"
