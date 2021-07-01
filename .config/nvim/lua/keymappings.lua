@@ -25,3 +25,5 @@ vim.api.nvim_set_keymap('n', '<Leader>t', [[<Cmd>TroubleToggle<CR>]], { noremap 
 vim.api.nvim_set_keymap('n', '<Leader>S', [[<Cmd>lua require('spectre').open()<CR>]], { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<Leader>s', [[<Cmd>lua require('spectre').open_visual()<CR>]], { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<Leader>sp', [[<Cmd>lua require('spectre').open_file_search()<CR>]], { noremap = true, silent = true })
+
+vim.api.nvim_set_keymap('n', '<Leader>gs', [[<Cmd>lua require'neogit'.open()<CR>]], { noremap = true, silent = true })
