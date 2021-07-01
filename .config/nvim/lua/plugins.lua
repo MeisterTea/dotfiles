@@ -233,12 +233,8 @@ return require('packer').startup(function()
     end
   } -- Fuzzy browser
   use {
-    'phaazon/hop.nvim',
-    as = 'hop',
-    config = function()
-      require'hop'.setup {keys = 'etovxqpdygfblzhckisuran'}
-    end,
-    event = 'BufRead',
+    'ggandor/lightspeed.nvim',
+    event = 'BufRead'
   } -- Ninja moves
   use 'nvim-telescope/telescope-fzf-writer.nvim' -- Unlock Telescope hyperspeed
   use {
